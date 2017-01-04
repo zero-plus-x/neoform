@@ -18,14 +18,6 @@ export default (Target) => {
       this.context.neoform.updateState(propName, this.props.name, value);
     }
 
-    getValue() {
-      if (this.context.neoform.propName) {
-        return this.context.neoform[propName][this.props.name];
-      }
-
-      return this.props.value;
-    }
-
     getState() {
       return Object.keys(this.context.neoform).reduce((result, key) => {
         const group = this.context.neoform[key];
@@ -41,11 +33,9 @@ export default (Target) => {
     }
 
     render() {
-      const state = this.getState();
-      // console.log(state);
       const props = {
         ...this.props,
-        ...state,
+        ...this.getState(),
         changeValue: this.onChange
       };
 
