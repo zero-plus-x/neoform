@@ -40,7 +40,7 @@ export default (Target) => {
       };
 
       return (
-        <Target { ...props } />
+        <Target { ...props }/>
       );
     }
   }
@@ -50,7 +50,8 @@ export default (Target) => {
   };
 
   Field.propTypes = {
-    name: PropTypes.string
+    name: PropTypes.string,
+    value: PropTypes.any
   };
 
   return Field;
