@@ -12,8 +12,8 @@ const MyInput = ({ valid, changeValue, ...props }) => {
   return (
     <input
       {...props}
-      type="text"
       style={style}
+      type="text"
       onChange={(e) => changeValue(e.target.value)}
     />
   );
@@ -24,15 +24,15 @@ const Input = Field(MyInput);
 const MyCheckbox = ({ changeValue, value, ...props }) => (
   <input
     {...props}
-    type="checkbox"
     checked={value}
+    type="checkbox"
     onChange={(e) => changeValue(e.target.checked)}
   />
 );
 
 const Checkbox = Field(MyCheckbox);
 
-const MyForm = (({ value = {}, valid = {} }) => (
+const MyForm = ({ value = {}, valid = {} }) => (
   <form
     onSubmit={(e) => {
       console.log('fields', value);
@@ -40,22 +40,33 @@ const MyForm = (({ value = {}, valid = {} }) => (
       e.preventDefault();
     }}
   >
-    <h1>hej</h1>
-    <Input name="input" value="dns" />
-    <Input name="input2" value="pdr" />
-    <Checkbox name="checkbox" value={false} />
-    <button disabled={valid.input === false || !value.checkbox}>submit</button>
+    <h1>Simple Form</h1>
+    <div>
+      <label>First Field</label>
+      <Input name="firstField" placeholder="First Field" value=""/>
+    </div>
+    <div>
+      <label>Last Name</label>
+      <Input name="secondField" placeholder="Second Field" value=""/>
+    </div>
+    <div>
+      <label>
+        <Checkbox name="checkbox" value={false}/>
+        Some Checkbox
+      </label>
+    </div>
+    <button disabled={valid.firstField === false || !value.checkbox}>Send</button>
   </form>
-));
+);
 
 const App = compose(
   Form(console.log),
   Validate({
-    input: (value) => value !== ''
+    firstField: (value) => value !== ''
   })
 )(MyForm);
 
 render(
-  <App />,
+  <App/>,
   global.document.getElementById('app'),
 );

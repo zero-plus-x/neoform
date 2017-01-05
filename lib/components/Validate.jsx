@@ -25,7 +25,7 @@ export default (validators) => (Target) => {
 
     render() {
       return (
-        <Target { ...this.props }/>
+        <Target {...this.props}/>
       );
     }
   }

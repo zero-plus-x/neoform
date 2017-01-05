@@ -40,7 +40,7 @@ export default (Target) => {
       };
 
       return (
-        <Target { ...props }/>
+        <Target {...props}/>
       );
     }
   }

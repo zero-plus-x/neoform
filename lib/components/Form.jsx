@@ -34,7 +34,7 @@ export default (callback) => (Target) => {
 
     render() {
       return (
-        <Target { ...this.props } { ...this.state }/>
+        <Target {...this.props} {...this.state}/>
       );
     }
   }
