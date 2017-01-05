@@ -6,8 +6,8 @@ export default (validators) => (Target) => {
   class Validate extends Component {
     componentWillReceiveProps(nextProps, nextContext) {
       Object.keys(validators).forEach((field) => {
-        const prevState = this.context.neoform;
-        const nextState = nextContext.neoform;
+        const prevState = this.context.neoform.state;
+        const nextState = nextContext.neoform.state;
 
         if (
           prevState.value &&
@@ -17,7 +17,7 @@ export default (validators) => (Target) => {
           const result = validators[field](nextState.value[field]);
 
           if (!nextState[propName] || result !== nextState[propName][field]) {
-            nextState.updateState(propName, field, result);
+            nextContext.neoform.updateState(propName, field, result);
           }
         }
       });

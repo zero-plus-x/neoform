@@ -19,8 +19,8 @@ export default (Target) => {
     }
 
     getState() {
-      return Object.keys(this.context.neoform).reduce((result, key) => {
-        const group = this.context.neoform[key];
+      return Object.keys(this.context.neoform.state).reduce((result, key) => {
+        const group = this.context.neoform.state[key];
 
         if (this.props.name in group) {
           result[key] = group[this.props.name];

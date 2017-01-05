@@ -14,7 +14,7 @@ export default (callback) => (Target) => {
       return {
         neoform: {
           updateState: this.updateState,
-          ...this.state
+          state: this.state
         }
       };
     }
