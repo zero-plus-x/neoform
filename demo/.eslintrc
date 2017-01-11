@@ -2,6 +2,9 @@
   "globals": {
     "global": true
   },
+  "env": {
+    "node": true
+  },
   "rules": {
     "no-console": 0,
     "react/jsx-no-bind": 0,

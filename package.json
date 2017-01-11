@@ -26,7 +26,7 @@
   },
   "scripts": {
     "demo": "webpack-dev-server --config demo/webpack.config.js",
-    "lint": "eslint --cache --ext jsx lib/ demo/"
+    "lint": "eslint --cache --ext .js --ext .jsx lib/ demo/"
   },
   "license": "MIT"
 }

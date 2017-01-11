@@ -34,23 +34,21 @@ export default (validator) => (Target) => {
     }
 
     getValidationStatus() {
-      if (!('validation' in this.context.neoform.state) ||
-          !(this.props.name in this.context.neoform.state.validation)
+      if (
+        ('validation' in this.context.neoform.state) &&
+        (this.props.name in this.context.neoform.state.validation)
       ) {
-        return;
+        return this.context.neoform.state.validation[this.props.name].status;
       }
-
-      return this.context.neoform.state.validation[this.props.name].status;
     }
 
     getValidationMessage() {
-      if (!('validation' in this.context.neoform.state) ||
-          !(this.props.name in this.context.neoform.state.validation)
+      if (
+        ('validation' in this.context.neoform.state) &&
+        (this.props.name in this.context.neoform.state.validation)
       ) {
-        return;
+        return this.context.neoform.state.validation[this.props.name].message;
       }
-
-      return this.context.neoform.state.validation[this.props.name].message;
     }
 
     render() {
