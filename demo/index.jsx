@@ -58,11 +58,11 @@ const MyForm = ({ values = {}, validation = {} }) => (
     <h1>Simple Form</h1>
     <div>
       <label>First Field</label>
-      <Input name="firstField" placeholder="First Field" value=""/>
+      <Input initialValue="Hej" name="firstField" placeholder="First Field"/>
     </div>
     <div>
       <label>
-        <Checkbox name="checkbox" value={false}/>
+        <Checkbox initialValue={false} name="checkbox"/>
         Some Checkbox
       </label>
     </div>

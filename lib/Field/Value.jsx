@@ -9,7 +9,7 @@ export default (Target) => {
     }
 
     componentWillMount() {
-      this.context.neoform.updateState('values', this.props.name, this.props.value);
+      this.context.neoform.updateState('values', this.props.name, this.props.initialValue);
     }
 
     onChange(value) {
@@ -18,16 +18,19 @@ export default (Target) => {
 
     getValue() {
       if (!('values' in this.context.neoform.state)) {
-        return this.props.value;
+        return this.props.initialValue;
       }
 
       return this.context.neoform.state.values[this.props.name];
     }
 
     render() {
+      // TODO: omit
+      const { initialValue, ...props } = this.props; // eslint-disable-line no-unused-vars
+
       return (
         <Target
-          {...this.props}
+          {...props}
           changeValue={this.onChange}
           value={this.getValue()}
         />
@@ -40,6 +43,7 @@ export default (Target) => {
   };
 
   Value.propTypes = {
+    initialValue: PropTypes.any,
     name: PropTypes.string,
     value: PropTypes.any
   };
