@@ -2,24 +2,39 @@ import React from 'react';
 import { render } from 'react-dom';
 import { compose } from 'recompose';
 
-import { Form, Field, Validate } from '../lib/';
+import { Value, Validate, Form } from '../lib/';
 
-const MyInput = ({ valid, changeValue, ...props }) => {
+const MyInput = ({ valid, validationMessage, changeValue, ...props }) => {
   const style = {
     backgroundColor: valid === false ? 'red' : 'white'
   };
+  const renderError = (message) => {
+    if (!message) {
+      return null;
+    }
+
+    return (
+      <span>{message}</span>
+    );
+  };
 
   return (
-    <input
-      {...props}
-      style={style}
-      type="text"
-      onChange={(e) => changeValue(e.target.value)}
-    />
+    <span>
+      <input
+        {...props}
+        style={style}
+        type="text"
+        onChange={(e) => changeValue(e.target.value)}
+      />
+      {renderError(validationMessage)}
+    </span>
   );
 };
 
-const Input = Field(MyInput);
+const Input = compose(
+  Value,
+  Validate((value) => value === '' ? Promise.reject('oh no!') : Promise.resolve())
+)(MyInput);
 
 const MyCheckbox = ({ changeValue, value, ...props }) => (
   <input
@@ -30,13 +45,13 @@ const MyCheckbox = ({ changeValue, value, ...props }) => (
   />
 );
 
-const Checkbox = Field(MyCheckbox);
+const Checkbox = Value(MyCheckbox);
 
-const MyForm = ({ value = {}, valid = {} }) => (
+const MyForm = ({ values = {}, validation = {} }) => (
   <form
     onSubmit={(e) => {
-      console.log('fields', value);
-      console.log('validation', valid);
+      console.log('values', values);
+      console.log('validation', validation);
       e.preventDefault();
     }}
   >
@@ -46,24 +61,17 @@ const MyForm = ({ value = {}, valid = {} }) => (
       <Input name="firstField" placeholder="First Field" value=""/>
     </div>
     <div>
-      <label>Last Name</label>
-      <Input name="secondField" placeholder="Second Field" value=""/>
-    </div>
-    <div>
       <label>
         <Checkbox name="checkbox" value={false}/>
         Some Checkbox
       </label>
     </div>
-    <button disabled={valid.firstField === false || !value.checkbox}>Send</button>
+    <button disabled={(validation.firstField && validation.firstField.status === false)}>Send</button>
   </form>
 );
 
 const App = compose(
-  Form(console.log),
-  Validate({
-    firstField: (value) => value !== ''
-  })
+  Form(console.log)
 )(MyForm);
 
 render(

@@ -19,15 +19,15 @@ export default (callback) => (Target) => {
       };
     }
 
-    updateState(prop, name, value) {
+    updateState(prop, name, newState) {
       this.setState((prevState) => ({
         [prop]: {
           ...prevState[prop],
-          [name]: value
+          [name]: newState
         }
       }), () => {
         if (typeof callback === 'function') {
-          callback(prop, name, value);
+          callback(prop, name, newState);
         }
       });
     }
