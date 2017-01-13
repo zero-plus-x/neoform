@@ -2,61 +2,43 @@ import React, { Component, PropTypes } from 'react';
 
 export default (validator) => (Target) => {
   class Validate extends Component {
-    componentWillReceiveProps(nextProps, nextContext) {
+    componentWillReceiveProps(nextProps) {
       if (nextProps.value !== this.props.value) {
-        const state = nextContext.neoform.state;
-
         validator(nextProps.value)
           .then(() => {
-            if (
-              !('validation' in state) ||
-              !(this.props.name in state.validation) ||
-              state.validation[this.props.name].status !== true
-            ) {
-              this.context.neoform.updateState('validation', this.props.name, {
-                status: true
+            if (this.getValidation().status !== true) {
+              this.context.neoform.updateState('validation', {
+                [this.props.name]: {
+                  status: true
+                }
               });
             }
           })
           .catch((error) => {
-            if (
-              !('validation' in state) ||
-              !(this.props.name in state.validation) ||
-              state.validation[this.props.name].status !== false
-            ) {
-              this.context.neoform.updateState('validation', this.props.name, {
-                status: false,
-                message: error
+            if (this.getValidation().status !== false) {
+              this.context.neoform.updateState('validation', {
+                [this.props.name]: {
+                  status: false,
+                  message: error
+                }
               });
             }
           });
       }
     }
 
-    getValidationStatus() {
-      if (
-        ('validation' in this.context.neoform.state) &&
-        (this.props.name in this.context.neoform.state.validation)
-      ) {
-        return this.context.neoform.state.validation[this.props.name].status;
-      }
-    }
-
-    getValidationMessage() {
-      if (
-        ('validation' in this.context.neoform.state) &&
-        (this.props.name in this.context.neoform.state.validation)
-      ) {
-        return this.context.neoform.state.validation[this.props.name].message;
-      }
+    getValidation() {
+      return this.context.neoform.getValue('validation', this.props.name) || {};
     }
 
     render() {
+      const { status, message } = this.getValidation();
+
       return (
         <Target
           {...this.props}
-          valid={this.getValidationStatus()}
-          validationMessage={this.getValidationMessage()}
+          valid={status}
+          validationMessage={message}
         />
       );
     }

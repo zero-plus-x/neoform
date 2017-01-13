@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { compose } from 'recompose';
 
-import { Value, Validate, Form } from '../lib/';
+import { Value, Validate, Form, Group } from '../lib/';
 
 const MyInput = ({ valid, validationMessage, changeValue, ...props }) => {
   const style = {
@@ -24,7 +24,9 @@ const MyInput = ({ valid, validationMessage, changeValue, ...props }) => {
         {...props}
         style={style}
         type="text"
-        onChange={(e) => changeValue(e.target.value)}
+        onChange={(e) => {
+          changeValue(e.target.value);
+        }}
       />
       {renderError(validationMessage)}
     </span>
@@ -47,6 +49,13 @@ const MyCheckbox = ({ changeValue, value, ...props }) => (
 
 const Checkbox = Value(MyCheckbox);
 
+const MyGroup1 = Group(
+  (props) => <div {...props}/>
+);
+const MyGroup2 = Group(
+  (props) => <div {...props}/>
+);
+
 const MyForm = ({ values = {}, validation = {} }) => (
   <form
     onSubmit={(e) => {
@@ -55,18 +64,28 @@ const MyForm = ({ values = {}, validation = {} }) => (
       e.preventDefault();
     }}
   >
-    <h1>Simple Form</h1>
-    <div>
-      <label>First Field</label>
-      <Input initialValue="Hej" name="firstField" placeholder="First Field"/>
-    </div>
+    <h1>form</h1>
+    <MyGroup1 name="group1">
+      <h2>group1</h2>
+      <MyGroup2 name="group2">
+        <h3>group2</h3>
+        <div>
+          <label>First Field</label>
+          <Input initialValue="Hej" name="firstField" placeholder="First Field"/>
+        </div>
+        <div>
+          <label>Second Field</label>
+          <Input initialValue="Hej2" name="secondField" placeholder="Second Field"/>
+        </div>
+      </MyGroup2>
+    </MyGroup1>
     <div>
       <label>
         <Checkbox initialValue={false} name="checkbox"/>
         Some Checkbox
       </label>
     </div>
-    <button disabled={(validation.firstField && validation.firstField.status === false)}>Send</button>
+    <button>Send</button>
   </form>
 );
 

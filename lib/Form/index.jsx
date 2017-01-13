@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import merge from 'lodash.merge';
 
 export default (callback) => (Target) => {
   class Form extends Component {
@@ -7,6 +8,7 @@ export default (callback) => (Target) => {
 
       this.state = {};
 
+      this.getValue = this.getValue.bind(this);
       this.updateState = this.updateState.bind(this);
     }
 
@@ -14,20 +16,24 @@ export default (callback) => (Target) => {
       return {
         neoform: {
           updateState: this.updateState,
+          getValue: this.getValue,
           state: this.state
         }
       };
     }
 
-    updateState(prop, name, newState) {
+    getValue(prop, name) {
+      if (prop in this.state) {
+        return this.state[prop][name];
+      }
+    }
+
+    updateState(prop, newState) {
       this.setState((prevState) => ({
-        [prop]: {
-          ...prevState[prop],
-          [name]: newState
-        }
+        [prop]: merge({}, prevState[prop], newState)
       }), () => {
         if (typeof callback === 'function') {
-          callback(prop, name, newState);
+          callback(prop, newState);
         }
       });
     }

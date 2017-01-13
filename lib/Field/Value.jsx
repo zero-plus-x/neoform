@@ -2,26 +2,32 @@ import React, { Component, PropTypes } from 'react';
 
 export default (Target) => {
   class Value extends Component {
-    constructor(...args) {
-      super(...args);
+    constructor(props, context) {
+      super(props, context);
 
       this.onChange = this.onChange.bind(this);
     }
 
     componentWillMount() {
-      this.context.neoform.updateState('values', this.props.name, this.props.initialValue);
+      this.context.neoform.updateState('values', {
+        [this.props.name]: this.props.initialValue
+      });
     }
 
     onChange(value) {
-      this.context.neoform.updateState('values', this.props.name, value);
+      this.context.neoform.updateState('values', {
+        [this.props.name]: value
+      });
     }
 
     getValue() {
-      if (!('values' in this.context.neoform.state)) {
+      const value = this.context.neoform.getValue('values', this.props.name);
+
+      if (typeof value === 'undefined') {
         return this.props.initialValue;
       }
 
-      return this.context.neoform.state.values[this.props.name];
+      return value;
     }
 
     render() {
