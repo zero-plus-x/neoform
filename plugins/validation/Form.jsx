@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import getBySelector from 'lodash.get';
-import setBySelector from 'lodash.set';
 
 export default (Target) => {
   class FormValidation extends Component {
@@ -23,18 +21,20 @@ export default (Target) => {
     }
 
     getValidation(name) {
-      return getBySelector(this.state, name);
+      return this.state[name];
     }
 
     setValidation(name, value) {
-      this.setState((prevState) => setBySelector(prevState, name, value));
+      this.setState({
+        [name]: value
+      });
     }
 
     render() {
       return (
         <Target
           {...this.props}
-          validation={this.state}
+          validationStatus={this.state}
         />
       );
     }

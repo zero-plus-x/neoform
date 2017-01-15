@@ -40,12 +40,12 @@ const Input = compose(
   FieldValidation((value) => value === '' ? Promise.reject('required') : Promise.resolve())
 )(MyInput);
 
-const MyForm = Form(FormValidation(({ validation, data }) => {
+const MyForm = Form(FormValidation(({ data, validationStatus }) => {
   return (
     <form
       onSubmit={(e) => {
         console.log('data', data);
-        console.log('validation', validation);
+        console.log('validation', validationStatus);
         e.preventDefault();
       }}
     >
