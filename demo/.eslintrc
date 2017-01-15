@@ -7,8 +7,10 @@
   },
   "rules": {
     "no-console": 0,
+    "no-magic-numbers": 0,
     "react/jsx-no-bind": 0,
     "react/no-multi-comp": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/no-array-index-key": 0
   }
 }

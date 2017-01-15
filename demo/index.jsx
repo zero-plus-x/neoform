@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { compose } from 'recompose';
+import setBySelector from 'lodash.set';
+import { Form, Field } from '../lib/';
+import { FieldValidation, FormValidation } from '../plugins/validation/';
 
-import { Value, Validate, Form, Group } from '../lib/';
-
-const MyInput = ({ valid, validationMessage, changeValue, ...props }) => {
+const MyInput = ({ validate, validationStatus, validationMessage, changeValue, ...props }) => {
   const style = {
-    backgroundColor: valid === false ? 'red' : 'white'
+    backgroundColor: validationStatus === false ? 'red' : 'white'
   };
-  const renderError = (message) => {
-    if (!message) {
+  const renderError = () => {
+    if (validationStatus !== false || !validationMessage) {
       return null;
     }
 
     return (
-      <span>{message}</span>
+      <span>{validationMessage}</span>
     );
   };
 
@@ -26,74 +27,107 @@ const MyInput = ({ valid, validationMessage, changeValue, ...props }) => {
         type="text"
         onChange={(e) => {
           changeValue(e.target.value);
+          validate(e.target.value);
         }}
       />
-      {renderError(validationMessage)}
+      {renderError()}
     </span>
   );
 };
 
 const Input = compose(
-  Value,
-  Validate((value) => value === '' ? Promise.reject('oh no!') : Promise.resolve())
+  Field,
+  FieldValidation((value) => value === '' ? Promise.reject('required') : Promise.resolve())
 )(MyInput);
 
-const MyCheckbox = ({ changeValue, value, ...props }) => (
-  <input
-    {...props}
-    checked={value}
-    type="checkbox"
-    onChange={(e) => changeValue(e.target.checked)}
-  />
-);
+const MyForm = Form(FormValidation(({ validation, data }) => {
+  return (
+    <form
+      onSubmit={(e) => {
+        console.log('data', data);
+        console.log('validation', validation);
+        e.preventDefault();
+      }}
+    >
+      <div>
+        <label>club name</label>
+        <Input name="name"/>
+      </div>
+      <h2>members</h2>
+      {
+        data.members.map((member, memberIndex) => (
+          <div key={memberIndex}>
+            <h3>member {memberIndex + 1}</h3>
+            <div>
+              <label>first name</label>
+              <Input name={`members[${memberIndex}].firstName`}/>
+            </div>
+            <div>
+              <label>last name</label>
+              <Input name={`members[${memberIndex}].lastName`}/>
+            </div>
+            <h4>hobbies</h4>
+            <ul>
+              {
+                member.hobbies.map((hobby, hobbyIndex) => (
+                  <li key={hobbyIndex}>
+                    <Input name={`members[${memberIndex}].hobbies[${hobbyIndex}]`}/>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        ))
+      }
+      <button>submit</button>
+    </form>
+  );
+}));
 
-const Checkbox = Value(MyCheckbox);
+class App extends Component {
+  constructor(props) {
+    super(props);
 
-const MyGroup1 = Group(
-  (props) => <div {...props}/>
-);
-const MyGroup2 = Group(
-  (props) => <div {...props}/>
-);
+    this.state = {
+      name: 'Club Name',
+      members: [
+        {
+          firstName: 'John',
+          lastName: 'Doe',
+          hobbies: [
+            'test 1',
+            'test 2'
+          ]
+        },
+        {
+          firstName: 'Jane',
+          lastName: 'Doe',
+          hobbies: [
+            'test 3',
+            'test 4'
+          ]
+        }
+      ]
+    };
 
-const MyForm = ({ values = {}, validation = {} }) => (
-  <form
-    onSubmit={(e) => {
-      console.log('values', values);
-      console.log('validation', validation);
-      e.preventDefault();
-    }}
-  >
-    <h1>form</h1>
-    <MyGroup1 name="group1">
-      <h2>group1</h2>
-      <MyGroup2 name="group2">
-        <h3>group2</h3>
-        <div>
-          <label>First Field</label>
-          <Input initialValue="Hej" name="firstField" placeholder="First Field"/>
-        </div>
-        <div>
-          <label>Second Field</label>
-          <Input initialValue="Hej2" name="secondField" placeholder="Second Field"/>
-        </div>
-      </MyGroup2>
-    </MyGroup1>
-    <div>
-      <label>
-        <Checkbox initialValue={false} name="checkbox"/>
-        Some Checkbox
-      </label>
-    </div>
-    <button>Send</button>
-  </form>
-);
+    this.onChange = this.onChange.bind(this);
+  }
 
-const App = compose(
-  Form(console.log)
-)(MyForm);
+  onChange(name, value) {
+    this.setState((prevState) => setBySelector(prevState, name, value));
+  }
+
+  render() {
+    return (
+      <MyForm
+        data={this.state}
+        onChange={this.onChange}
+      />
+    );
+  }
+}
 
 render(
   <App/>,
-  global.document.getElementById('app'),
+  global.document.getElementById('app')
 );

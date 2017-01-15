@@ -8,8 +8,9 @@
     "build/"
   ],
   "dependencies": {
+    "lodash": "^4.17.4",
     "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.0",
+    "lodash.set": "^4.3.2",
     "react": "^15.4.1"
   },
   "devDependencies": {
@@ -28,7 +29,7 @@
   },
   "scripts": {
     "demo": "webpack-dev-server --config demo/webpack.config.js",
-    "lint": "eslint --cache --ext .js --ext .jsx lib/ demo/"
+    "lint": "eslint --cache --ext .js --ext .jsx lib/ plugins/ demo/"
   },
   "license": "MIT"
 }
