@@ -27,7 +27,7 @@ const MyInput = ({ validate, validationStatus, validationMessage, changeValue, .
         type="text"
         onChange={(e) => {
           changeValue(e.target.value);
-          validate(e.target.value);
+          // validate(e.target.value);
         }}
       />
       {renderError()}
@@ -40,12 +40,18 @@ const Input = compose(
   FieldValidation((value) => value === '' ? Promise.reject('required') : Promise.resolve())
 )(MyInput);
 
-const MyForm = Form(FormValidation(({ data, validationStatus }) => {
+const MyForm = Form(FormValidation(({ data, validate, validationStatus }) => {
   return (
     <form
       onSubmit={(e) => {
-        console.log('data', data);
-        console.log('validation', validationStatus);
+        validate(data)
+          .then(() => {
+            console.log('data', data);
+          })
+          .catch((status) => {
+            console.log('validation', status);
+          });
+
         e.preventDefault();
       }}
     >

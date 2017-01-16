@@ -8,6 +8,10 @@ export default (validator) => (Target) => {
       this.validate = this.validate.bind(this);
     }
 
+    componentDidMount() {
+      this.context.neoform.registerValidator(this.props.name, validator);
+    }
+
     getValidation() {
       return this.context.neoform.getValidation(this.props.name) || {};
     }
