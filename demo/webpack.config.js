@@ -2,15 +2,17 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const demoPage = process.env.DEMO || 'simple';
+
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './demo/index.jsx'
+    `./demo/${demoPage}/index.jsx`
   ],
   output: {
     publicPath: '/',
-    path: path.resolve('./demo'),
+    path: path.resolve(`./demo/${demoPage}`),
     pathinfo: true
   },
   devtool: 'cheap-module-source-map',
