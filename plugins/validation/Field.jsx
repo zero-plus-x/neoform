@@ -1,6 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 
-export default (validator) => (Target) => {
+const omitProp = (props, key) => {
+  return Object.keys(props).reduce((result, nextKey) => {
+    if (nextKey !== key) {
+      result[nextKey] = props[nextKey];
+    }
+
+    return result;
+  }, {});
+};
+
+export default (Target) => {
   class FieldValidation extends Component {
     constructor(...args) {
       super(...args);
@@ -9,7 +19,7 @@ export default (validator) => (Target) => {
     }
 
     componentDidMount() {
-      this.context.neoform.registerValidator(this.props.name, validator);
+      this.context.neoform.registerValidator(this.props.name, this.props.validator);
     }
 
     getValidation() {
@@ -17,7 +27,7 @@ export default (validator) => (Target) => {
     }
 
     validate(value) {
-      return validator(value)
+      return this.props.validator(value)
         .then(() => {
           if (this.getValidation().status !== true) {
             this.context.neoform.setValidation(this.props.name, {
@@ -37,10 +47,11 @@ export default (validator) => (Target) => {
 
     render() {
       const { status, message } = this.getValidation();
+      const props = omitProp(this.props, 'validator');
 
       return (
         <Target
-          {...this.props}
+          {...props}
           validate={this.validate}
           validationMessage={message}
           validationStatus={status}
@@ -50,7 +61,8 @@ export default (validator) => (Target) => {
   }
 
   FieldValidation.propTypes = {
-    name: PropTypes.string
+    name: PropTypes.string,
+    validator: PropTypes.func
   };
 
   FieldValidation.contextTypes = {

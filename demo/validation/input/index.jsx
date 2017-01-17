@@ -14,13 +14,7 @@ const Input = Field(({ changeValue, ...props }) => {
   );
 });
 
-const requiredValidator = (value) => {
-  return value === '' ?
-         Promise.reject('required') :
-         Promise.resolve();
-};
-
-const RequiredInput = Field(FieldValidation(requiredValidator)(({
+const ValidationInput = Field(FieldValidation(({
   validate,
   validationStatus,
   validationMessage,
@@ -56,6 +50,13 @@ const RequiredInput = Field(FieldValidation(requiredValidator)(({
   );
 }));
 
+
+const requiredValidator = (value) => {
+  return value === '' ?
+         Promise.reject('required') :
+         Promise.resolve();
+};
+
 const MyForm = Form(FormValidation(({ data, validationStatus }) => {
   return (
     <form
@@ -84,7 +85,7 @@ const MyForm = Form(FormValidation(({ data, validationStatus }) => {
         {
           data.phoneNumbers.map((phoneNumber, index) => (
             <li key={index}>
-              <RequiredInput name={`phoneNumbers[${index}]`}/>
+              <ValidationInput name={`phoneNumbers[${index}]`} validator={requiredValidator}/>
             </li>
           ))
         }
