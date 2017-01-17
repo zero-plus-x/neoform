@@ -7,11 +7,11 @@
   "files": [
     "build/"
   ],
+  "peerDependencies": {
+    "react": "^15.4.2"
+  },
   "dependencies": {
-    "lodash": "^4.17.4",
-    "lodash.get": "^4.4.2",
-    "lodash.set": "^4.3.2",
-    "react": "^15.4.1"
+    "lodash.get": "^4.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -22,8 +22,8 @@
     "eslint": "^3.12.2",
     "eslint-config-tough": "^0.4.0",
     "html-webpack-plugin": "^2.25.0",
+    "lodash.set": "^4.3.2",
     "react-dom": "^15.4.1",
-    "recompose": "^0.21.2",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },
