@@ -48,7 +48,7 @@ const MyInput = ({ changeValue, value, ...props }) => (
     type="text"
     value={value}
     onChange={(e) => changeValue(e.target.value)}
-  /> 
+  />
 );
 
 export default Field(MyInput);
@@ -100,7 +100,7 @@ const MyForm = ({ data }) => (
 export default Form(MyForm);
 ```
 
-Use `MyForm` by passing `data` and managing its changes the way you like:
+Use `MyForm` by passing `data` and managing its changes with `onChange` the way you like:
 
 ```js
 import setByPath from 'lodash.set';
@@ -133,15 +133,4 @@ export default App;
 
 ```
 
-See examples in [demo/](demo/) for more details like validation:
-
-
-```sh
-DEMO=<demo name> yarn run demo
-```
-
-available demos:
-
-* `simple` – nested form data with dynamic array (default)
-* `validation/input` – input validation triggering `onBlur`
-* `validation/submit` – form validation triggering `onSubmit`
+See examples in [demo/](demo/) for more details like validationr.
