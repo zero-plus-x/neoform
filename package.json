@@ -23,6 +23,7 @@
     "eslint-config-tough": "^0.4.0",
     "html-webpack-plugin": "^2.25.0",
     "lodash.set": "^4.3.2",
+    "react": "^15.4.2",
     "react-dom": "^15.4.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
