@@ -50,7 +50,6 @@ const ValidationInput = Field(FieldValidation(({
   );
 }));
 
-
 const requiredValidator = (value) => {
   return value === '' ?
          Promise.reject('required') :
