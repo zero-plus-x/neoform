@@ -2,6 +2,7 @@
   "extends": [
     "tough/config/common",
     "tough/config/esnext",
+    "tough/config/node",
     "tough/config/browser",
     "tough/config/react"
   ],

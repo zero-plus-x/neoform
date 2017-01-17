@@ -19,18 +19,33 @@
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
-    "eslint": "^3.12.2",
+    "babili": "^0.0.9",
     "eslint-config-tough": "^0.4.0",
     "html-webpack-plugin": "^2.25.0",
+    "husky": "^0.12.0",
     "lodash.set": "^4.3.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.1",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "start": "^5.1.0",
+    "start-babel-cli": "^4.0.1",
+    "start-clean": "^2.0.0",
+    "start-env": "^3.0.0",
+    "start-eslint": "^3.0.1",
+    "start-files": "^2.0.0",
+    "start-pretty-reporter": "^0.3.0",
+    "start-read": "^0.3.0",
+    "start-rename": "^0.2.0",
+    "start-uglify": "^0.3.0",
+    "start-webpack": "^0.2.0",
+    "start-webpack-dev-server": "^0.1.0",
+    "start-write": "^2.0.0",
+    "webpack": "^1.14.0"
   },
   "scripts": {
+    "start": "start-runner --file tasks.js",
     "demo": "webpack-dev-server --config demo/webpack.config.js",
-    "lint": "eslint --cache --ext .js --ext .jsx lib/ plugins/ demo/"
+    "prepush": "yarn start lint",
+    "prepublish": "yarn start build"
   },
   "license": "MIT"
 }
