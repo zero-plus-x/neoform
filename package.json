@@ -39,11 +39,10 @@
     "start-webpack": "^0.2.0",
     "start-webpack-dev-server": "^0.1.0",
     "start-write": "^2.0.0",
-    "webpack": "^1.14.0"
+    "webpack": "2.2.0-rc.7"
   },
   "scripts": {
-    "start": "start-runner --file tasks.js",
-    "demo": "webpack-dev-server --config demo/webpack.config.js",
+    "start": "start-runner",
     "prepush": "yarn start lint",
     "prepublish": "yarn start build"
   },

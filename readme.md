@@ -136,7 +136,7 @@ export default App;
 See examples in [demo/](demo/) for more details like validation:
 
 ```sh
-DEMO=<demo name> yarn run demo
+yarn start demo <name>
 ```
 
 available demos:
