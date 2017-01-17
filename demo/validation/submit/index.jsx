@@ -59,7 +59,7 @@ const MyForm = Form(FormValidation(({ data, validate }) => {
   return (
     <form
       onSubmit={(e) => {
-        validate(data)
+        validate()
           .then(() => {
             console.log('data', data);
           })

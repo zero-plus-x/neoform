@@ -39,10 +39,10 @@ export default (Target) => {
       });
     }
 
-    validate(data) {
+    validate() {
       return Promise.all(
         Object.keys(this.validators).map((name) => {
-          const value = getBySelector(data, name);
+          const value = getBySelector(this.context.neoform.state, name);
           const validator = this.validators[name](value);
 
           return new Promise((resolve, reject) => {
