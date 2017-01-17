@@ -137,6 +137,7 @@ See examples in [demo/](demo/) for more details like validation:
 
 ```sh
 yarn start demo <name>
+open http://localhost:3000/
 ```
 
 available demos:
