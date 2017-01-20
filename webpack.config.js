@@ -18,6 +18,11 @@ module.exports = {
       commonjs2: 'react',
       commonjs: 'react',
       amd: 'react'
+    },
+    'lodash.get': {
+      commonjs2: 'lodash.get',
+      commonjs: 'lodash.get',
+      amd: 'lodash.get'
     }
   },
   resolve: {
