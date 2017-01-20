@@ -1,8 +1,10 @@
 {
   "name": "neoform",
-  "version": "0.1.0",
-  "private": true,
-  "description": "",
+  "version": "0.0.1",
+  "description": "Better form state management for React",
+  "keywords": [
+  ],
+  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
   "main": "build/index.js",
   "files": [
     "build/"
