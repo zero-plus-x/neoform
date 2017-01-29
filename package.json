@@ -2,10 +2,9 @@
   "name": "neoform",
   "version": "0.0.1",
   "description": "Better form state management for React",
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
-  "main": "build/index.js",
+  "main": "build/neoform.js",
   "files": [
     "build/"
   ],
@@ -29,6 +28,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.1",
     "start": "^5.1.0",
+    "start-babel": "^3.0.0",
     "start-babel-cli": "^4.0.1",
     "start-clean": "^2.0.0",
     "start-env": "^3.0.0",
@@ -37,7 +37,6 @@
     "start-pretty-reporter": "^0.3.0",
     "start-read": "^0.3.0",
     "start-rename": "^0.2.0",
-    "start-uglify": "^0.3.0",
     "start-webpack": "^0.2.0",
     "start-webpack-dev-server": "^0.1.0",
     "start-write": "^2.0.0",

@@ -1,13 +1,13 @@
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
-module.exports = {
+export default {
   entry: [
     './lib/index.js'
   ],
   output: {
     path: path.resolve('build/'),
-    filename: 'index.js',
+    filename: 'neoform.js',
     library: 'neoform',
     libraryTarget: 'umd',
     pathinfo: true
@@ -32,7 +32,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: path.resolve('node_modules/'),
+        include: path.resolve('lib/'),
         use: [
           {
             loader: 'babel-loader',

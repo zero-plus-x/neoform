@@ -7,7 +7,7 @@ import files from 'start-files';
 import clean from 'start-clean';
 import read from 'start-read';
 import rename from 'start-rename';
-import uglify from 'start-uglify';
+import babel from 'start-babel';
 import write from 'start-write';
 import eslint from 'start-eslint';
 
@@ -17,17 +17,15 @@ export const webpackBuild = () => start(
   files('build/'),
   clean(),
   env('NODE_ENV', 'production'),
-  webpack(require('./webpack.config'))
+  webpack(require('./webpack.config').default)
 );
 
 export const minify = () => start(
   files('build/*.js'),
   read(),
-  uglify({
-    compress: {
-      warnings: false
-    },
-    mangle: true
+  babel({
+    babelrc: false,
+    presets: [ 'babili' ]
   }),
   rename((file) => file.replace(/\.js$/, '.min.js')),
   write('build/')
@@ -41,7 +39,7 @@ export const build = () => start(
 export const demo = (demoName = 'simple') => start(
   env('NODE_ENV', 'development'),
   env('DEMO', demoName),
-  webpackDevServer(require('./demo/webpack.config'))
+  webpackDevServer(require('./demo/webpack.config').default)
 );
 
 export const lint = () => start(
