@@ -1,13 +1,14 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import HTMLWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+export default {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     `./demo/${process.env.DEMO}/index.jsx`
   ],
   output: {
+    publicPath: '/',
     pathinfo: true
   },
   devtool: 'cheap-module-source-map',
@@ -31,7 +32,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
+    new HTMLWebpackPlugin({
       template: './demo/index.html'
     }),
     new webpack.DefinePlugin({
