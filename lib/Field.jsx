@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
-export default (Target) => {
+const defaultOnChangeHandler = (value) => value;
+
+export default (valueProp = 'value', onChangeHandler = defaultOnChangeHandler) => (Target) => {
   class Field extends Component {
     constructor(...args) {
       super(...args);
@@ -8,17 +10,21 @@ export default (Target) => {
       this.onChange = this.onChange.bind(this);
     }
 
-    onChange(value) {
+    onChange(arg) {
+      const value = onChangeHandler(arg);
+
       this.context.neoform.updateData(this.props.name, value);
     }
 
     render() {
+      const props = {
+        ...this.props,
+        [valueProp]: this.context.neoform.getValue(this.props.name),
+        onChange: this.onChange
+      };
+
       return (
-        <Target
-          {...this.props}
-          changeValue={this.onChange}
-          value={this.context.neoform.getValue(this.props.name)}
-        />
+        <Target {...props}/>
       );
     }
   }
@@ -28,7 +34,7 @@ export default (Target) => {
   };
 
   Field.propTypes = {
-    name: PropTypes.string
+    name: PropTypes.string.isRequired
   };
 
   return Field;
