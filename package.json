@@ -11,9 +11,6 @@
   "peerDependencies": {
     "react": "^15.4.2"
   },
-  "dependencies": {
-    "lodash.get": "^4.4.2"
-  },
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
