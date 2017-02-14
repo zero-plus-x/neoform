@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import getBySelector from 'lodash.get';
 
-export default (Target) => {
+export default (getValue) => (Target) => {
   class Form extends Component {
     constructor(props) {
       super(props);
@@ -20,12 +19,12 @@ export default (Target) => {
       };
     }
 
-    getValue(name) {
-      return getBySelector(this.props.data, name);
-    }
-
     updateData(name, value) {
       this.props.onChange(name, value);
+    }
+
+    getValue(name) {
+      return getValue(this.props.data, name);
     }
 
     render() {
