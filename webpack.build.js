@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import upperCamelCase from 'uppercamelcase';
 
 export default (packageName) => ({
   entry: [
@@ -8,7 +9,7 @@ export default (packageName) => ({
   output: {
     path: path.resolve(`packages/${packageName}/dist/`),
     filename: `${packageName}.js`,
-    library: packageName,
+    library: upperCamelCase(packageName),
     libraryTarget: 'umd',
     pathinfo: true
   },

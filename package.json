@@ -27,6 +27,7 @@
     "start-webpack": "^0.2.0",
     "start-webpack-dev-server": "^0.1.0",
     "start-write": "^2.0.1",
+    "uppercamelcase": "^1.1.0",
     "webpack": "^2.2.1"
   },
   "scripts": {
