@@ -1,6 +1,6 @@
 {
   "name": "neoform-validation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Validation HOCs for NeoForm",
   "keywords": [],
   "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
