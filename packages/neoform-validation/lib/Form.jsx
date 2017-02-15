@@ -14,7 +14,7 @@ export default (Target) => {
   );
 
   return compose(
-    withState('validationStatus', 'setValidationStatus', 0),
+    withState('validationStatus', 'setValidationStatus', []),
     getContext({
       neoform: PropTypes.object
     }),
@@ -25,8 +25,20 @@ export default (Target) => {
       ({ neoform, setValidationStatus }) => ({
         neoform: {
           ...neoform,
-          markValid: () => setValidationStatus((state) => state > 0 ? state - 1 : 0),
-          markInvalid: () => setValidationStatus((state) => state + 1),
+          markValid: (name) => setValidationStatus((state) => {
+            if (state.indexOf(name) >= 0) {
+              return state.filter((item) => item !== name);
+            }
+
+            return state;
+          }),
+          markInvalid: (name) => setValidationStatus((state) => {
+            if (state.indexOf(name) === -1) {
+              return state.concat(name);
+            }
+
+            return state;
+          }),
           registerValidator: (validator) => validators.push(validator)
         }
       })
@@ -38,7 +50,7 @@ export default (Target) => {
             validators.map((validator) => validator())
           );
         },
-        validationStatus: validationStatus === 0
+        validationStatus: validationStatus.length === 0
       })
     ),
     omitProps([ 'neoform', 'setValidationStatus' ])

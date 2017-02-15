@@ -22,7 +22,7 @@ export default (Target) => {
     }),
     withState('validation', 'setValidation', {}),
     withProps(
-      ({ neoform, validation, setValidation, value, validator }) => ({
+      ({ neoform, name, value, validation, setValidation, validator }) => ({
         validate: () => {
           if (!validator) {
             return;
@@ -36,7 +36,7 @@ export default (Target) => {
               });
 
               // FIXME
-              neoform.markValid();
+              neoform.markValid(name);
             })
             .catch((message) => {
               setValidation({
@@ -45,7 +45,7 @@ export default (Target) => {
               });
 
               // FIXME
-              neoform.markInvalid();
+              neoform.markInvalid(name);
             });
         },
         validationStatus: validation.status,
