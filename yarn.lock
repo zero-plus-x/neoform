@@ -598,7 +598,7 @@ babel-plugin-transform-es2015-modules-amd@^6.22.0, babel-plugin-transform-es2015
     babel-runtime "^6.22.0"
     babel-template "^6.22.0"
 
-babel-plugin-transform-es2015-modules-commonjs@^6.22.0, babel-plugin-transform-es2015-modules-commonjs@^6.6.0:
+babel-plugin-transform-es2015-modules-commonjs@^6.22.0, babel-plugin-transform-es2015-modules-commonjs@^6.23.0, babel-plugin-transform-es2015-modules-commonjs@^6.6.0:
   version "6.23.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-modules-commonjs/-/babel-plugin-transform-es2015-modules-commonjs-6.23.0.tgz#cba7aa6379fb7ec99250e6d46de2973aaffa7b92"
   dependencies:
@@ -3697,6 +3697,12 @@ start-clean@^2.0.0:
     makethen "^0.1.0"
     rimraf "^2.5.4"
 
+start-concurrent@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/start-concurrent/-/start-concurrent-0.1.0.tgz#41be595ee10e095c4876d48879ce280f10ec504b"
+  dependencies:
+    start "^5.1.0"
+
 start-env@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/start-env/-/start-env-3.0.0.tgz#3e0a8a71d5bffc0cab453cccef7a1ca27260c33d"
@@ -3752,9 +3758,9 @@ start-webpack@^0.2.0:
   dependencies:
     webpack ">=2.2.0-rc.3 <3.0.0"
 
-start-write@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/start-write/-/start-write-2.0.0.tgz#5eacc4d4ff4125870582528082cc118178a9a5c5"
+start-write@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/start-write/-/start-write-2.0.1.tgz#0e9d34f27a1ec534007a1714918fe68ac526075f"
   dependencies:
     graceful-fs "^4.1.5"
     makethen "^0.1.0"

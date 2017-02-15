@@ -22,7 +22,7 @@ export default (packageName) => ({
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: path.resolve('node_modules/'),
+        exclude: /\/node_modules\//,
         use: [
           {
             loader: 'babel-loader',

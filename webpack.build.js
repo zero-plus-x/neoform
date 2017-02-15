@@ -3,10 +3,10 @@ import webpack from 'webpack';
 
 export default (packageName) => ({
   entry: [
-    `./packages/${packageName}/lib/index.js`
+    `./packages/${packageName}/src/index.js`
   ],
   output: {
-    path: path.resolve(`packages/${packageName}/build/`),
+    path: path.resolve(`packages/${packageName}/dist/`),
     filename: `${packageName}.js`,
     library: packageName,
     libraryTarget: 'umd',
@@ -18,11 +18,6 @@ export default (packageName) => ({
       commonjs2: 'react',
       commonjs: 'react',
       amd: 'react'
-    },
-    'lodash.get': {
-      commonjs2: 'lodash.get',
-      commonjs: 'lodash.get',
-      amd: 'lodash.get'
     }
   },
   resolve: {
@@ -32,7 +27,7 @@ export default (packageName) => ({
     rules: [
       {
         test: /\.jsx?$/,
-        include: path.resolve('packages/'),
+        exclude: /\/node_modules\//,
         use: [
           {
             loader: 'babel-loader',

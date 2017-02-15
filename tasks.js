@@ -1,5 +1,6 @@
 import Start from 'start';
 import reporter from 'start-pretty-reporter';
+import concurrent from 'start-concurrent';
 import env from 'start-env';
 import webpack from 'start-webpack';
 import webpackDevServer from 'start-webpack-dev-server';
@@ -13,25 +14,54 @@ import eslint from 'start-eslint';
 
 const start = Start(reporter());
 
-export const build = (packageName) => {
+const makeDist = (packageName) => () => {
   const webpackConfig = require('./webpack.build').default;
 
   return start(
-    files(`packages/${packageName}/build/`),
+    files(`packages/${packageName}/dist/`),
     clean(),
-    env('NODE_ENV', 'production'),
-    env('PACKAGE', packageName),
     webpack(webpackConfig(packageName)),
-    files(`packages/${packageName}/build/*.js`),
+    files(`packages/${packageName}/dist/*.js`),
     read(),
     babel({
       babelrc: false,
       presets: [ 'babili' ]
     }),
     rename((file) => file.replace(/\.js$/, '.min.js')),
-    write('packages/')
+    write(`packages/${packageName}/dist/`)
   );
 };
+
+const makeLib = (packageName) => () => start(
+  files(`packages/${packageName}/lib/`),
+  clean(),
+  files(`packages/${packageName}/src/**/*.js?(x)`),
+  read(),
+  babel({
+    plugins: [ 'transform-es2015-modules-commonjs' ]
+  }),
+  rename((file) => file.replace(/\.jsx$/, '.js')),
+  write(`packages/${packageName}/lib/`)
+);
+
+const makeES = (packageName) => () => start(
+  files(`packages/${packageName}/es/`),
+  clean(),
+  files(`packages/${packageName}/src/**/*.js?(x)`),
+  read(),
+  babel(),
+  rename((file) => file.replace(/\.jsx$/, '.js')),
+  write(`packages/${packageName}/es/`)
+);
+
+export const build = (packageName) => start(
+  env('NODE_ENV', 'production'),
+  concurrent(
+    makeDist(packageName),
+    makeES(packageName),
+    makeLib(packageName)
+  )
+);
 
 export const demo = (packageName) => {
   const webpackConfig = require('./webpack.demo').default;
@@ -43,6 +73,6 @@ export const demo = (packageName) => {
 };
 
 export const lint = () => start(
-  files([ 'packages/*/@(lib|demo)/**/*.js?(x)' ]),
+  files([ 'packages/*/@(src|demo)/**/*.js?(x)' ]),
   eslint()
 );

@@ -3,6 +3,7 @@
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.3.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.16.0",
@@ -16,6 +17,7 @@
     "start-babel": "^3.0.0",
     "start-babel-cli": "^4.0.1",
     "start-clean": "^2.0.0",
+    "start-concurrent": "^0.1.0",
     "start-env": "^3.0.0",
     "start-eslint": "^3.0.1",
     "start-files": "^2.0.0",
@@ -24,7 +26,7 @@
     "start-rename": "^0.2.0",
     "start-webpack": "^0.2.0",
     "start-webpack-dev-server": "^0.1.0",
-    "start-write": "^2.0.0",
+    "start-write": "^2.0.1",
     "webpack": "^2.2.1"
   },
   "scripts": {
