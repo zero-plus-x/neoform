@@ -4,12 +4,12 @@ Better form state management for React in which data state can be directly mappe
 
 ## Status
 
-This one is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monorepo.md) composed of these packages:
+This is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monorepo.md) composed of these packages:
 
 | package | version | description |
 | ------- | ------- | ----------- |
 | [neoform](packages/neoform/) | [![npm](https://img.shields.io/npm/v/neoform.svg?style=flat-square)](https://www.npmjs.com/package/neoform) | Core toolkit with `Form` and `Field` HOCs |
-| [neoform-validation](packages/neoform-validation/) | [![npm](https://img.shields.io/npm/v/neoform-validation.svg?style=flat-square)](https://www.npmjs.com/package/neoform) | `FormValidation` and `FieldValidations` HOCs |
+| [neoform-validation](packages/neoform-validation/) | [![npm](https://img.shields.io/npm/v/neoform-validation.svg?style=flat-square)](https://www.npmjs.com/package/neoform) | `FormValidation` and `FieldValidation` HOCs |
 
 ## Development
 
