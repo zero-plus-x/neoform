@@ -13,36 +13,36 @@ import eslint from 'start-eslint';
 
 const start = Start(reporter());
 
-export const webpackBuild = () => start(
-  files('build/'),
-  clean(),
-  env('NODE_ENV', 'production'),
-  webpack(require('./webpack.config').default)
-);
+export const build = (packageName) => {
+  const webpackConfig = require('./webpack.build').default;
 
-export const minify = () => start(
-  files('build/*.js'),
-  read(),
-  babel({
-    babelrc: false,
-    presets: [ 'babili' ]
-  }),
-  rename((file) => file.replace(/\.js$/, '.min.js')),
-  write('build/')
-);
+  return start(
+    files(`packages/${packageName}/build/`),
+    clean(),
+    env('NODE_ENV', 'production'),
+    env('PACKAGE', packageName),
+    webpack(webpackConfig(packageName)),
+    files(`packages/${packageName}/build/*.js`),
+    read(),
+    babel({
+      babelrc: false,
+      presets: [ 'babili' ]
+    }),
+    rename((file) => file.replace(/\.js$/, '.min.js')),
+    write('packages/')
+  );
+};
 
-export const build = () => start(
-  webpackBuild,
-  minify
-);
+export const demo = (packageName) => {
+  const webpackConfig = require('./webpack.demo').default;
 
-export const demo = (demoName = 'simple') => start(
-  env('NODE_ENV', 'development'),
-  env('DEMO', demoName),
-  webpackDevServer(require('./demo/webpack.config').default)
-);
+  return start(
+    env('NODE_ENV', 'development'),
+    webpackDevServer(webpackConfig(packageName))
+  );
+};
 
 export const lint = () => start(
-  files([ 'demo/**/*.js?(x)', 'lib/*.js?(x)' ]),
+  files([ 'packages/*/@(lib|demo)/**/*.js?(x)' ]),
   eslint()
 );

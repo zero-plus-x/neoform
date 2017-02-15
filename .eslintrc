@@ -7,8 +7,12 @@
     "tough/config/react"
   ],
   "rules": {
+    "no-magic-numbers": 0,
+    "no-ternary": 0,
     "object-curly-newline": 0,
     "immutable/no-mutation": 0,
-    "promise/always-return": 0
+    "promise/always-return": 0,
+    "import/no-unresolved": 0,
+    "import/no-extraneous-dependencies": 0
   }
 }

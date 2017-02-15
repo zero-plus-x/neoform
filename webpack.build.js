@@ -1,14 +1,14 @@
 import path from 'path';
 import webpack from 'webpack';
 
-export default {
+export default (packageName) => ({
   entry: [
-    './lib/index.js'
+    `./packages/${packageName}/lib/index.js`
   ],
   output: {
-    path: path.resolve('build/'),
-    filename: 'neoform.js',
-    library: 'neoform',
+    path: path.resolve(`packages/${packageName}/build/`),
+    filename: `${packageName}.js`,
+    library: packageName,
     libraryTarget: 'umd',
     pathinfo: true
   },
@@ -32,7 +32,7 @@ export default {
     rules: [
       {
         test: /\.jsx?$/,
-        include: path.resolve('lib/'),
+        include: path.resolve('packages/'),
         use: [
           {
             loader: 'babel-loader',
@@ -49,4 +49,4 @@ export default {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ]
-};
+});

@@ -2,10 +2,10 @@ import path from 'path';
 import webpack from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 
-export default {
+export default (packageName) => ({
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
-    `./demo/${process.env.DEMO}/index.jsx`
+    `./packages/${packageName}/demo/index.jsx`
   ],
   output: {
     publicPath: '/',
@@ -13,7 +13,10 @@ export default {
   },
   devtool: 'cheap-module-source-map',
   resolve: {
-    extensions: [ '.js', '.jsx' ]
+    extensions: [ '.js', '.jsx' ],
+    alias: {
+      '~': path.resolve('packages/')
+    }
   },
   module: {
     rules: [
@@ -33,10 +36,10 @@ export default {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './demo/index.html'
+      template: `./packages/${packageName}/demo/index.html`
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ]
-};
+});
