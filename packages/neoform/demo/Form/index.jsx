@@ -1,6 +1,6 @@
 import React from 'react';
 import getByPath from 'lodash.get';
-import Form from '~/neoform/lib/Form';
+import Form from '~/neoform/src/Form';
 
 import Input from '../Input';
 

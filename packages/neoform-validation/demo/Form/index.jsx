@@ -1,8 +1,8 @@
 import React from 'react';
 import { compose } from 'recompact';
 import getByPath from 'lodash.get';
-import Form from '~/neoform/lib/Form';
-import FormValidation from '~/neoform-validation/lib/Form';
+import Form from '~/neoform/src/Form';
+import FormValidation from '~/neoform-validation/src/Form';
 
 import Input from '../Input';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Field from '~/neoform/lib/Field';
+import Field from '~/neoform/src/Field';
 
 const MyInput = (props) => (
   <input {...props} type="text"/>

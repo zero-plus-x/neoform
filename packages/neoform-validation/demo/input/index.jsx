@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'recompact';
-import Field from '~/neoform/lib/Field';
-import FieldValidation from '~/neoform-validation/lib/Field';
+import Field from '~/neoform/src/Field';
+import FieldValidation from '~/neoform-validation/src/Field';
 
 const renderError = (validationStatus, validationMessage) => {
   if (validationStatus !== false) {
