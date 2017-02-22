@@ -7,20 +7,28 @@ import FormValidation from '~/neoform-validation/src/Form';
 
 import Input from '../Input';
 
-const MyForm = ({ data, validationStatus, ...props }) => (
+const requiredValidator = (value) => {
+  if (typeof value === 'undefined' || value === null || value === '') {
+    return Promise.reject('required');
+  }
+
+  return Promise.resolve();
+};
+
+const MyForm = ({ data, validation, ...props }) => (
   <form {...props}>
     <h1>simple form</h1>
     <h2>personal data</h2>
     <div>
       <label>
         first name (required)
-        <Input defaultValue="" name="firstName"/>
+        <Input defaultValue="" name="firstName" validator={requiredValidator}/>
       </label>
     </div>
     <div>
       <label>
         last name (required)
-        <Input defaultValue="" name="lastName"/>
+        <Input defaultValue="" name="lastName" validator={requiredValidator}/>
       </label>
     </div>
     <h2>phone numbers</h2>
@@ -56,7 +64,7 @@ const MyForm = ({ data, validationStatus, ...props }) => (
     </ul>
     <button type="submit">submit</button>
     {
-      validationStatus === false && (
+      validation.status === false && (
         <div style={{ color: 'red' }}>Form is invalid</div>
       )
     }
@@ -65,5 +73,5 @@ const MyForm = ({ data, validationStatus, ...props }) => (
 
 export default compose(
   Form(getByPath),
-  FormValidation(getByPath)
+  FormValidation('onSubmit')
 )(MyForm);

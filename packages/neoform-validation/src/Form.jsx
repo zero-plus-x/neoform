@@ -13,8 +13,8 @@ const isValidForm = (validationStatus) => {
     .every((name) => validationStatus[name].status);
 };
 
-export default (getValidator) => (Target) => {
-  const fields = [];
+export default (handlerName) => (Target) => {
+  const validators = {};
 
   const FormValidation = (props) => (
     <Target {...props}/>
@@ -29,86 +29,88 @@ export default (getValidator) => (Target) => {
       {
         neoform: PropTypes.object
       },
-      ({ neoform, setValidationStatus, validationStatus, validation }) => ({
+      ({ neoform, setValidationStatus, validationStatus }) => ({
         neoform: {
           ...neoform,
           getValidation: (name) => validationStatus[name] || {},
-          validate(name, value) {
-            const validator = getValidator(validation, name);
+          validate(name) {
+            const validator = validators[name];
+            const value = neoform.getValue(name);
 
-            validator(value)
-              .then((message) => {
-                setValidationStatus((prevState) => ({
-                  ...prevState,
-                  [name]: {
-                    status: true,
-                    message
-                  }
-                }));
-              })
-              .catch((message) => {
-                setValidationStatus((prevState) => ({
-                  ...prevState,
-                  [name]: {
-                    status: false,
-                    message
-                  }
-                }));
-              });
-          },
-          registerField: (name) => {
-            if (fields.indexOf(name) === -1) {
-              fields.push(name);
+            if (validator) {
+              validator(value)
+                .then((message) => {
+                  setValidationStatus((prevState) => ({
+                    ...prevState,
+                    [name]: {
+                      status: true,
+                      message
+                    }
+                  }));
+                })
+                .catch((message) => {
+                  setValidationStatus((prevState) => ({
+                    ...prevState,
+                    [name]: {
+                      status: false,
+                      message
+                    }
+                  }));
+                });
             }
+          },
+          registerValidator: (name, validator) => {
+            validators[name] = validator;
           }
         }
       })
     ),
     withHandlers({
-      onSubmit: ({ neoform, validation, setValidationStatus, onSubmit }) => (e) => {
+      [handlerName]: ({ neoform, setValidationStatus, ...props }) => (e) => {
         e.preventDefault();
 
         const validationStatus = {};
 
         Promise.all(
-          fields.map((name) => {
-            const validator = getValidator(validation, name);
+          Object.keys(validators)
+            .map((name) => {
+              const validator = validators[name];
+              const value = neoform.getValue(name);
 
-            if (!validator) {
-              return Promise.resolve();
-            }
-
-            const value = neoform.getValue(name);
-
-            return validator(value)
-              .then((message) => {
-                validationStatus[name] = {
-                  status: true,
-                  message
-                };
-              })
-              .catch((message) => {
-                validationStatus[name] = {
-                  status: false,
-                  message
-                };
-              });
-          })
+              return validator(value)
+                .then((message) => {
+                  validationStatus[name] = {
+                    status: true,
+                    message
+                  };
+                })
+                .catch((message) => {
+                  validationStatus[name] = {
+                    status: false,
+                    message
+                  };
+                });
+            })
         )
         .then(() => {
           setValidationStatus(validationStatus);
 
-          if (isValidForm(validationStatus) && typeof onSubmit === 'function') {
-            onSubmit();
+          const externalHandler = props[handlerName];
+
+          if (isValidForm(validationStatus) && typeof externalHandler === 'function') {
+            externalHandler();
           }
         });
       }
     }),
     withProps(
       ({ validationStatus }) => ({
-        validationStatus: isValidForm(validationStatus)
+        validation: {
+          status: isValidForm(validationStatus),
+          fields: validationStatus
+        }
       })
     ),
-    omitProps([ 'neoform', 'setValidationStatus', 'validation' ])
+    omitProps([ 'neoform', 'setValidationStatus', 'validationStatus' ])
   )(FormValidation);
 };

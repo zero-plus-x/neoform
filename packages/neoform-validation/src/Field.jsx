@@ -17,12 +17,16 @@ export default (handlerName) => (Target) => {
     }),
     lifecycle({
       componentDidMount() {
-        this.props.neoform.registerField(this.props.name);
+        const { neoform, name, validator } = this.props;
+
+        if (validator) {
+          neoform.registerValidator(name, validator);
+        }
       }
     }),
     withHandlers({
-      [handlerName]: ({ neoform, name, value, ...props }) => (...args) => {
-        neoform.validate(name, value);
+      [handlerName]: ({ neoform, name, ...props }) => (...args) => {
+        neoform.validate(name);
 
         const externalHandler = props[handlerName];
 
@@ -36,6 +40,6 @@ export default (handlerName) => (Target) => {
         validation: neoform.getValidation(name)
       })
     ),
-    omitProps([ 'neoform' ])
+    omitProps([ 'neoform', 'validator' ])
   )(FieldValidation);
 };
