@@ -402,9 +402,9 @@ babel-helpers@^6.23.0:
     babel-runtime "^6.22.0"
     babel-template "^6.23.0"
 
-babel-loader@^6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-6.3.1.tgz#e4d590279bbd1dc3b06949850c20ca4187d50991"
+babel-loader@^6.3.2:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-6.3.2.tgz#18de4566385578c1b4f8ffe6cbc668f5e2a5ef03"
   dependencies:
     find-cache-dir "^0.1.1"
     loader-utils "^0.2.16"
@@ -3758,9 +3758,9 @@ start-webpack@^0.2.0:
   dependencies:
     webpack ">=2.2.0-rc.3 <3.0.0"
 
-start-write@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/start-write/-/start-write-2.0.1.tgz#0e9d34f27a1ec534007a1714918fe68ac526075f"
+start-write@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/start-write/-/start-write-2.0.2.tgz#c7db352097c540d0780ce0eadf2437ff69a8debe"
   dependencies:
     graceful-fs "^4.1.5"
     makethen "^0.1.0"
