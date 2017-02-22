@@ -57,10 +57,12 @@ export default (handlerName) => (Target) => {
       }
     }),
     withHandlers({
-      [handlerName]: ({ neoform, validate, ...props }) => (...args) => {
-        validate()
-          .then(neoform.markValid)
-          .catch(neoform.markInvalid);
+      [handlerName]: ({ neoform, validator, validate, ...props }) => (...args) => {
+        if (validator) {
+          validate()
+            .then(neoform.markValid)
+            .catch(neoform.markInvalid);
+        }
 
         const externalHandler = props[handlerName];
 
