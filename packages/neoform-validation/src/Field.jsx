@@ -23,7 +23,7 @@ export default (handlerName) => (Target) => {
     }),
     withState('validation', 'setValidation', {}),
     withProps(
-      ({ neoform, name, value, validation, setValidation, validator }) => ({
+      ({ neoform, name, value, setValidation, validator }) => ({
         validate: () => {
           if (!validator) {
             return;
@@ -48,9 +48,7 @@ export default (handlerName) => (Target) => {
               // FIXME
               neoform.markInvalid(name);
             });
-        },
-        validationStatus: validation.status,
-        validationMessage: validation.message
+        }
       })
     ),
     lifecycle({
@@ -71,6 +69,6 @@ export default (handlerName) => (Target) => {
         }
       }
     }),
-    omitProps([ 'neoform', 'validator', 'validate', 'validation', 'setValidation' ])
+    omitProps([ 'neoform', 'validator', 'validate', 'setValidation' ])
   )(FieldValidation);
 };

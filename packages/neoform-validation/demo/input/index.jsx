@@ -3,23 +3,19 @@ import { compose } from 'recompact';
 import Field from '~/neoform/src/Field';
 import FieldValidation from '~/neoform-validation/src/Field';
 
-const renderError = (validationStatus, validationMessage) => {
-  if (validationStatus !== false) {
+const renderError = ({ status, message }) => {
+  if (status !== false) {
     return null;
   }
 
   return (
-    <span>{validationMessage}</span>
+    <span>{message}</span>
   );
 };
 
-const MyInput = ({
-  validationStatus,
-  validationMessage,
-  ...props
-}) => {
+const MyInput = ({ validation, ...props }) => {
   const style = {
-    backgroundColor: validationStatus === false ? 'red' : 'white'
+    backgroundColor: validation.status === false ? 'red' : 'white'
   };
 
   return (
@@ -29,7 +25,7 @@ const MyInput = ({
         style={style}
         type="text"
       />
-      {renderError(validationStatus, validationMessage)}
+      {renderError(validation)}
     </span>
   );
 };
