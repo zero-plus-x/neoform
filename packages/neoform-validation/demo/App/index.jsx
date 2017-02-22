@@ -3,6 +3,14 @@ import setByPath from 'lodash.set';
 
 import Form from '../Form';
 
+const requiredValidator = (value) => {
+  if (typeof value === 'undefined' || value === null || value === '') {
+    return Promise.reject('required');
+  }
+
+  return Promise.resolve();
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -40,6 +48,10 @@ class App extends Component {
     return (
       <Form
         data={this.state}
+        validation={{
+          firstName: requiredValidator,
+          lastName: requiredValidator
+        }}
         onChange={this.onChange}
         onSubmit={this.onSubmit}
       />

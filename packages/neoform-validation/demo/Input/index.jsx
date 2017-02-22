@@ -20,11 +20,7 @@ const MyInput = ({ validation, ...props }) => {
 
   return (
     <span>
-      <input
-        {...props}
-        style={style}
-        type="text"
-      />
+      <input {...props} style={style}/>
       {renderError(validation)}
     </span>
   );

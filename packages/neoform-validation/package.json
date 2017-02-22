@@ -16,7 +16,6 @@
     "react": "^15.4.2"
   },
   "dependencies": {
-    "p-settle": "^2.0.0",
     "recompact": "^2.2.2"
   },
   "devDependencies": {

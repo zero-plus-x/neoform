@@ -1,16 +1,11 @@
 import React from 'react';
 import { compose } from 'recompact';
 import getByPath from 'lodash.get';
+
 import Form from '~/neoform/src/Form';
 import FormValidation from '~/neoform-validation/src/Form';
 
 import Input from '../Input';
-
-const requiredValidator = (value) => {
-  return value === '' ?
-         Promise.reject('required') :
-         Promise.resolve();
-};
 
 const MyForm = ({ data, validationStatus, ...props }) => (
   <form {...props}>
@@ -19,13 +14,13 @@ const MyForm = ({ data, validationStatus, ...props }) => (
     <div>
       <label>
         first name (required)
-        <Input defaultValue="" name="firstName" validator={requiredValidator}/>
+        <Input defaultValue="" name="firstName"/>
       </label>
     </div>
     <div>
       <label>
         last name (required)
-        <Input defaultValue="" name="lastName" validator={requiredValidator}/>
+        <Input defaultValue="" name="lastName"/>
       </label>
     </div>
     <h2>phone numbers</h2>
@@ -61,8 +56,7 @@ const MyForm = ({ data, validationStatus, ...props }) => (
     </ul>
     <button type="submit">submit</button>
     {
-      validationStatus === false &&
-      (
+      validationStatus === false && (
         <div style={{ color: 'red' }}>Form is invalid</div>
       )
     }
@@ -71,5 +65,5 @@ const MyForm = ({ data, validationStatus, ...props }) => (
 
 export default compose(
   Form(getByPath),
-  FormValidation('onSubmit')
+  FormValidation(getByPath)
 )(MyForm);
