@@ -113,6 +113,16 @@ object.pick@^1.2.0:
   dependencies:
     isobject "^2.1.0"
 
+p-reflect@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/p-reflect/-/p-reflect-1.0.0.tgz#f4fa1ee1bb546d8eb3ec0321148dfe0a79137bb8"
+
+p-settle@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/p-settle/-/p-settle-2.0.0.tgz#b6cda5ab86e7173639164909b526adcc42b87733"
+  dependencies:
+    p-reflect "^1.0.0"
+
 promise@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/promise/-/promise-7.1.1.tgz#489654c692616b8aa55b0724fa809bb7db49c5bf"

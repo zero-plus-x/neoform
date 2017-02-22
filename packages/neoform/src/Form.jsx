@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import compose from 'recompact/compose';
 import setPropTypes from 'recompact/setPropTypes';
 import withContext from 'recompact/withContext';
+import omitProps from 'recompact/omitProps';
 
 export default (getValue) => (Target) => {
   const Form = (props) => (
@@ -24,6 +25,7 @@ export default (getValue) => (Target) => {
           getValue: (name) => getValue(data, name)
         }
       })
-    )
+    ),
+    omitProps([ 'onChange' ])
   )(Form);
 };

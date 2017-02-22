@@ -12,16 +12,8 @@ const requiredValidator = (value) => {
          Promise.resolve();
 };
 
-const MyForm = ({ data, validate, validationStatus }) => (
-  <form
-    onSubmit={(e) => {
-      validate().then(() => {
-        console.log('data', data);
-      });
-
-      e.preventDefault();
-    }}
-  >
+const MyForm = ({ data, validationStatus, ...props }) => (
+  <form {...props}>
     <h1>simple form</h1>
     <h2>personal data</h2>
     <div>
@@ -79,5 +71,5 @@ const MyForm = ({ data, validate, validationStatus }) => (
 
 export default compose(
   Form(getByPath),
-  FormValidation
+  FormValidation('onSubmit')
 )(MyForm);

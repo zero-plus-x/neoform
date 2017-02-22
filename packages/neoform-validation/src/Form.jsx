@@ -2,11 +2,13 @@ import React, { PropTypes } from 'react';
 import compose from 'recompact/compose';
 import withState from 'recompact/withState';
 import withProps from 'recompact/withProps';
+import withHandlers from 'recompact/withHandlers';
 import withContext from 'recompact/withContext';
 import getContext from 'recompact/getContext';
 import omitProps from 'recompact/omitProps';
+import pSettle from 'p-settle';
 
-export default (Target) => {
+export default (handlerName) => (Target) => {
   const validators = [];
 
   const FormValidation = (props) => (
@@ -43,13 +45,39 @@ export default (Target) => {
         }
       })
     ),
+    withHandlers({
+      [handlerName]: ({ setValidationStatus, ...props }) => (e) => {
+        e.preventDefault();
+
+        pSettle(
+          validators.map((validator) => validator())
+        )
+          .then((results) => {
+            const validFields = results
+              .filter((result) => result.isFulfilled)
+              .map((result) => result.value);
+            const invalidFields = results
+              .filter((result) => result.isRejected)
+              .map((result) => result.reason);
+
+            setValidationStatus((state) =>
+              state
+                .filter((name) => validFields.indexOf(name) === -1)
+                .concat(invalidFields)
+            );
+
+            if (invalidFields.length === 0) {
+              const externalHandler = props[handlerName];
+
+              if (typeof externalHandler === 'function') {
+                externalHandler();
+              }
+            }
+          });
+      }
+    }),
     withProps(
       ({ validationStatus }) => ({
-        validate() {
-          return Promise.all(
-            validators.map((validator) => validator())
-          );
-        },
         validationStatus: validationStatus.length === 0
       })
     ),

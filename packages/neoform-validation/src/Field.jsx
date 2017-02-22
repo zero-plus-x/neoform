@@ -23,8 +23,8 @@ export default (handlerName) => (Target) => {
     }),
     withState('validation', 'setValidation', {}),
     withProps(
-      ({ neoform, name, value, setValidation, validator }) => ({
-        validate: () => {
+      ({ name, value, setValidation, validator }) => ({
+        validate() {
           if (!validator) {
             return;
           }
@@ -36,8 +36,7 @@ export default (handlerName) => (Target) => {
                 message
               });
 
-              // FIXME
-              neoform.markValid(name);
+              return name;
             })
             .catch((message) => {
               setValidation({
@@ -45,8 +44,7 @@ export default (handlerName) => (Target) => {
                 message
               });
 
-              // FIXME
-              neoform.markInvalid(name);
+              return Promise.reject(name);
             });
         }
       })
@@ -59,8 +57,10 @@ export default (handlerName) => (Target) => {
       }
     }),
     withHandlers({
-      [handlerName]: ({ validate, ...props }) => (...args) => {
-        validate();
+      [handlerName]: ({ neoform, validate, ...props }) => (...args) => {
+        validate()
+          .then(neoform.markValid)
+          .catch(neoform.markInvalid);
 
         const externalHandler = props[handlerName];
 

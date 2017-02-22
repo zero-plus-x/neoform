@@ -25,15 +25,24 @@ class App extends Component {
     };
 
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(name, value) {
     this.setState((prevState) => setByPath(prevState, name, value));
   }
 
+  onSubmit() {
+    console.log('submit', this.state);
+  }
+
   render() {
     return (
-      <Form data={this.state} onChange={this.onChange}/>
+      <Form
+        data={this.state}
+        onChange={this.onChange}
+        onSubmit={this.onSubmit}
+      />
     );
   }
 }
