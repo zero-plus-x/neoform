@@ -2,12 +2,13 @@ import React, { PropTypes } from 'react';
 import compose from 'recompact/compose';
 import withState from 'recompact/withState';
 import withProps from 'recompact/withProps';
+import withHandlers from 'recompact/withHandlers';
 import lifecycle from 'recompact/lifecycle';
 import setPropTypes from 'recompact/setPropTypes';
 import getContext from 'recompact/getContext';
 import omitProps from 'recompact/omitProps';
 
-export default (Target) => {
+export default (handlerName) => (Target) => {
   const FieldValidation = (props) => (
     <Target {...props}/>
   );
@@ -59,6 +60,17 @@ export default (Target) => {
         }
       }
     }),
-    omitProps([ 'neoform', 'validator', 'validation', 'setValidation' ])
+    withHandlers({
+      [handlerName]: ({ validate, ...props }) => (...args) => {
+        validate();
+
+        const externalHandler = props[handlerName];
+
+        if (typeof externalHandler === 'function') {
+          externalHandler(...args);
+        }
+      }
+    }),
+    omitProps([ 'neoform', 'validator', 'validate', 'validation', 'setValidation' ])
   )(FieldValidation);
 };

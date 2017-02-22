@@ -14,7 +14,6 @@ const renderError = (validationStatus, validationMessage) => {
 };
 
 const MyInput = ({
-  validate,
   validationStatus,
   validationMessage,
   ...props
@@ -29,7 +28,6 @@ const MyInput = ({
         {...props}
         style={style}
         type="text"
-        onBlur={validate}
       />
       {renderError(validationStatus, validationMessage)}
     </span>
@@ -38,5 +36,5 @@ const MyInput = ({
 
 export default compose(
   Field('value', (e) => e.target.value),
-  FieldValidation
+  FieldValidation('onBlur')
 )(MyInput);
