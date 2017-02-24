@@ -25,8 +25,10 @@ export default (handlerName) => (Target) => {
       }
     }),
     withHandlers({
-      [handlerName]: ({ neoform, name, ...props }) => (...args) => {
-        neoform.validate(name);
+      [handlerName]: ({ neoform, name, validator, ...props }) => (...args) => {
+        if (validator) {
+          neoform.validate(name);
+        }
 
         const externalHandler = props[handlerName];
 
