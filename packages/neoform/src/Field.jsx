@@ -6,9 +6,7 @@ import withHandlers from 'recompact/withHandlers';
 import withProps from 'recompact/withProps';
 import omitProps from 'recompact/omitProps';
 
-const defaultOnChangeHandler = (value) => value;
-
-export default (valueProp = 'value', onChangeHandler = defaultOnChangeHandler) => (Target) => {
+export default (valueProp, onChangeHandler) => (Target) => {
   const Field = (props) => (
     <Target {...props}/>
   );
