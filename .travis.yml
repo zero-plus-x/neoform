@@ -3,4 +3,7 @@ language: node_js
 node_js:
   - "6"
 cache: yarn
+install:
+  - cd packages/neoform/; yarn
+  - cd packages/neoform-validation/; yarn
 script: yarn start ci
