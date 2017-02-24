@@ -31,16 +31,12 @@ const MyForm = ({ data, validationStatus, validationFields, ...props }) => (
         <Input defaultValue="" name="lastName" validator={requiredValidator}/>
       </label>
     </div>
-    <h2>phone numbers</h2>
-    <ul>
-      {
-        data.phoneNumbers.map((phoneNumber, index) => (
-          <li key={index}>
-            <Input name={`phoneNumbers[${index}]`}/>
-          </li>
-        ))
-      }
-    </ul>
+    <div>
+      <label>
+        country
+        <Input defaultValue="" name="country"/>
+      </label>
+    </div>
     <h2>friends</h2>
     <ul>
       {

@@ -1,0 +1,13 @@
+{
+  "country": "Sweden",
+  "friends": [
+    {
+      "firstName": "Sad",
+      "lastName": "Pepe"
+    },
+    {
+      "firstName": "Forever",
+      "lastName": "Alone"
+    }
+  ]
+}

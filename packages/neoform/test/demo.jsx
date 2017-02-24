@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import DemoApp from '~/neoform/demo/App';
 import data from '~/neoform/demo/data.json';
 
-describe('Form', () => {
+describe('neoform', () => {
   it('basic wrapper', () => {
     const wrapper = mount(
       <DemoApp data={data}/>

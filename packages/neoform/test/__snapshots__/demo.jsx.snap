@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form basic wrapper 1`] = `
+exports[`neoform basic wrapper 1`] = `
 <App
   data={
     Object {
@@ -488,7 +488,7 @@ exports[`Form basic wrapper 1`] = `
 </App>
 `;
 
-exports[`Form change field 1`] = `
+exports[`neoform change field 1`] = `
 <App
   data={
     Object {
