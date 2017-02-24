@@ -14,15 +14,15 @@ This is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monor
 ## Development
 
 ```sh
-yarn start build neoform
-yarn start build neoform-validation
-```
-
-## Demo
-
-```sh
 yarn start demo neoform
 yarn start demo neoform-validation
+```
+
+## Build
+
+```sh
+yarn start build neoform
+yarn start build neoform-validation
 ```
 
 ## TODO
