@@ -12,7 +12,7 @@ This is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monor
 | package | version | description |
 | ------- | ------- | ----------- |
 | [neoform](packages/neoform/) | [![npm](https://img.shields.io/npm/v/neoform.svg?style=flat-square)](https://www.npmjs.com/package/neoform) | Core toolkit with `Form` and `Field` HOCs |
-| [neoform-validation](packages/neoform-validation/) | [![npm](https://img.shields.io/npm/v/neoform-validation.svg?style=flat-square)](https://www.npmjs.com/package/neoform) | `FormValidation` and `FieldValidation` HOCs |
+| [neoform-validation](packages/neoform-validation/) | [![npm](https://img.shields.io/npm/v/neoform-validation.svg?style=flat-square)](https://www.npmjs.com/package/neoform-validation) | `FormValidation` and `FieldValidation` HOCs |
 
 ## Development
 
