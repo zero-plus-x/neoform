@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-  - "6"
+  - "node"
 cache: yarn
 before_script:
   - cd $TRAVIS_BUILD_DIR/packages/neoform/; yarn
