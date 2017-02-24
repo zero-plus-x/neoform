@@ -11,7 +11,7 @@
   ],
   "collectCoverage": true,
   "collectCoverageFrom": [
-    "**/*.jsx"
+    "**/src/*.jsx"
   ],
   "coverageReporters": [
     "lcov",
