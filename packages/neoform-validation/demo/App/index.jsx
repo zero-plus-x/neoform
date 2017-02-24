@@ -7,23 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      phoneNumbers: [
-        '123123',
-        '456456'
-      ],
-      friends: [
-        {
-          firstName: 'Sad',
-          lastName: 'Pepe'
-        },
-        {
-          firstName: 'Forever',
-          lastName: 'Alone'
-        }
-      ]
-    };
-
+    this.state = props.data;
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
