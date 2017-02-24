@@ -4,6 +4,7 @@ node_js:
   - "6"
 cache: yarn
 before_script:
-  - cd packages/neoform/; yarn
-  - cd packages/neoform-validation/; yarn
+  - cd $TRAVIS_BUILD_DIR/packages/neoform/; yarn
+  - cd $TRAVIS_BUILD_DIR/packages/neoform-validation/; yarn
+  - cd $TRAVIS_BUILD_DIR
 script: yarn start ci
