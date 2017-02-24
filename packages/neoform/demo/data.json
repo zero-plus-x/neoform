@@ -1,0 +1,18 @@
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "phoneNumbers": [
+    "123123",
+    "456456"
+  ],
+  "friends": [
+    {
+      "firstName": "Sad",
+      "lastName": "Pepe"
+    },
+    {
+      "firstName": "Forever",
+      "lastName": "Alone"
+    }
+  ]
+}

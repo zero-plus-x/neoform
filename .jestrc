@@ -1,0 +1,23 @@
+{
+  "roots": [
+    "<rootDir>/packages/neoform/",
+    "<rootDir>/packages/neoform-validation/"
+  ],
+  "moduleNameMapper": {
+    "^~/(.*)$": "<rootDir>/packages/$1"
+  },
+  "testMatch": [
+    "**/test/*.jsx"
+  ],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "**/*.jsx"
+  ],
+  "coverageReporters": [
+    "lcov",
+    "text-summary"
+  ],
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+}

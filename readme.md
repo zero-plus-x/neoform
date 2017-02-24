@@ -1,5 +1,8 @@
 # NeoForm
 
+[![travis](https://img.shields.io/travis/zero-plus-x/neoform/master.svg?style=flat-square)](https://travis-ci.org/zero-plus-x/neoform)
+[![coverage](https://img.shields.io/codecov/c/github/zero-plus-x/neoform/master.svg?style=flat-square)](https://codecov.io/github/zero-plus-x/neoform)
+
 Better form state management for React in which data state can be directly mapped to form fields, so form becomes just a representation and changing interface for that data state, as it should be.
 
 ## Status

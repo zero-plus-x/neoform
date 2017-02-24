@@ -4,28 +4,10 @@ import setByPath from 'lodash.set';
 import Form from '../Form';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
-    this.state = {
-      firstName: 'John',
-      lastName: 'Doe',
-      phoneNumbers: [
-        '123123',
-        '456456'
-      ],
-      friends: [
-        {
-          firstName: 'Sad',
-          lastName: 'Pepe'
-        },
-        {
-          firstName: 'Forever',
-          lastName: 'Alone'
-        }
-      ]
-    };
-
+    this.state = props.data;
     this.onChange = this.onChange.bind(this);
   }
 

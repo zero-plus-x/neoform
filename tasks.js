@@ -4,6 +4,7 @@ import concurrent from 'start-concurrent';
 import env from 'start-env';
 import webpack from 'start-webpack';
 import webpackDevServer from 'start-webpack-dev-server';
+import jest from 'start-jest';
 import files from 'start-files';
 import clean from 'start-clean';
 import read from 'start-read';
@@ -11,6 +12,7 @@ import rename from 'start-rename';
 import babel from 'start-babel';
 import write from 'start-write';
 import eslint from 'start-eslint';
+import codecov from 'start-codecov';
 
 const start = Start(reporter());
 
@@ -75,4 +77,17 @@ export const demo = (packageName) => {
 export const lint = () => start(
   files([ 'packages/*/@(src|demo)/**/*.js?(x)' ]),
   eslint()
+);
+
+export const test = () => start(
+  env('NODE_ENV', 'test'),
+  jest('.jestrc')
+);
+
+export const ci = () => start(
+  lint,
+  test,
+  files('coverage/lcov.info'),
+  read(),
+  codecov()
 );
