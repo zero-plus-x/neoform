@@ -36,9 +36,14 @@ export default (handlerName) => (Target) => {
       }
     }),
     withProps(
-      ({ neoform, name }) => ({
-        validation: neoform.getValidation(name)
-      })
+      ({ neoform, name }) => {
+        const validation = neoform.getValidation(name);
+
+        return {
+          validationStatus: validation.status,
+          validationMessage: validation.message
+        };
+      }
     ),
     omitProps([ 'neoform', 'validator' ])
   )(FieldValidation);

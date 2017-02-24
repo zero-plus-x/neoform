@@ -15,7 +15,7 @@ const requiredValidator = (value) => {
   return Promise.resolve();
 };
 
-const MyForm = ({ data, validation, ...props }) => (
+const MyForm = ({ data, validationStatus, validationFields, ...props }) => (
   <form {...props}>
     <h1>simple form</h1>
     <h2>personal data</h2>
@@ -64,8 +64,11 @@ const MyForm = ({ data, validation, ...props }) => (
     </ul>
     <button type="submit">submit</button>
     {
-      validation.status === false && (
-        <div style={{ color: 'red' }}>Form is invalid</div>
+      validationStatus === false && (
+        <div style={{ color: 'red' }}>
+          <div>Form is invalid</div>
+          <div>{JSON.stringify(validationFields)}</div>
+        </div>
       )
     }
   </form>
