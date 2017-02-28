@@ -30,5 +30,4 @@ yarn start build neoform-validation
 
 ## TODO
 
-* tests
 * docs
