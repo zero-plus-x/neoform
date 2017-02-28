@@ -15,8 +15,14 @@ const requiredValidator = (value) => {
   return Promise.resolve();
 };
 
-const MyForm = ({ data, validationStatus, validationFields, ...props }) => (
-  <form {...props}>
+const MyForm = ({ data, validationStatus, validationFields, onSubmit, ...props }) => (
+  <form
+    {...props}
+    onSubmit={(e) => {
+      e.preventDefault();
+      onSubmit(e);
+    }}
+  >
     <h1>simple form</h1>
     <h2>personal data</h2>
     <div>

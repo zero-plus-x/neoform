@@ -64,9 +64,7 @@ export default (handlerName) => (Target) => {
       })
     ),
     withHandlers({
-      [handlerName]: ({ neoform, setValidationFields, ...props }) => (e) => {
-        e.preventDefault();
-
+      [handlerName]: ({ neoform, setValidationFields, ...props }) => (...args) => {
         const validationFields = {};
 
         Promise.all(
@@ -96,7 +94,7 @@ export default (handlerName) => (Target) => {
           const externalHandler = props[handlerName];
 
           if (isValidForm(validationFields) && typeof externalHandler === 'function') {
-            externalHandler();
+            externalHandler(...args);
           }
         });
       }
