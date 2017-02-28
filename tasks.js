@@ -1,6 +1,6 @@
 import Start from 'start';
 import reporter from 'start-pretty-reporter';
-import concurrent from 'start-concurrent';
+import parallel from 'start-parallel';
 import env from 'start-env';
 import webpack from 'start-webpack';
 import webpackDevServer from 'start-webpack-dev-server';
@@ -16,7 +16,7 @@ import codecov from 'start-codecov';
 
 const start = Start(reporter());
 
-const makeDist = (packageName) => () => {
+export const makeDist = (packageName) => {
   const webpackConfig = require('./webpack.build').default;
 
   return start(
@@ -34,7 +34,7 @@ const makeDist = (packageName) => () => {
   );
 };
 
-const makeLib = (packageName) => () => start(
+export const makeLib = (packageName) => start(
   files(`packages/${packageName}/lib/`),
   clean(),
   files(`packages/${packageName}/src/**/*.js?(x)`),
@@ -46,7 +46,7 @@ const makeLib = (packageName) => () => start(
   write(`packages/${packageName}/lib/`)
 );
 
-const makeES = (packageName) => () => start(
+export const makeES = (packageName) => start(
   files(`packages/${packageName}/es/`),
   clean(),
   files(`packages/${packageName}/src/**/*.js?(x)`),
@@ -56,12 +56,12 @@ const makeES = (packageName) => () => start(
   write(`packages/${packageName}/es/`)
 );
 
-export const build = (packageName) => start(
+export const build = () => start(
   env('NODE_ENV', 'production'),
-  concurrent(
-    makeDist(packageName),
-    makeES(packageName),
-    makeLib(packageName)
+  parallel(
+    makeDist,
+    makeES,
+    makeLib
   )
 );
 
