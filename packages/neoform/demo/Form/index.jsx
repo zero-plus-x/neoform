@@ -1,6 +1,6 @@
 import React from 'react';
-import { getByFieldName } from '~/neoform-plain-object-helpers';
-import { Form } from '~/neoform';
+import { getByFieldName } from '~/neoform-plain-object-helpers/src';
+import Form from '~/neoform/src/Form';
 
 import Input from '../Input';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { compose } from 'recompact';
-import { getByFieldName } from '~/neoform-plain-object-helpers';
+import { getByFieldName } from '~/neoform-plain-object-helpers/src/';
 
 import Form from '~/neoform/src/Form';
 import FormValidation from '~/neoform-validation/src/Form';

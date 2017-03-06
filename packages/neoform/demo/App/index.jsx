@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { setByFieldName } from '~/neoform-plain-object-helpers';
+import { setByFieldName } from '~/neoform-plain-object-helpers/src/';
 
 import Form from '../Form';
 
