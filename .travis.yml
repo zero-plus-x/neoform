@@ -6,5 +6,7 @@ cache: yarn
 before_script:
   - cd $TRAVIS_BUILD_DIR/packages/neoform/; yarn
   - cd $TRAVIS_BUILD_DIR/packages/neoform-validation/; yarn
+  - cd $TRAVIS_BUILD_DIR/packages/neoform-plain-object-helpers/; yarn
+  - cd $TRAVIS_BUILD_DIR/packages/neoform-immutable-helpers/; yarn
   - cd $TRAVIS_BUILD_DIR
 script: yarn start ci
