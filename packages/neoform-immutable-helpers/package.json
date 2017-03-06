@@ -1,26 +1,25 @@
 {
-  "name": "neoform-validation",
-  "version": "0.0.6",
-  "description": "Validation HOCs for NeoForm",
+  "name": "neoform-immutable-helpers",
+  "version": "0.0.1",
+  "description": "Helpers to work with Immutable.js state",
   "keywords": [],
   "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "browser": "dist/neoform-validation.js",
+  "browser": "dist/neoform-immutable-helpers.js",
   "files": [
     "dist/",
     "es/",
     "lib/"
   ],
   "peerDependencies": {
-    "react": "^15.4.2",
     "neoform": "^0.0.7"
   },
   "dependencies": {
-    "recompact": "^2.2.2"
+    "lodash.memoize": "^4.1.2"
   },
   "scripts": {
-    "prepublish": "cd ../..; yarn start build neoform-validation"
+    "prepublish": "cd ../..; yarn start build neoform-immutable-helpers"
   },
   "license": "MIT"
 }

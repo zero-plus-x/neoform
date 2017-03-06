@@ -1,7 +1,9 @@
 {
   "roots": [
     "<rootDir>/packages/neoform/",
-    "<rootDir>/packages/neoform-validation/"
+    "<rootDir>/packages/neoform-validation/",
+    "<rootDir>/packages/neoform-plain-object-helpers/",
+    "<rootDir>/packages/neoform-immutable-helpers/"
   ],
   "moduleNameMapper": {
     "^~/(.*)$": "<rootDir>/packages/$1"

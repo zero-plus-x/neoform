@@ -1,6 +1,6 @@
 import React from 'react';
 import { compose } from 'recompact';
-import getByPath from 'lodash.get';
+import { getByFieldName } from '~/neoform-plain-object-helpers';
 
 import Form from '~/neoform/src/Form';
 import FormValidation from '~/neoform-validation/src/Form';
@@ -77,6 +77,6 @@ const MyForm = ({ data, validationStatus, validationFields, onSubmit, ...props }
 );
 
 export default compose(
-  Form(getByPath),
+  Form(getByFieldName),
   FormValidation('onSubmit')
 )(MyForm);

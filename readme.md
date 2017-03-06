@@ -13,6 +13,8 @@ This is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monor
 | ------- | ------- | ----------- |
 | [neoform](packages/neoform/) | [![npm](https://img.shields.io/npm/v/neoform.svg?style=flat-square)](https://www.npmjs.com/package/neoform) | Core toolkit with `Form` and `Field` HOCs |
 | [neoform-validation](packages/neoform-validation/) | [![npm](https://img.shields.io/npm/v/neoform-validation.svg?style=flat-square)](https://www.npmjs.com/package/neoform-validation) | `FormValidation` and `FieldValidation` HOCs |
+| [neoform-plain-object-helpers](packages/neoform-plain-object-helpers/) | [![npm](https://img.shields.io/npm/v/neoform-plain-object-helpers.svg?style=flat-square)](https://www.npmjs.com/package/neoform-plain-object-helpers) | `getByFieldName` and `setByFieldName` helpers for plain object state |
+| [neoform-immutable-helpers](packages/neoform-immutable-helpers/) | [![npm](https://img.shields.io/npm/v/neoform-immutable-helpers.svg?style=flat-square)](https://www.npmjs.com/package/neoform-immutable-helpers) | `getByFieldName` and `setByFieldName` helpers for Immutable.js state |
 
 ## Development
 
@@ -26,6 +28,8 @@ yarn start demo neoform-validation
 ```sh
 yarn start build neoform
 yarn start build neoform-validation
+yarn start build neoform-plain-object-helpers
+yarn start build neoform-immutable-helpers
 ```
 
 ## TODO

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import setByPath from 'lodash.set';
+import { setByFieldName } from '~/neoform-plain-object-helpers';
 
 import Form from '../Form';
 
@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   onChange(name, value) {
-    this.setState((prevState) => setByPath(prevState, name, value));
+    this.setState((prevState) => setByFieldName(prevState, name, value));
   }
 
   render() {

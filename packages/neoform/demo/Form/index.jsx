@@ -1,6 +1,6 @@
 import React from 'react';
-import getByPath from 'lodash.get';
-import Form from '~/neoform/src/Form';
+import { getByFieldName } from '~/neoform-plain-object-helpers';
+import { Form } from '~/neoform';
 
 import Input from '../Input';
 
@@ -60,4 +60,4 @@ const MyForm = ({ data }) => (
   </form>
 );
 
-export default Form(getByPath)(MyForm);
+export default Form(getByFieldName)(MyForm);
