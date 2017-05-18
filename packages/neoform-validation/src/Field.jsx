@@ -6,7 +6,7 @@ import withProps from 'recompact/withProps';
 import lifecycle from 'recompact/lifecycle';
 import omitProps from 'recompact/omitProps';
 
-export default (handlerName) => (Target) => {
+export default () => (Target) => {
   const FieldValidation = (props) => (
     <Target {...props}/>
   );
@@ -25,15 +25,9 @@ export default (handlerName) => (Target) => {
       }
     }),
     withHandlers({
-      [handlerName]: ({ neoform, name, validator, ...props }) => (...args) => {
+      validate: ({ neoform, name, validator }) => () => {
         if (validator) {
           neoform.validate(name);
-        }
-
-        const externalHandler = props[handlerName];
-
-        if (typeof externalHandler === 'function') {
-          externalHandler(...args);
         }
       }
     }),

@@ -13,20 +13,33 @@ const renderError = (status, message) => {
   );
 };
 
-const MyInput = ({ validationStatus, validationMessage, ...props }) => {
+const MyInput = ({
+  value,
+  onChange,
+  validate,
+  validationStatus,
+  validationMessage,
+  ...props
+}) => {
   const style = {
     backgroundColor: validationStatus === false ? 'red' : 'white'
   };
 
   return (
     <span>
-      <input {...props} style={style}/>
+      <input
+        {...props}
+        style={style}
+        value={value}
+        onBlur={validate}
+        onChange={onChange}
+      />
       {renderError(validationStatus, validationMessage)}
     </span>
   );
 };
 
 export default compose(
-  Field('value', (e) => e.target.value),
-  FieldValidation('onBlur')
+  Field((e) => e.target.value),
+  FieldValidation()
 )(MyInput);
