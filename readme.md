@@ -16,7 +16,7 @@ This is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monor
 | [neoform-plain-object-helpers](packages/neoform-plain-object-helpers/) | [![npm](https://img.shields.io/npm/v/neoform-plain-object-helpers.svg?style=flat-square)](https://www.npmjs.com/package/neoform-plain-object-helpers) | `getByFieldName` and `setByFieldName` helpers for plain object state |
 | [neoform-immutable-helpers](packages/neoform-immutable-helpers/) | [![npm](https://img.shields.io/npm/v/neoform-immutable-helpers.svg?style=flat-square)](https://www.npmjs.com/package/neoform-immutable-helpers) | `getByFieldName` and `setByFieldName` helpers for Immutable.js state |
 
-## Development
+## Demo
 
 ```sh
 yarn start demo neoform
@@ -31,7 +31,3 @@ yarn start build neoform-validation
 yarn start build neoform-plain-object-helpers
 yarn start build neoform-immutable-helpers
 ```
-
-## TODO
-
-* docs
