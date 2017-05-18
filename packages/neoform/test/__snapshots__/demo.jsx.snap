@@ -118,7 +118,6 @@ exports[`neoform basic wrapper 1`] = `
                   <input
                     name="firstName"
                     onChange={[Function]}
-                    type="text"
                     value="John"
                   />
                 </MyInput>
@@ -167,7 +166,6 @@ exports[`neoform basic wrapper 1`] = `
                   <input
                     name="lastName"
                     onChange={[Function]}
-                    type="text"
                     value="Doe"
                   />
                 </MyInput>
@@ -218,7 +216,6 @@ exports[`neoform basic wrapper 1`] = `
                   <input
                     name="phoneNumbers[0]"
                     onChange={[Function]}
-                    type="text"
                     value="123123"
                   />
                 </MyInput>
@@ -264,7 +261,6 @@ exports[`neoform basic wrapper 1`] = `
                   <input
                     name="phoneNumbers[1]"
                     onChange={[Function]}
-                    type="text"
                     value="456456"
                   />
                 </MyInput>
@@ -318,7 +314,6 @@ exports[`neoform basic wrapper 1`] = `
                       <input
                         name="friends[0].firstName"
                         onChange={[Function]}
-                        type="text"
                         value="Sad"
                       />
                     </MyInput>
@@ -367,7 +362,6 @@ exports[`neoform basic wrapper 1`] = `
                       <input
                         name="friends[0].lastName"
                         onChange={[Function]}
-                        type="text"
                         value="Pepe"
                       />
                     </MyInput>
@@ -418,7 +412,6 @@ exports[`neoform basic wrapper 1`] = `
                       <input
                         name="friends[1].firstName"
                         onChange={[Function]}
-                        type="text"
                         value="Forever"
                       />
                     </MyInput>
@@ -467,7 +460,6 @@ exports[`neoform basic wrapper 1`] = `
                       <input
                         name="friends[1].lastName"
                         onChange={[Function]}
-                        type="text"
                         value="Alone"
                       />
                     </MyInput>
@@ -606,7 +598,6 @@ exports[`neoform change field 1`] = `
                   <input
                     name="firstName"
                     onChange={[Function]}
-                    type="text"
                     value="hey from tests"
                   />
                 </MyInput>
@@ -655,7 +646,6 @@ exports[`neoform change field 1`] = `
                   <input
                     name="lastName"
                     onChange={[Function]}
-                    type="text"
                     value="Doe"
                   />
                 </MyInput>
@@ -706,7 +696,6 @@ exports[`neoform change field 1`] = `
                   <input
                     name="phoneNumbers[0]"
                     onChange={[Function]}
-                    type="text"
                     value="123123"
                   />
                 </MyInput>
@@ -752,7 +741,6 @@ exports[`neoform change field 1`] = `
                   <input
                     name="phoneNumbers[1]"
                     onChange={[Function]}
-                    type="text"
                     value="456456"
                   />
                 </MyInput>
@@ -806,7 +794,6 @@ exports[`neoform change field 1`] = `
                       <input
                         name="friends[0].firstName"
                         onChange={[Function]}
-                        type="text"
                         value="Sad"
                       />
                     </MyInput>
@@ -855,7 +842,6 @@ exports[`neoform change field 1`] = `
                       <input
                         name="friends[0].lastName"
                         onChange={[Function]}
-                        type="text"
                         value="Pepe"
                       />
                     </MyInput>
@@ -906,7 +892,6 @@ exports[`neoform change field 1`] = `
                       <input
                         name="friends[1].firstName"
                         onChange={[Function]}
-                        type="text"
                         value="Forever"
                       />
                     </MyInput>
@@ -955,7 +940,6 @@ exports[`neoform change field 1`] = `
                       <input
                         name="friends[1].lastName"
                         onChange={[Function]}
-                        type="text"
                         value="Alone"
                       />
                     </MyInput>

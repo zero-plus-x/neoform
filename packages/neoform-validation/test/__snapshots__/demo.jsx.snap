@@ -170,7 +170,7 @@ exports[`neoform-validation basic wrapper 1`] = `
                 }
               }
               onSubmit={[Function]}
-              validationFields={Object {}}
+              validate={[Function]}
               validationStatus={true}
             >
               <form
@@ -281,8 +281,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                             >
                               <MyInput
                                 name="firstName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value=""
                               >
                                 <span>
@@ -405,8 +405,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                             >
                               <MyInput
                                 name="lastName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value=""
                               >
                                 <span>
@@ -524,8 +524,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                             >
                               <MyInput
                                 name="country"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value="Sweden"
                               >
                                 <span>
@@ -646,8 +646,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Sad"
                                   >
                                     <span>
@@ -763,8 +763,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Pepe"
                                   >
                                     <span>
@@ -882,8 +882,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Forever"
                                   >
                                     <span>
@@ -999,8 +999,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Alone"
                                   >
                                     <span>
@@ -1232,14 +1232,7 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                 }
               }
               onSubmit={[Function]}
-              validationFields={
-                Object {
-                  "firstName": Object {
-                    "message": "required",
-                    "status": false,
-                  },
-                }
-              }
+              validate={[Function]}
               validationStatus={false}
             >
               <form
@@ -1350,8 +1343,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                             >
                               <MyInput
                                 name="firstName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 validationMessage="required"
                                 validationStatus={false}
                                 value=""
@@ -1479,8 +1472,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                             >
                               <MyInput
                                 name="lastName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value=""
                               >
                                 <span>
@@ -1598,8 +1591,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                             >
                               <MyInput
                                 name="country"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value="Sweden"
                               >
                                 <span>
@@ -1720,8 +1713,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Sad"
                                   >
                                     <span>
@@ -1837,8 +1830,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Pepe"
                                   >
                                     <span>
@@ -1956,8 +1949,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Forever"
                                   >
                                     <span>
@@ -2073,8 +2066,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Alone"
                                   >
                                     <span>
@@ -2115,9 +2108,7 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                   <div>
                     Form is invalid
                   </div>
-                  <div>
-                    {"firstName":{"status":false,"message":"required"}}
-                  </div>
+                  <div />
                 </div>
               </form>
             </MyForm>
@@ -2328,14 +2319,7 @@ exports[`neoform-validation validate field -> valid 1`] = `
                 }
               }
               onSubmit={[Function]}
-              validationFields={
-                Object {
-                  "firstName": Object {
-                    "message": undefined,
-                    "status": true,
-                  },
-                }
-              }
+              validate={[Function]}
               validationStatus={true}
             >
               <form
@@ -2449,8 +2433,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                             >
                               <MyInput
                                 name="firstName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 validationStatus={true}
                                 value="hey from tests"
                               >
@@ -2577,8 +2561,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                             >
                               <MyInput
                                 name="lastName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value=""
                               >
                                 <span>
@@ -2699,8 +2683,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                             >
                               <MyInput
                                 name="country"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value="Sweden"
                               >
                                 <span>
@@ -2824,8 +2808,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Sad"
                                   >
                                     <span>
@@ -2944,8 +2928,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Pepe"
                                   >
                                     <span>
@@ -3066,8 +3050,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Forever"
                                   >
                                     <span>
@@ -3186,8 +3170,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Alone"
                                   >
                                     <span>
@@ -3398,7 +3382,7 @@ exports[`neoform-validation validate field without validator 1`] = `
                 }
               }
               onSubmit={[Function]}
-              validationFields={Object {}}
+              validate={[Function]}
               validationStatus={true}
             >
               <form
@@ -3509,8 +3493,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                             >
                               <MyInput
                                 name="firstName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value=""
                               >
                                 <span>
@@ -3633,8 +3617,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                             >
                               <MyInput
                                 name="lastName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value=""
                               >
                                 <span>
@@ -3752,8 +3736,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                             >
                               <MyInput
                                 name="country"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value="Sweden"
                               >
                                 <span>
@@ -3874,8 +3858,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Sad"
                                   >
                                     <span>
@@ -3991,8 +3975,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Pepe"
                                   >
                                     <span>
@@ -4110,8 +4094,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Forever"
                                   >
                                     <span>
@@ -4227,8 +4211,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Alone"
                                   >
                                     <span>
@@ -4472,18 +4456,7 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                 }
               }
               onSubmit={[Function]}
-              validationFields={
-                Object {
-                  "firstName": Object {
-                    "message": "required",
-                    "status": false,
-                  },
-                  "lastName": Object {
-                    "message": "required",
-                    "status": false,
-                  },
-                }
-              }
+              validate={[Function]}
               validationStatus={false}
             >
               <form
@@ -4594,8 +4567,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                             >
                               <MyInput
                                 name="firstName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 validationMessage="required"
                                 validationStatus={false}
                                 value=""
@@ -4723,8 +4696,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                             >
                               <MyInput
                                 name="lastName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 validationMessage="required"
                                 validationStatus={false}
                                 value=""
@@ -4847,8 +4820,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                             >
                               <MyInput
                                 name="country"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value="Sweden"
                               >
                                 <span>
@@ -4969,8 +4942,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Sad"
                                   >
                                     <span>
@@ -5086,8 +5059,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Pepe"
                                   >
                                     <span>
@@ -5205,8 +5178,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Forever"
                                   >
                                     <span>
@@ -5322,8 +5295,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Alone"
                                   >
                                     <span>
@@ -5364,9 +5337,7 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                   <div>
                     Form is invalid
                   </div>
-                  <div>
-                    {"firstName":{"status":false,"message":"required"},"lastName":{"status":false,"message":"required"}}
-                  </div>
+                  <div />
                 </div>
               </form>
             </MyForm>
@@ -5597,18 +5568,7 @@ exports[`neoform-validation validate form -> valid 1`] = `
                 }
               }
               onSubmit={[Function]}
-              validationFields={
-                Object {
-                  "firstName": Object {
-                    "message": undefined,
-                    "status": true,
-                  },
-                  "lastName": Object {
-                    "message": undefined,
-                    "status": true,
-                  },
-                }
-              }
+              validate={[Function]}
               validationStatus={true}
             >
               <form
@@ -5725,8 +5685,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                             >
                               <MyInput
                                 name="firstName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 validationStatus={true}
                                 value="hey from tests"
                               >
@@ -5856,8 +5816,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                             >
                               <MyInput
                                 name="lastName"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 validationStatus={true}
                                 value="hey from tests 2"
                               >
@@ -5982,8 +5942,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                             >
                               <MyInput
                                 name="country"
-                                onBlur={[Function]}
                                 onChange={[Function]}
+                                validate={[Function]}
                                 value="Sweden"
                               >
                                 <span>
@@ -6110,8 +6070,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Sad"
                                   >
                                     <span>
@@ -6233,8 +6193,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[0].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Pepe"
                                   >
                                     <span>
@@ -6358,8 +6318,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].firstName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Forever"
                                   >
                                     <span>
@@ -6481,8 +6441,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                                 >
                                   <MyInput
                                     name="friends[1].lastName"
-                                    onBlur={[Function]}
                                     onChange={[Function]}
+                                    validate={[Function]}
                                     value="Alone"
                                   >
                                     <span>
