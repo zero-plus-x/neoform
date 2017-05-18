@@ -13,7 +13,7 @@ const isValidForm = (validationFields) => {
     .every((name) => validationFields[name].status);
 };
 
-export default (handlerName) => (Target) => {
+export default () => (Target) => {
   const validators = {};
 
   const FormValidation = (props) => (
@@ -64,10 +64,10 @@ export default (handlerName) => (Target) => {
       })
     ),
     withHandlers({
-      [handlerName]: ({ neoform, setValidationFields, ...props }) => (...args) => {
+      validate: ({ neoform, setValidationFields }) => (externalHandler) => {
         const validationFields = {};
 
-        Promise.all(
+        return Promise.all(
           Object.keys(validators)
             .map((name) => {
               const validator = validators[name];
@@ -91,20 +91,17 @@ export default (handlerName) => (Target) => {
         .then(() => {
           setValidationFields(validationFields);
 
-          const externalHandler = props[handlerName];
-
           if (isValidForm(validationFields) && typeof externalHandler === 'function') {
-            externalHandler(...args);
+            externalHandler();
           }
         });
       }
     }),
     withProps(
       ({ validationFields }) => ({
-        validationStatus: isValidForm(validationFields),
-        validationFields
+        validationStatus: isValidForm(validationFields)
       })
     ),
-    omitProps([ 'neoform', 'setValidationFields' ])
+    omitProps([ 'neoform', 'setValidationFields', 'validationFields' ])
   )(FormValidation);
 };
