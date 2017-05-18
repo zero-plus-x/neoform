@@ -81,7 +81,9 @@ export const lint = () => start(
 
 export const test = () => start(
   env('NODE_ENV', 'test'),
-  jest('.jestrc')
+  jest({
+    config: '.jestrc'
+  })
 );
 
 export const ci = () => start(
