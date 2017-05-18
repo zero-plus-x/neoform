@@ -6,7 +6,7 @@ import withHandlers from 'recompact/withHandlers';
 import withProps from 'recompact/withProps';
 import omitProps from 'recompact/omitProps';
 
-export default (valueProp, onChangeHandler) => (Target) => {
+export default (onChangeHandler) => (Target) => {
   const Field = (props) => (
     <Target {...props}/>
   );
@@ -30,9 +30,7 @@ export default (valueProp, onChangeHandler) => (Target) => {
         const dataValue = neoform.getValue(name);
         const value = typeof dataValue === 'undefined' ? defaultValue : dataValue;
 
-        return {
-          [valueProp]: value
-        };
+        return { value };
       }
     ),
     omitProps([ 'neoform', 'defaultValue' ])
