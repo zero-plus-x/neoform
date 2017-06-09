@@ -3,7 +3,7 @@
 [![travis](https://img.shields.io/travis/zero-plus-x/neoform/master.svg?style=flat-square)](https://travis-ci.org/zero-plus-x/neoform)
 [![coverage](https://img.shields.io/codecov/c/github/zero-plus-x/neoform/master.svg?style=flat-square)](https://codecov.io/github/zero-plus-x/neoform)
 
-Better form state management for React in which data state can be directly mapped to form fields, so form becomes just a representation and changing interface for that data state, as it should be.
+Better form state management for React where data state is directly mapped to form fields, so form becomes just a representation and changing interface for that data state.
 
 TOC
 
@@ -24,7 +24,7 @@ TOC
 
 ### Intro
 
-Let's say you have some data structure:
+Let's say you have some data and you want to represent it as an HTML form with an Input for each data field.
 
 ```json
 "user": {
@@ -36,7 +36,7 @@ Let's say you have some data structure:
 }
 ```
 
-And you want to represent this data as HTML form with an Input for each data field. First, let's try to represent this data ↔ form relations in kinda declarative way, with strings:
+Each data field can be referenced with a “key” or “property” path. You might be familiar with this concept from working with immutable data structures or helpers like `lodash.get()`.
 
 ```js
 "user": {
@@ -48,9 +48,9 @@ And you want to represent this data as HTML form with an Input for each data fie
 }
 ```
 
-You might be familiar with this as "key path" on immutable data structures or helpers like `lodash.get()`.
+The core idea of NeoForm is to map data to form fields using these key/property paths. We'll refer to this data as “form state” below.
 
-And here is the main core idea of NeoForm: to directly "map" data fields to particular form fields. Let's start with creating a "field" and see how it works with step-by-step example:
+Let's see how it works with a step-by-step example. We'll start with creating a simple input:
 
 ### `Field`
 
@@ -62,23 +62,25 @@ const MyInput = () => (
 export default MyInput;
 ```
 
-If you wrap it with a `Field` [HOC](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750) provided by NeoForm it will provide a few props:
+After wrapping this input with `Field` [HOC](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750) from NeoForm we'll have:
 
-#### `value`
+#### `value` and `onChange` props
 
-Actual value of field from data structure (map it to checkbox `checked` attribute if it's boolean and so on).
+A value from a form state (can be used in checkbox as a `checked` attribute if it's boolean, and so on) and `onChange` handler to let NeoForm know that value should be changed.
 
 ```js
 import { Field } from 'neoform';
 
-const MyInput = ({ value }) => (
-  <input value={value} />
+const MyInput = ({ value, onChange }) => (
+  <input value={value} onChange={onChange} />
 );
 
 export default Field()(MyInput);
 ```
 
-#### `onChange`
+#### value getter (TODO sounds dumb. How to call it? Should we maybe remove it?)
+
+# TODO DIDN'T REVIEW BELOW THIS LINE
 
 Handler which should tell NeoForm about how to get that actual `value` (use `(e) => e.target.checked` if you have a checkbox or just `(value) => value` if you have some custom/3rd-party field implementation).
 
