@@ -5,8 +5,6 @@
 
 Better form state management for React in which data state can be directly mapped to form fields, so form becomes just a representation and changing interface for that data state, as it should be.
 
-TOC
-
 * [Usage](#usage)
   * [Intro](#intro)
   * [`Field`](#field)
@@ -101,7 +99,7 @@ Let's add our fields to a simple form:
 ```js
 import MyInput from '../MyInput';
 
-const MyForm = ({ data }) => (
+const MyForm = () => (
   <form>
     <MyInput name="user.name" />
     <MyInput name="user.status" />
@@ -132,7 +130,12 @@ export default MyForm(
 )(MyForm);
 ```
 
-Where `data` is actual data structure which you should provide to the MyForm from outside and `name` is a particular MyInput name. NeoForm should be taught on how to get a value by name because you might have a plain object data, Immutable or something else with a different "interface":
+Where:
+
+* `data` – actual data structure which you should provide to the MyForm from outside
+* `name` – a particular MyInput name
+
+NeoForm should be taught on how to get a value by name because you might have a plain object data, Immutable or something else with a different "interface":
 
 ```js
 import { Form } from 'neoform';
