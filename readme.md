@@ -48,7 +48,7 @@ Each data field can be referenced with a “key” or “property” path. You m
 }
 ```
 
-The core idea of NeoForm is to map data to form fields using these key/property paths. We'll refer to this data as “form state” below.
+The first core idea of NeoForm is to map data to form fields using these key/property paths. We'll refer to this data as “form state” below.
 
 Let's see how it works with a step-by-step example. We'll start with creating a simple input:
 
@@ -80,7 +80,7 @@ export default Field()(MyInput);
 
 #### value getter (TODO sounds dumb. How to call it? Should we maybe remove it?)
 
-# TODO DIDN'T REVIEW BELOW THIS LINE
+# TODO SKIPPED START
 
 Handler which should tell NeoForm about how to get that actual `value` (use `(e) => e.target.checked` if you have a checkbox or just `(value) => value` if you have some custom/3rd-party field implementation).
 
@@ -96,9 +96,11 @@ export default Field(
 )(MyInput);
 ```
 
+# TODO SKIPPED END
+
 ### `Form`
 
-Let's add our fields to a simple form:
+Now when the input is ready we can use use it in a form:
 
 ```js
 import MyInput from '../MyInput';
@@ -114,7 +116,7 @@ const MyForm = ({ data }) => (
 export default MyForm;
 ```
 
-And wrap it with a `Form` HOC provided by NeoForm:
+Let's connect this form to Neoform by wrapping it with a `Form` HOC:
 
 ```js
 import { Form } from 'neoform';
@@ -129,12 +131,20 @@ const MyForm = (/* { data } */) => (
   </form>
 );
 
-export default MyForm(
-  (data, name) => // return a value from data by field name
-)(MyForm);
+const getByFieldName = (data, name) => {
+  // return a value from data by field name
+}
+
+export default Form(getByFieldName)(MyForm);
 ```
 
-Where `data` is actual data structure which you should provide to the MyForm from outside and `name` is a particular MyInput name. NeoForm should be taught on how to get a value by name because you might have a plain object data, Immutable or something else with a different "interface":
+We need to specify `getByFieldName` function to tell NeoForm how exactly it should retrieve field value from data state. The reason we need to do that is because you might have a plain object data, Immutable or something else with a different "interface".
+
+`getByFieldName` arguments:
+* `data` — form data state
+* `name` — field name
+
+Instead of writing your own `getByFieldName` function, you can use [neoform-plain-object-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-plain-object-helpers) or [neoform-immutable-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-immutable-helpers):
 
 ```js
 import { Form } from 'neoform';
@@ -153,9 +163,9 @@ const MyForm = (/* { data } */) => (
 export default MyForm(getByFieldName)(MyForm);
 ```
 
-In this case it's just a `lodash.get(data, name)` under the hood.
-
 ### App
+
+Finally, we assemble everything together:
 
 ```js
 import { setByFieldName } from 'neoform-plain-object-helpers';
@@ -192,7 +202,9 @@ class App extends Component {
 }
 ```
 
-What's going on here? The second idea of NeoForm: to have only one `onChange` handler for the entire form instead of having multiple hanlders for each field, so you can update state when some field was updated. And then after a new render fields will receive their new values by `name`.
+What's going on here? As you may gussed, all fields in NeoForm are controlled. So, in order to update them, we need to update data state.
+
+And this is the second core idea of NeoForm — we have only one `onChange` handler for the entire form instead of multiple ones for each field. So, whenever some field requests a change, NeoForm updates data state and then passes updated value to that field with a new render.
 
 ```
 +--------------+
@@ -265,12 +277,11 @@ export default compose(
 )(MyInput)
 ```
 
-Where:
+Where the props are:
 
-* `validate` – validation action, should be called whenever you want (`onChange`, `onBlur`, etc)
+* `validate` – validation action, can be called whenever you want (`onChange`, `onBlur`, etc)
 * `validationStatus` – `true` | `false` | `undefined` status of field validation
-* `validationMessage` – valid/invalid message passed to validator 
-* `compose(…)` – same as manually composed HOCs like `Field(…)(FieldValidation()(MyInput))` but using awesome [recompose](https://github.com/acdlite/recompose)
+* `validationMessage` – an optional message passed from validator
 
 #### `FormValidation`
 
@@ -305,12 +316,12 @@ export default compose(
 
 Where:
 
-* `validate` – entire form validation action which will call all fields validation and then provided callback if they are valid (your `onSubmit` handler in most cases)
+* `validate` – entire form validation action. It will validate all fields and if they're valid, it will a provided callback (your `onSubmit` handler in most cases)
 * `validationStatus` – `true` | `false` | `undefined` status of entire form validation
 
 #### Validators
 
-Validation process in NeoForm is always asynchronous and "validator" is just a Promise. Rejected one is for `validationStatus: false` prop and resolved is for `validationStatus: true`. `validationMessage` prop is a message passed on fulfilling a Promise.
+Validation process in NeoForm is always asynchronous and "validator" is just a Promise. Rejected one is for `validationStatus: false` prop and resolved is for `validationStatus: true`. An optional argument passed to a rejected or fulfilled Promise becomes `validationMessage` prop.
 
 ```js
 export const requiredValidator = (value) => {
@@ -322,9 +333,9 @@ export const requiredValidator = (value) => {
 };
 ```
 
-It's up to you on how to manage multiple validators, with `Promise.all()` or some sequence.
+It's up to you how to manage multiple validators — with a simple `Promise.all()` or some complex asynchronous sequences — as long as validator returns a single Promise.
 
-This validator can be passed as `validator` prop to fields then:
+To use a validator you should just pass it in a `validator` prop to an inidividual field:
 
 ```js
 import { requiredValidator } from '../validators'
@@ -342,7 +353,7 @@ import { requiredValidator } from '../validators'
 
 ## Demo
 
-It's a good idea to play around with all this information with live examples:
+For a better understanding, you can play with some examples in this repo:
 
 ```sh
 yarn start demo neoform
