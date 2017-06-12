@@ -78,9 +78,7 @@ const MyInput = ({ value, onChange }) => (
 export default Field()(MyInput);
 ```
 
-#### value getter (TODO sounds dumb. How to call it? Should we maybe remove it?)
-
-# TODO SKIPPED START
+#### `onChange`
 
 Handler which should tell NeoForm about how to get that actual `value` (use `(e) => e.target.checked` if you have a checkbox or just `(value) => value` if you have some custom/3rd-party field implementation).
 
@@ -95,8 +93,6 @@ export default Field(
   (e) => e.target.value
 )(MyInput);
 ```
-
-# TODO SKIPPED END
 
 ### `Form`
 
