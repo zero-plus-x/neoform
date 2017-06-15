@@ -5,8 +5,6 @@
 
 Better form state management for React where data state is directly mapped to form fields, so form becomes just a representation and changing interface for that data state.
 
-TOC
-
 * [Usage](#usage)
   * [Intro](#intro)
   * [`Field`](#field)
@@ -101,7 +99,7 @@ Now when the input is ready we can use use it in a form:
 ```js
 import MyInput from '../MyInput';
 
-const MyForm = ({ data }) => (
+const MyForm = () => (
   <form>
     <MyInput name="user.name" />
     <MyInput name="user.status" />
@@ -137,6 +135,7 @@ export default Form(getByFieldName)(MyForm);
 We need to specify `getByFieldName` function to tell NeoForm how exactly it should retrieve field value from data state. The reason we need to do that is because you might have a plain object data, Immutable or something else with a different "interface".
 
 `getByFieldName` arguments:
+
 * `data` — form data state
 * `name` — field name
 
