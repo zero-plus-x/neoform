@@ -18,15 +18,10 @@ export default (Target) => {
       neoform: PropTypes.object
     }),
     withProps(
-      ({ neoform, name, defaultValue }) => {
-        const dataValue = neoform.getValue(name);
-        const value = typeof dataValue === 'undefined' ? defaultValue : dataValue;
-
-        return {
-          value,
-          onChange: (nextValue) => neoform.updateData(name, nextValue)
-        };
-      }
+      ({ neoform, name }) => ({
+        value: neoform.getValue(name),
+        onChange: (value) => neoform.updateData(name, value)
+      })
     ),
     omitProps([ 'neoform' ])
   )(Field);
