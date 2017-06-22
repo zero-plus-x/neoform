@@ -232,7 +232,6 @@ Validation in NeoForm is always asynchronous.
 ```js
 import { Field } from 'neoform';
 import { FieldValidation } from 'neoform-validation';
-import { compose } from 'recompose';
 
 const MyInput = ({
   validate,
