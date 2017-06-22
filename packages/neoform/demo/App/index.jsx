@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { setByFieldName } from '~/neoform-plain-object-helpers/src/';
+import { getByFieldName, setByFieldName } from '~/neoform-plain-object-helpers/src/';
 
 import Form from '../Form';
 
@@ -17,7 +17,11 @@ class App extends Component {
 
   render() {
     return (
-      <Form data={this.state} onChange={this.onChange}/>
+      <Form
+        data={this.state}
+        getValue={getByFieldName}
+        onChange={this.onChange}
+      />
     );
   }
 }

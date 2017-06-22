@@ -1,5 +1,4 @@
 import React from 'react';
-import { getByFieldName } from '~/neoform-plain-object-helpers/src';
 import Form from '~/neoform/src/Form';
 
 import Input from '../Input';
@@ -60,4 +59,4 @@ const MyForm = ({ data }) => (
   </form>
 );
 
-export default Form(getByFieldName)(MyForm);
+export default Form(MyForm);

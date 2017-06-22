@@ -1,12 +1,16 @@
 import React from 'react';
 import Field from '~/neoform/src/Field';
 
-const MyInput = ({ value, onChange, ...props }) => (
+const MyInput = ({
+  value = '',
+  onChange,
+  ...props
+}) => (
   <input
     {...props}
     value={value}
-    onChange={onChange}
+    onChange={(e) => onChange(e.target.value)}
   />
 );
 
-export default Field((e) => e.target.value)(MyInput);
+export default Field(MyInput);
