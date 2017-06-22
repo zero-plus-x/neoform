@@ -1,7 +1,7 @@
 {
   "name": "neoform-plain-object-helpers",
-  "version": "0.0.1",
-  "description": "Helpers to work with plain object state",
+  "version": "0.1.0",
+  "description": "NeoForm helpers to work with plain object state",
   "keywords": [],
   "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
   "main": "lib/index.js",
