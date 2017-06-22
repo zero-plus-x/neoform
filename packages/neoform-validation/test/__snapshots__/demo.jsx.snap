@@ -18,7 +18,7 @@ exports[`neoform-validation basic wrapper 1`] = `
     }
   }
 >
-  <withContext(omitProps(Form))
+  <withContext(Form)
     data={
       Object {
         "country": "Sweden",
@@ -34,6 +34,7 @@ exports[`neoform-validation basic wrapper 1`] = `
         ],
       }
     }
+    getValue={[Function]}
     onChange={[Function]}
     onSubmit={[Function]}
   >
@@ -53,6 +54,8 @@ exports[`neoform-validation basic wrapper 1`] = `
           ],
         }
       }
+      getValue={[Function]}
+      onChange={[Function]}
       onSubmit={[Function]}
     >
       <getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))
@@ -71,6 +74,8 @@ exports[`neoform-validation basic wrapper 1`] = `
             ],
           }
         }
+        getValue={[Function]}
+        onChange={[Function]}
         onSubmit={[Function]}
         setValidationFields={[Function]}
         validationFields={Object {}}
@@ -91,6 +96,7 @@ exports[`neoform-validation basic wrapper 1`] = `
               ],
             }
           }
+          getValue={[Function]}
           neoform={
             Object {
               "getValue": [Function],
@@ -110,6 +116,7 @@ exports[`neoform-validation basic wrapper 1`] = `
               "updateData": [Function],
             }
           }
+          onChange={[Function]}
           onSubmit={[Function]}
           setValidationFields={[Function]}
           validationFields={Object {}}
@@ -130,6 +137,7 @@ exports[`neoform-validation basic wrapper 1`] = `
                 ],
               }
             }
+            getValue={[Function]}
             neoform={
               Object {
                 "getValue": [Function],
@@ -149,6 +157,7 @@ exports[`neoform-validation basic wrapper 1`] = `
                 "updateData": [Function],
               }
             }
+            onChange={[Function]}
             onSubmit={[Function]}
             setValidationFields={[Function]}
             validationFields={Object {}}
@@ -169,6 +178,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                   ],
                 }
               }
+              getValue={[Function]}
+              onChange={[Function]}
               onSubmit={[Function]}
               validate={[Function]}
               validationStatus={true}
@@ -185,13 +196,11 @@ exports[`neoform-validation basic wrapper 1`] = `
                 <div>
                   <label>
                     first name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="firstName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="firstName"
                         neoform={
                           Object {
@@ -221,7 +230,6 @@ exports[`neoform-validation basic wrapper 1`] = `
                           name="firstName"
                           onChange={[Function]}
                           validator={[Function]}
-                          value=""
                         >
                           <lifecycle(withHandlers(withProps(omitProps(FieldValidation))))
                             name="firstName"
@@ -249,7 +257,6 @@ exports[`neoform-validation basic wrapper 1`] = `
                             }
                             onChange={[Function]}
                             validator={[Function]}
-                            value=""
                           >
                             <withHandlers(withProps(omitProps(FieldValidation)))
                               name="firstName"
@@ -277,13 +284,11 @@ exports[`neoform-validation basic wrapper 1`] = `
                               }
                               onChange={[Function]}
                               validator={[Function]}
-                              value=""
                             >
                               <MyInput
                                 name="firstName"
                                 onChange={[Function]}
                                 validate={[Function]}
-                                value=""
                               >
                                 <span>
                                   <input
@@ -302,20 +307,18 @@ exports[`neoform-validation basic wrapper 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     last name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="lastName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="lastName"
                         neoform={
                           Object {
@@ -345,7 +348,6 @@ exports[`neoform-validation basic wrapper 1`] = `
                           name="lastName"
                           onChange={[Function]}
                           validator={[Function]}
-                          value=""
                         >
                           <lifecycle(withHandlers(withProps(omitProps(FieldValidation))))
                             name="lastName"
@@ -373,7 +375,6 @@ exports[`neoform-validation basic wrapper 1`] = `
                             }
                             onChange={[Function]}
                             validator={[Function]}
-                            value=""
                           >
                             <withHandlers(withProps(omitProps(FieldValidation)))
                               name="lastName"
@@ -401,13 +402,11 @@ exports[`neoform-validation basic wrapper 1`] = `
                               }
                               onChange={[Function]}
                               validator={[Function]}
-                              value=""
                             >
                               <MyInput
                                 name="lastName"
                                 onChange={[Function]}
                                 validate={[Function]}
-                                value=""
                               >
                                 <span>
                                   <input
@@ -426,19 +425,17 @@ exports[`neoform-validation basic wrapper 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     country
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="country"
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="country"
                         neoform={
                           Object {
@@ -545,8 +542,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <h2>
@@ -557,10 +554,10 @@ exports[`neoform-validation basic wrapper 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].firstName"
                             neoform={
                               Object {
@@ -667,17 +664,17 @@ exports[`neoform-validation basic wrapper 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].lastName"
                             neoform={
                               Object {
@@ -784,8 +781,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -793,10 +790,10 @@ exports[`neoform-validation basic wrapper 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].firstName"
                             neoform={
                               Object {
@@ -903,17 +900,17 @@ exports[`neoform-validation basic wrapper 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].lastName"
                             neoform={
                               Object {
@@ -1020,8 +1017,8 @@ exports[`neoform-validation basic wrapper 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -1037,7 +1034,7 @@ exports[`neoform-validation basic wrapper 1`] = `
         </withContext(withHandlers(withProps(omitProps(FormValidation))))>
       </getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))>
     </withState(getContext(withContext(withHandlers(withProps(omitProps(FormValidation))))))>
-  </withContext(omitProps(Form))>
+  </withContext(Form)>
 </App>
 `;
 
@@ -1059,7 +1056,7 @@ exports[`neoform-validation validate field -> invalid 1`] = `
     }
   }
 >
-  <withContext(omitProps(Form))
+  <withContext(Form)
     data={
       Object {
         "country": "Sweden",
@@ -1075,6 +1072,7 @@ exports[`neoform-validation validate field -> invalid 1`] = `
         ],
       }
     }
+    getValue={[Function]}
     onChange={[Function]}
     onSubmit={[Function]}
   >
@@ -1094,6 +1092,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
           ],
         }
       }
+      getValue={[Function]}
+      onChange={[Function]}
       onSubmit={[Function]}
     >
       <getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))
@@ -1112,6 +1112,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
             ],
           }
         }
+        getValue={[Function]}
+        onChange={[Function]}
         onSubmit={[Function]}
         setValidationFields={[Function]}
         validationFields={
@@ -1139,6 +1141,7 @@ exports[`neoform-validation validate field -> invalid 1`] = `
               ],
             }
           }
+          getValue={[Function]}
           neoform={
             Object {
               "getValue": [Function],
@@ -1158,6 +1161,7 @@ exports[`neoform-validation validate field -> invalid 1`] = `
               "updateData": [Function],
             }
           }
+          onChange={[Function]}
           onSubmit={[Function]}
           setValidationFields={[Function]}
           validationFields={
@@ -1185,6 +1189,7 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                 ],
               }
             }
+            getValue={[Function]}
             neoform={
               Object {
                 "getValue": [Function],
@@ -1204,6 +1209,7 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                 "updateData": [Function],
               }
             }
+            onChange={[Function]}
             onSubmit={[Function]}
             setValidationFields={[Function]}
             validationFields={
@@ -1231,6 +1237,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                   ],
                 }
               }
+              getValue={[Function]}
+              onChange={[Function]}
               onSubmit={[Function]}
               validate={[Function]}
               validationStatus={false}
@@ -1247,13 +1255,11 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                 <div>
                   <label>
                     first name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="firstName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="firstName"
                         neoform={
                           Object {
@@ -1283,7 +1289,6 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                           name="firstName"
                           onChange={[Function]}
                           validator={[Function]}
-                          value=""
                         >
                           <lifecycle(withHandlers(withProps(omitProps(FieldValidation))))
                             name="firstName"
@@ -1311,7 +1316,6 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                             }
                             onChange={[Function]}
                             validator={[Function]}
-                            value=""
                           >
                             <withHandlers(withProps(omitProps(FieldValidation)))
                               name="firstName"
@@ -1339,7 +1343,6 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                               }
                               onChange={[Function]}
                               validator={[Function]}
-                              value=""
                             >
                               <MyInput
                                 name="firstName"
@@ -1347,7 +1350,6 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                                 validate={[Function]}
                                 validationMessage="required"
                                 validationStatus={false}
-                                value=""
                               >
                                 <span>
                                   <input
@@ -1369,20 +1371,18 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     last name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="lastName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="lastName"
                         neoform={
                           Object {
@@ -1412,7 +1412,6 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                           name="lastName"
                           onChange={[Function]}
                           validator={[Function]}
-                          value=""
                         >
                           <lifecycle(withHandlers(withProps(omitProps(FieldValidation))))
                             name="lastName"
@@ -1440,7 +1439,6 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                             }
                             onChange={[Function]}
                             validator={[Function]}
-                            value=""
                           >
                             <withHandlers(withProps(omitProps(FieldValidation)))
                               name="lastName"
@@ -1468,13 +1466,11 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                               }
                               onChange={[Function]}
                               validator={[Function]}
-                              value=""
                             >
                               <MyInput
                                 name="lastName"
                                 onChange={[Function]}
                                 validate={[Function]}
-                                value=""
                               >
                                 <span>
                                   <input
@@ -1493,19 +1489,17 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     country
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="country"
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="country"
                         neoform={
                           Object {
@@ -1612,8 +1606,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <h2>
@@ -1624,10 +1618,10 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].firstName"
                             neoform={
                               Object {
@@ -1734,17 +1728,17 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].lastName"
                             neoform={
                               Object {
@@ -1851,8 +1845,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -1860,10 +1854,10 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].firstName"
                             neoform={
                               Object {
@@ -1970,17 +1964,17 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].lastName"
                             neoform={
                               Object {
@@ -2087,8 +2081,8 @@ exports[`neoform-validation validate field -> invalid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -2116,7 +2110,7 @@ exports[`neoform-validation validate field -> invalid 1`] = `
         </withContext(withHandlers(withProps(omitProps(FormValidation))))>
       </getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))>
     </withState(getContext(withContext(withHandlers(withProps(omitProps(FormValidation))))))>
-  </withContext(omitProps(Form))>
+  </withContext(Form)>
 </App>
 `;
 
@@ -2138,7 +2132,7 @@ exports[`neoform-validation validate field -> valid 1`] = `
     }
   }
 >
-  <withContext(omitProps(Form))
+  <withContext(Form)
     data={
       Object {
         "country": "Sweden",
@@ -2155,6 +2149,7 @@ exports[`neoform-validation validate field -> valid 1`] = `
         ],
       }
     }
+    getValue={[Function]}
     onChange={[Function]}
     onSubmit={[Function]}
   >
@@ -2175,6 +2170,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
           ],
         }
       }
+      getValue={[Function]}
+      onChange={[Function]}
       onSubmit={[Function]}
     >
       <getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))
@@ -2194,6 +2191,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
             ],
           }
         }
+        getValue={[Function]}
+        onChange={[Function]}
         onSubmit={[Function]}
         setValidationFields={[Function]}
         validationFields={
@@ -2222,6 +2221,7 @@ exports[`neoform-validation validate field -> valid 1`] = `
               ],
             }
           }
+          getValue={[Function]}
           neoform={
             Object {
               "getValue": [Function],
@@ -2242,6 +2242,7 @@ exports[`neoform-validation validate field -> valid 1`] = `
               "updateData": [Function],
             }
           }
+          onChange={[Function]}
           onSubmit={[Function]}
           setValidationFields={[Function]}
           validationFields={
@@ -2270,6 +2271,7 @@ exports[`neoform-validation validate field -> valid 1`] = `
                 ],
               }
             }
+            getValue={[Function]}
             neoform={
               Object {
                 "getValue": [Function],
@@ -2290,6 +2292,7 @@ exports[`neoform-validation validate field -> valid 1`] = `
                 "updateData": [Function],
               }
             }
+            onChange={[Function]}
             onSubmit={[Function]}
             setValidationFields={[Function]}
             validationFields={
@@ -2318,6 +2321,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                   ],
                 }
               }
+              getValue={[Function]}
+              onChange={[Function]}
               onSubmit={[Function]}
               validate={[Function]}
               validationStatus={true}
@@ -2334,13 +2339,11 @@ exports[`neoform-validation validate field -> valid 1`] = `
                 <div>
                   <label>
                     first name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="firstName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="firstName"
                         neoform={
                           Object {
@@ -2455,20 +2458,18 @@ exports[`neoform-validation validate field -> valid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     last name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="lastName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="lastName"
                         neoform={
                           Object {
@@ -2499,7 +2500,6 @@ exports[`neoform-validation validate field -> valid 1`] = `
                           name="lastName"
                           onChange={[Function]}
                           validator={[Function]}
-                          value=""
                         >
                           <lifecycle(withHandlers(withProps(omitProps(FieldValidation))))
                             name="lastName"
@@ -2528,7 +2528,6 @@ exports[`neoform-validation validate field -> valid 1`] = `
                             }
                             onChange={[Function]}
                             validator={[Function]}
-                            value=""
                           >
                             <withHandlers(withProps(omitProps(FieldValidation)))
                               name="lastName"
@@ -2557,13 +2556,11 @@ exports[`neoform-validation validate field -> valid 1`] = `
                               }
                               onChange={[Function]}
                               validator={[Function]}
-                              value=""
                             >
                               <MyInput
                                 name="lastName"
                                 onChange={[Function]}
                                 validate={[Function]}
-                                value=""
                               >
                                 <span>
                                   <input
@@ -2582,19 +2579,17 @@ exports[`neoform-validation validate field -> valid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     country
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="country"
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="country"
                         neoform={
                           Object {
@@ -2704,8 +2699,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <h2>
@@ -2716,10 +2711,10 @@ exports[`neoform-validation validate field -> valid 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].firstName"
                             neoform={
                               Object {
@@ -2829,17 +2824,17 @@ exports[`neoform-validation validate field -> valid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].lastName"
                             neoform={
                               Object {
@@ -2949,8 +2944,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -2958,10 +2953,10 @@ exports[`neoform-validation validate field -> valid 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].firstName"
                             neoform={
                               Object {
@@ -3071,17 +3066,17 @@ exports[`neoform-validation validate field -> valid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].lastName"
                             neoform={
                               Object {
@@ -3191,8 +3186,8 @@ exports[`neoform-validation validate field -> valid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -3208,7 +3203,7 @@ exports[`neoform-validation validate field -> valid 1`] = `
         </withContext(withHandlers(withProps(omitProps(FormValidation))))>
       </getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))>
     </withState(getContext(withContext(withHandlers(withProps(omitProps(FormValidation))))))>
-  </withContext(omitProps(Form))>
+  </withContext(Form)>
 </App>
 `;
 
@@ -3230,7 +3225,7 @@ exports[`neoform-validation validate field without validator 1`] = `
     }
   }
 >
-  <withContext(omitProps(Form))
+  <withContext(Form)
     data={
       Object {
         "country": "Sweden",
@@ -3246,6 +3241,7 @@ exports[`neoform-validation validate field without validator 1`] = `
         ],
       }
     }
+    getValue={[Function]}
     onChange={[Function]}
     onSubmit={[Function]}
   >
@@ -3265,6 +3261,8 @@ exports[`neoform-validation validate field without validator 1`] = `
           ],
         }
       }
+      getValue={[Function]}
+      onChange={[Function]}
       onSubmit={[Function]}
     >
       <getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))
@@ -3283,6 +3281,8 @@ exports[`neoform-validation validate field without validator 1`] = `
             ],
           }
         }
+        getValue={[Function]}
+        onChange={[Function]}
         onSubmit={[Function]}
         setValidationFields={[Function]}
         validationFields={Object {}}
@@ -3303,6 +3303,7 @@ exports[`neoform-validation validate field without validator 1`] = `
               ],
             }
           }
+          getValue={[Function]}
           neoform={
             Object {
               "getValue": [Function],
@@ -3322,6 +3323,7 @@ exports[`neoform-validation validate field without validator 1`] = `
               "updateData": [Function],
             }
           }
+          onChange={[Function]}
           onSubmit={[Function]}
           setValidationFields={[Function]}
           validationFields={Object {}}
@@ -3342,6 +3344,7 @@ exports[`neoform-validation validate field without validator 1`] = `
                 ],
               }
             }
+            getValue={[Function]}
             neoform={
               Object {
                 "getValue": [Function],
@@ -3361,6 +3364,7 @@ exports[`neoform-validation validate field without validator 1`] = `
                 "updateData": [Function],
               }
             }
+            onChange={[Function]}
             onSubmit={[Function]}
             setValidationFields={[Function]}
             validationFields={Object {}}
@@ -3381,6 +3385,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                   ],
                 }
               }
+              getValue={[Function]}
+              onChange={[Function]}
               onSubmit={[Function]}
               validate={[Function]}
               validationStatus={true}
@@ -3397,13 +3403,11 @@ exports[`neoform-validation validate field without validator 1`] = `
                 <div>
                   <label>
                     first name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="firstName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="firstName"
                         neoform={
                           Object {
@@ -3433,7 +3437,6 @@ exports[`neoform-validation validate field without validator 1`] = `
                           name="firstName"
                           onChange={[Function]}
                           validator={[Function]}
-                          value=""
                         >
                           <lifecycle(withHandlers(withProps(omitProps(FieldValidation))))
                             name="firstName"
@@ -3461,7 +3464,6 @@ exports[`neoform-validation validate field without validator 1`] = `
                             }
                             onChange={[Function]}
                             validator={[Function]}
-                            value=""
                           >
                             <withHandlers(withProps(omitProps(FieldValidation)))
                               name="firstName"
@@ -3489,13 +3491,11 @@ exports[`neoform-validation validate field without validator 1`] = `
                               }
                               onChange={[Function]}
                               validator={[Function]}
-                              value=""
                             >
                               <MyInput
                                 name="firstName"
                                 onChange={[Function]}
                                 validate={[Function]}
-                                value=""
                               >
                                 <span>
                                   <input
@@ -3514,20 +3514,18 @@ exports[`neoform-validation validate field without validator 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     last name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="lastName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="lastName"
                         neoform={
                           Object {
@@ -3557,7 +3555,6 @@ exports[`neoform-validation validate field without validator 1`] = `
                           name="lastName"
                           onChange={[Function]}
                           validator={[Function]}
-                          value=""
                         >
                           <lifecycle(withHandlers(withProps(omitProps(FieldValidation))))
                             name="lastName"
@@ -3585,7 +3582,6 @@ exports[`neoform-validation validate field without validator 1`] = `
                             }
                             onChange={[Function]}
                             validator={[Function]}
-                            value=""
                           >
                             <withHandlers(withProps(omitProps(FieldValidation)))
                               name="lastName"
@@ -3613,13 +3609,11 @@ exports[`neoform-validation validate field without validator 1`] = `
                               }
                               onChange={[Function]}
                               validator={[Function]}
-                              value=""
                             >
                               <MyInput
                                 name="lastName"
                                 onChange={[Function]}
                                 validate={[Function]}
-                                value=""
                               >
                                 <span>
                                   <input
@@ -3638,19 +3632,17 @@ exports[`neoform-validation validate field without validator 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     country
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="country"
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="country"
                         neoform={
                           Object {
@@ -3757,8 +3749,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <h2>
@@ -3769,10 +3761,10 @@ exports[`neoform-validation validate field without validator 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].firstName"
                             neoform={
                               Object {
@@ -3879,17 +3871,17 @@ exports[`neoform-validation validate field without validator 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].lastName"
                             neoform={
                               Object {
@@ -3996,8 +3988,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -4005,10 +3997,10 @@ exports[`neoform-validation validate field without validator 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].firstName"
                             neoform={
                               Object {
@@ -4115,17 +4107,17 @@ exports[`neoform-validation validate field without validator 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].lastName"
                             neoform={
                               Object {
@@ -4232,8 +4224,8 @@ exports[`neoform-validation validate field without validator 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -4249,7 +4241,7 @@ exports[`neoform-validation validate field without validator 1`] = `
         </withContext(withHandlers(withProps(omitProps(FormValidation))))>
       </getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))>
     </withState(getContext(withContext(withHandlers(withProps(omitProps(FormValidation))))))>
-  </withContext(omitProps(Form))>
+  </withContext(Form)>
 </App>
 `;
 
@@ -4271,7 +4263,7 @@ exports[`neoform-validation validate form -> invalid 1`] = `
     }
   }
 >
-  <withContext(omitProps(Form))
+  <withContext(Form)
     data={
       Object {
         "country": "Sweden",
@@ -4287,6 +4279,7 @@ exports[`neoform-validation validate form -> invalid 1`] = `
         ],
       }
     }
+    getValue={[Function]}
     onChange={[Function]}
     onSubmit={[Function]}
   >
@@ -4306,6 +4299,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
           ],
         }
       }
+      getValue={[Function]}
+      onChange={[Function]}
       onSubmit={[Function]}
     >
       <getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))
@@ -4324,6 +4319,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
             ],
           }
         }
+        getValue={[Function]}
+        onChange={[Function]}
         onSubmit={[Function]}
         setValidationFields={[Function]}
         validationFields={
@@ -4355,6 +4352,7 @@ exports[`neoform-validation validate form -> invalid 1`] = `
               ],
             }
           }
+          getValue={[Function]}
           neoform={
             Object {
               "getValue": [Function],
@@ -4374,6 +4372,7 @@ exports[`neoform-validation validate form -> invalid 1`] = `
               "updateData": [Function],
             }
           }
+          onChange={[Function]}
           onSubmit={[Function]}
           setValidationFields={[Function]}
           validationFields={
@@ -4405,6 +4404,7 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                 ],
               }
             }
+            getValue={[Function]}
             neoform={
               Object {
                 "getValue": [Function],
@@ -4424,6 +4424,7 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                 "updateData": [Function],
               }
             }
+            onChange={[Function]}
             onSubmit={[Function]}
             setValidationFields={[Function]}
             validationFields={
@@ -4455,6 +4456,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                   ],
                 }
               }
+              getValue={[Function]}
+              onChange={[Function]}
               onSubmit={[Function]}
               validate={[Function]}
               validationStatus={false}
@@ -4471,13 +4474,11 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                 <div>
                   <label>
                     first name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="firstName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="firstName"
                         neoform={
                           Object {
@@ -4507,7 +4508,6 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                           name="firstName"
                           onChange={[Function]}
                           validator={[Function]}
-                          value=""
                         >
                           <lifecycle(withHandlers(withProps(omitProps(FieldValidation))))
                             name="firstName"
@@ -4535,7 +4535,6 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                             }
                             onChange={[Function]}
                             validator={[Function]}
-                            value=""
                           >
                             <withHandlers(withProps(omitProps(FieldValidation)))
                               name="firstName"
@@ -4563,7 +4562,6 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                               }
                               onChange={[Function]}
                               validator={[Function]}
-                              value=""
                             >
                               <MyInput
                                 name="firstName"
@@ -4571,7 +4569,6 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 validate={[Function]}
                                 validationMessage="required"
                                 validationStatus={false}
-                                value=""
                               >
                                 <span>
                                   <input
@@ -4593,20 +4590,18 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     last name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="lastName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="lastName"
                         neoform={
                           Object {
@@ -4636,7 +4631,6 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                           name="lastName"
                           onChange={[Function]}
                           validator={[Function]}
-                          value=""
                         >
                           <lifecycle(withHandlers(withProps(omitProps(FieldValidation))))
                             name="lastName"
@@ -4664,7 +4658,6 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                             }
                             onChange={[Function]}
                             validator={[Function]}
-                            value=""
                           >
                             <withHandlers(withProps(omitProps(FieldValidation)))
                               name="lastName"
@@ -4692,7 +4685,6 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                               }
                               onChange={[Function]}
                               validator={[Function]}
-                              value=""
                             >
                               <MyInput
                                 name="lastName"
@@ -4700,7 +4692,6 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 validate={[Function]}
                                 validationMessage="required"
                                 validationStatus={false}
-                                value=""
                               >
                                 <span>
                                   <input
@@ -4722,19 +4713,17 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     country
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="country"
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="country"
                         neoform={
                           Object {
@@ -4841,8 +4830,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <h2>
@@ -4853,10 +4842,10 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].firstName"
                             neoform={
                               Object {
@@ -4963,17 +4952,17 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].lastName"
                             neoform={
                               Object {
@@ -5080,8 +5069,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -5089,10 +5078,10 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].firstName"
                             neoform={
                               Object {
@@ -5199,17 +5188,17 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].lastName"
                             neoform={
                               Object {
@@ -5316,8 +5305,8 @@ exports[`neoform-validation validate form -> invalid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -5345,7 +5334,7 @@ exports[`neoform-validation validate form -> invalid 1`] = `
         </withContext(withHandlers(withProps(omitProps(FormValidation))))>
       </getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))>
     </withState(getContext(withContext(withHandlers(withProps(omitProps(FormValidation))))))>
-  </withContext(omitProps(Form))>
+  </withContext(Form)>
 </App>
 `;
 
@@ -5367,7 +5356,7 @@ exports[`neoform-validation validate form -> valid 1`] = `
     }
   }
 >
-  <withContext(omitProps(Form))
+  <withContext(Form)
     data={
       Object {
         "country": "Sweden",
@@ -5385,6 +5374,7 @@ exports[`neoform-validation validate form -> valid 1`] = `
         "lastName": "hey from tests 2",
       }
     }
+    getValue={[Function]}
     onChange={[Function]}
     onSubmit={[Function]}
   >
@@ -5406,6 +5396,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
           "lastName": "hey from tests 2",
         }
       }
+      getValue={[Function]}
+      onChange={[Function]}
       onSubmit={[Function]}
     >
       <getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))
@@ -5426,6 +5418,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
             "lastName": "hey from tests 2",
           }
         }
+        getValue={[Function]}
+        onChange={[Function]}
         onSubmit={[Function]}
         setValidationFields={[Function]}
         validationFields={
@@ -5459,6 +5453,7 @@ exports[`neoform-validation validate form -> valid 1`] = `
               "lastName": "hey from tests 2",
             }
           }
+          getValue={[Function]}
           neoform={
             Object {
               "getValue": [Function],
@@ -5480,6 +5475,7 @@ exports[`neoform-validation validate form -> valid 1`] = `
               "updateData": [Function],
             }
           }
+          onChange={[Function]}
           onSubmit={[Function]}
           setValidationFields={[Function]}
           validationFields={
@@ -5513,6 +5509,7 @@ exports[`neoform-validation validate form -> valid 1`] = `
                 "lastName": "hey from tests 2",
               }
             }
+            getValue={[Function]}
             neoform={
               Object {
                 "getValue": [Function],
@@ -5534,6 +5531,7 @@ exports[`neoform-validation validate form -> valid 1`] = `
                 "updateData": [Function],
               }
             }
+            onChange={[Function]}
             onSubmit={[Function]}
             setValidationFields={[Function]}
             validationFields={
@@ -5567,6 +5565,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                   "lastName": "hey from tests 2",
                 }
               }
+              getValue={[Function]}
+              onChange={[Function]}
               onSubmit={[Function]}
               validate={[Function]}
               validationStatus={true}
@@ -5583,13 +5583,11 @@ exports[`neoform-validation validate form -> valid 1`] = `
                 <div>
                   <label>
                     first name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="firstName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="firstName"
                         neoform={
                           Object {
@@ -5707,20 +5705,18 @@ exports[`neoform-validation validate form -> valid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     last name (required)
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="lastName"
                       validator={[Function]}
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="lastName"
                         neoform={
                           Object {
@@ -5838,19 +5834,17 @@ exports[`neoform-validation validate form -> valid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <div>
                   <label>
                     country
-                    <getContext(withHandlers(withProps(omitProps(Field))))
-                      defaultValue=""
+                    <getContext(withProps(omitProps(Field)))
                       name="country"
                     >
-                      <withHandlers(withProps(omitProps(Field)))
-                        defaultValue=""
+                      <withProps(omitProps(Field))
                         name="country"
                         neoform={
                           Object {
@@ -5963,8 +5957,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                             </withHandlers(withProps(omitProps(FieldValidation)))>
                           </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                         </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                      </withHandlers(withProps(omitProps(Field)))>
-                    </getContext(withHandlers(withProps(omitProps(Field))))>
+                      </withProps(omitProps(Field))>
+                    </getContext(withProps(omitProps(Field)))>
                   </label>
                 </div>
                 <h2>
@@ -5975,10 +5969,10 @@ exports[`neoform-validation validate form -> valid 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].firstName"
                             neoform={
                               Object {
@@ -6091,17 +6085,17 @@ exports[`neoform-validation validate form -> valid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[0].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[0].lastName"
                             neoform={
                               Object {
@@ -6214,8 +6208,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -6223,10 +6217,10 @@ exports[`neoform-validation validate form -> valid 1`] = `
                     <div>
                       <label>
                         first name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].firstName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].firstName"
                             neoform={
                               Object {
@@ -6339,17 +6333,17 @@ exports[`neoform-validation validate form -> valid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                     <div>
                       <label>
                         last name
-                        <getContext(withHandlers(withProps(omitProps(Field))))
+                        <getContext(withProps(omitProps(Field)))
                           name="friends[1].lastName"
                         >
-                          <withHandlers(withProps(omitProps(Field)))
+                          <withProps(omitProps(Field))
                             name="friends[1].lastName"
                             neoform={
                               Object {
@@ -6462,8 +6456,8 @@ exports[`neoform-validation validate form -> valid 1`] = `
                                 </withHandlers(withProps(omitProps(FieldValidation)))>
                               </lifecycle(withHandlers(withProps(omitProps(FieldValidation))))>
                             </getContext(lifecycle(withHandlers(withProps(omitProps(FieldValidation)))))>
-                          </withHandlers(withProps(omitProps(Field)))>
-                        </getContext(withHandlers(withProps(omitProps(Field))))>
+                          </withProps(omitProps(Field))>
+                        </getContext(withProps(omitProps(Field)))>
                       </label>
                     </div>
                   </li>
@@ -6479,6 +6473,6 @@ exports[`neoform-validation validate form -> valid 1`] = `
         </withContext(withHandlers(withProps(omitProps(FormValidation))))>
       </getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))>
     </withState(getContext(withContext(withHandlers(withProps(omitProps(FormValidation))))))>
-  </withContext(omitProps(Form))>
+  </withContext(Form)>
 </App>
 `;
