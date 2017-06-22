@@ -13,7 +13,7 @@ const isValidForm = (validationFields) => {
     .every((name) => validationFields[name].status);
 };
 
-export default () => (Target) => {
+export default (Target) => {
   const validators = {};
 
   const FormValidation = (props) => (
