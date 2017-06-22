@@ -23,7 +23,7 @@ exports[`neoform basic wrapper 1`] = `
     }
   }
 >
-  <withContext(omitProps(Form))
+  <withContext(Form)
     data={
       Object {
         "firstName": "John",
@@ -44,6 +44,7 @@ exports[`neoform basic wrapper 1`] = `
         ],
       }
     }
+    getValue={[Function]}
     onChange={[Function]}
   >
     <MyForm
@@ -67,6 +68,8 @@ exports[`neoform basic wrapper 1`] = `
           ],
         }
       }
+      getValue={[Function]}
+      onChange={[Function]}
     >
       <form
         onSubmit={[Function]}
@@ -80,10 +83,10 @@ exports[`neoform basic wrapper 1`] = `
         <div>
           <label>
             first name
-            <getContext(withHandlers(withProps(omitProps(Field))))
+            <getContext(withProps(omitProps(Field)))
               name="firstName"
             >
-              <withHandlers(withProps(omitProps(Field)))
+              <withProps(omitProps(Field))
                 name="firstName"
                 neoform={
                   Object {
@@ -121,17 +124,17 @@ exports[`neoform basic wrapper 1`] = `
                     value="John"
                   />
                 </MyInput>
-              </withHandlers(withProps(omitProps(Field)))>
-            </getContext(withHandlers(withProps(omitProps(Field))))>
+              </withProps(omitProps(Field))>
+            </getContext(withProps(omitProps(Field)))>
           </label>
         </div>
         <div>
           <label>
             last name
-            <getContext(withHandlers(withProps(omitProps(Field))))
+            <getContext(withProps(omitProps(Field)))
               name="lastName"
             >
-              <withHandlers(withProps(omitProps(Field)))
+              <withProps(omitProps(Field))
                 name="lastName"
                 neoform={
                   Object {
@@ -169,8 +172,8 @@ exports[`neoform basic wrapper 1`] = `
                     value="Doe"
                   />
                 </MyInput>
-              </withHandlers(withProps(omitProps(Field)))>
-            </getContext(withHandlers(withProps(omitProps(Field))))>
+              </withProps(omitProps(Field))>
+            </getContext(withProps(omitProps(Field)))>
           </label>
         </div>
         <h2>
@@ -178,10 +181,10 @@ exports[`neoform basic wrapper 1`] = `
         </h2>
         <ul>
           <li>
-            <getContext(withHandlers(withProps(omitProps(Field))))
+            <getContext(withProps(omitProps(Field)))
               name="phoneNumbers[0]"
             >
-              <withHandlers(withProps(omitProps(Field)))
+              <withProps(omitProps(Field))
                 name="phoneNumbers[0]"
                 neoform={
                   Object {
@@ -219,14 +222,14 @@ exports[`neoform basic wrapper 1`] = `
                     value="123123"
                   />
                 </MyInput>
-              </withHandlers(withProps(omitProps(Field)))>
-            </getContext(withHandlers(withProps(omitProps(Field))))>
+              </withProps(omitProps(Field))>
+            </getContext(withProps(omitProps(Field)))>
           </li>
           <li>
-            <getContext(withHandlers(withProps(omitProps(Field))))
+            <getContext(withProps(omitProps(Field)))
               name="phoneNumbers[1]"
             >
-              <withHandlers(withProps(omitProps(Field)))
+              <withProps(omitProps(Field))
                 name="phoneNumbers[1]"
                 neoform={
                   Object {
@@ -264,8 +267,8 @@ exports[`neoform basic wrapper 1`] = `
                     value="456456"
                   />
                 </MyInput>
-              </withHandlers(withProps(omitProps(Field)))>
-            </getContext(withHandlers(withProps(omitProps(Field))))>
+              </withProps(omitProps(Field))>
+            </getContext(withProps(omitProps(Field)))>
           </li>
         </ul>
         <h2>
@@ -276,10 +279,10 @@ exports[`neoform basic wrapper 1`] = `
             <div>
               <label>
                 first name
-                <getContext(withHandlers(withProps(omitProps(Field))))
+                <getContext(withProps(omitProps(Field)))
                   name="friends[0].firstName"
                 >
-                  <withHandlers(withProps(omitProps(Field)))
+                  <withProps(omitProps(Field))
                     name="friends[0].firstName"
                     neoform={
                       Object {
@@ -317,17 +320,17 @@ exports[`neoform basic wrapper 1`] = `
                         value="Sad"
                       />
                     </MyInput>
-                  </withHandlers(withProps(omitProps(Field)))>
-                </getContext(withHandlers(withProps(omitProps(Field))))>
+                  </withProps(omitProps(Field))>
+                </getContext(withProps(omitProps(Field)))>
               </label>
             </div>
             <div>
               <label>
                 last name
-                <getContext(withHandlers(withProps(omitProps(Field))))
+                <getContext(withProps(omitProps(Field)))
                   name="friends[0].lastName"
                 >
-                  <withHandlers(withProps(omitProps(Field)))
+                  <withProps(omitProps(Field))
                     name="friends[0].lastName"
                     neoform={
                       Object {
@@ -365,8 +368,8 @@ exports[`neoform basic wrapper 1`] = `
                         value="Pepe"
                       />
                     </MyInput>
-                  </withHandlers(withProps(omitProps(Field)))>
-                </getContext(withHandlers(withProps(omitProps(Field))))>
+                  </withProps(omitProps(Field))>
+                </getContext(withProps(omitProps(Field)))>
               </label>
             </div>
           </li>
@@ -374,10 +377,10 @@ exports[`neoform basic wrapper 1`] = `
             <div>
               <label>
                 first name
-                <getContext(withHandlers(withProps(omitProps(Field))))
+                <getContext(withProps(omitProps(Field)))
                   name="friends[1].firstName"
                 >
-                  <withHandlers(withProps(omitProps(Field)))
+                  <withProps(omitProps(Field))
                     name="friends[1].firstName"
                     neoform={
                       Object {
@@ -415,17 +418,17 @@ exports[`neoform basic wrapper 1`] = `
                         value="Forever"
                       />
                     </MyInput>
-                  </withHandlers(withProps(omitProps(Field)))>
-                </getContext(withHandlers(withProps(omitProps(Field))))>
+                  </withProps(omitProps(Field))>
+                </getContext(withProps(omitProps(Field)))>
               </label>
             </div>
             <div>
               <label>
                 last name
-                <getContext(withHandlers(withProps(omitProps(Field))))
+                <getContext(withProps(omitProps(Field)))
                   name="friends[1].lastName"
                 >
-                  <withHandlers(withProps(omitProps(Field)))
+                  <withProps(omitProps(Field))
                     name="friends[1].lastName"
                     neoform={
                       Object {
@@ -463,8 +466,8 @@ exports[`neoform basic wrapper 1`] = `
                         value="Alone"
                       />
                     </MyInput>
-                  </withHandlers(withProps(omitProps(Field)))>
-                </getContext(withHandlers(withProps(omitProps(Field))))>
+                  </withProps(omitProps(Field))>
+                </getContext(withProps(omitProps(Field)))>
               </label>
             </div>
           </li>
@@ -476,7 +479,7 @@ exports[`neoform basic wrapper 1`] = `
         </button>
       </form>
     </MyForm>
-  </withContext(omitProps(Form))>
+  </withContext(Form)>
 </App>
 `;
 
@@ -503,7 +506,7 @@ exports[`neoform change field 1`] = `
     }
   }
 >
-  <withContext(omitProps(Form))
+  <withContext(Form)
     data={
       Object {
         "firstName": "hey from tests",
@@ -524,6 +527,7 @@ exports[`neoform change field 1`] = `
         ],
       }
     }
+    getValue={[Function]}
     onChange={[Function]}
   >
     <MyForm
@@ -547,6 +551,8 @@ exports[`neoform change field 1`] = `
           ],
         }
       }
+      getValue={[Function]}
+      onChange={[Function]}
     >
       <form
         onSubmit={[Function]}
@@ -560,10 +566,10 @@ exports[`neoform change field 1`] = `
         <div>
           <label>
             first name
-            <getContext(withHandlers(withProps(omitProps(Field))))
+            <getContext(withProps(omitProps(Field)))
               name="firstName"
             >
-              <withHandlers(withProps(omitProps(Field)))
+              <withProps(omitProps(Field))
                 name="firstName"
                 neoform={
                   Object {
@@ -601,17 +607,17 @@ exports[`neoform change field 1`] = `
                     value="hey from tests"
                   />
                 </MyInput>
-              </withHandlers(withProps(omitProps(Field)))>
-            </getContext(withHandlers(withProps(omitProps(Field))))>
+              </withProps(omitProps(Field))>
+            </getContext(withProps(omitProps(Field)))>
           </label>
         </div>
         <div>
           <label>
             last name
-            <getContext(withHandlers(withProps(omitProps(Field))))
+            <getContext(withProps(omitProps(Field)))
               name="lastName"
             >
-              <withHandlers(withProps(omitProps(Field)))
+              <withProps(omitProps(Field))
                 name="lastName"
                 neoform={
                   Object {
@@ -649,8 +655,8 @@ exports[`neoform change field 1`] = `
                     value="Doe"
                   />
                 </MyInput>
-              </withHandlers(withProps(omitProps(Field)))>
-            </getContext(withHandlers(withProps(omitProps(Field))))>
+              </withProps(omitProps(Field))>
+            </getContext(withProps(omitProps(Field)))>
           </label>
         </div>
         <h2>
@@ -658,10 +664,10 @@ exports[`neoform change field 1`] = `
         </h2>
         <ul>
           <li>
-            <getContext(withHandlers(withProps(omitProps(Field))))
+            <getContext(withProps(omitProps(Field)))
               name="phoneNumbers[0]"
             >
-              <withHandlers(withProps(omitProps(Field)))
+              <withProps(omitProps(Field))
                 name="phoneNumbers[0]"
                 neoform={
                   Object {
@@ -699,14 +705,14 @@ exports[`neoform change field 1`] = `
                     value="123123"
                   />
                 </MyInput>
-              </withHandlers(withProps(omitProps(Field)))>
-            </getContext(withHandlers(withProps(omitProps(Field))))>
+              </withProps(omitProps(Field))>
+            </getContext(withProps(omitProps(Field)))>
           </li>
           <li>
-            <getContext(withHandlers(withProps(omitProps(Field))))
+            <getContext(withProps(omitProps(Field)))
               name="phoneNumbers[1]"
             >
-              <withHandlers(withProps(omitProps(Field)))
+              <withProps(omitProps(Field))
                 name="phoneNumbers[1]"
                 neoform={
                   Object {
@@ -744,8 +750,8 @@ exports[`neoform change field 1`] = `
                     value="456456"
                   />
                 </MyInput>
-              </withHandlers(withProps(omitProps(Field)))>
-            </getContext(withHandlers(withProps(omitProps(Field))))>
+              </withProps(omitProps(Field))>
+            </getContext(withProps(omitProps(Field)))>
           </li>
         </ul>
         <h2>
@@ -756,10 +762,10 @@ exports[`neoform change field 1`] = `
             <div>
               <label>
                 first name
-                <getContext(withHandlers(withProps(omitProps(Field))))
+                <getContext(withProps(omitProps(Field)))
                   name="friends[0].firstName"
                 >
-                  <withHandlers(withProps(omitProps(Field)))
+                  <withProps(omitProps(Field))
                     name="friends[0].firstName"
                     neoform={
                       Object {
@@ -797,17 +803,17 @@ exports[`neoform change field 1`] = `
                         value="Sad"
                       />
                     </MyInput>
-                  </withHandlers(withProps(omitProps(Field)))>
-                </getContext(withHandlers(withProps(omitProps(Field))))>
+                  </withProps(omitProps(Field))>
+                </getContext(withProps(omitProps(Field)))>
               </label>
             </div>
             <div>
               <label>
                 last name
-                <getContext(withHandlers(withProps(omitProps(Field))))
+                <getContext(withProps(omitProps(Field)))
                   name="friends[0].lastName"
                 >
-                  <withHandlers(withProps(omitProps(Field)))
+                  <withProps(omitProps(Field))
                     name="friends[0].lastName"
                     neoform={
                       Object {
@@ -845,8 +851,8 @@ exports[`neoform change field 1`] = `
                         value="Pepe"
                       />
                     </MyInput>
-                  </withHandlers(withProps(omitProps(Field)))>
-                </getContext(withHandlers(withProps(omitProps(Field))))>
+                  </withProps(omitProps(Field))>
+                </getContext(withProps(omitProps(Field)))>
               </label>
             </div>
           </li>
@@ -854,10 +860,10 @@ exports[`neoform change field 1`] = `
             <div>
               <label>
                 first name
-                <getContext(withHandlers(withProps(omitProps(Field))))
+                <getContext(withProps(omitProps(Field)))
                   name="friends[1].firstName"
                 >
-                  <withHandlers(withProps(omitProps(Field)))
+                  <withProps(omitProps(Field))
                     name="friends[1].firstName"
                     neoform={
                       Object {
@@ -895,17 +901,17 @@ exports[`neoform change field 1`] = `
                         value="Forever"
                       />
                     </MyInput>
-                  </withHandlers(withProps(omitProps(Field)))>
-                </getContext(withHandlers(withProps(omitProps(Field))))>
+                  </withProps(omitProps(Field))>
+                </getContext(withProps(omitProps(Field)))>
               </label>
             </div>
             <div>
               <label>
                 last name
-                <getContext(withHandlers(withProps(omitProps(Field))))
+                <getContext(withProps(omitProps(Field)))
                   name="friends[1].lastName"
                 >
-                  <withHandlers(withProps(omitProps(Field)))
+                  <withProps(omitProps(Field))
                     name="friends[1].lastName"
                     neoform={
                       Object {
@@ -943,8 +949,8 @@ exports[`neoform change field 1`] = `
                         value="Alone"
                       />
                     </MyInput>
-                  </withHandlers(withProps(omitProps(Field)))>
-                </getContext(withHandlers(withProps(omitProps(Field))))>
+                  </withProps(omitProps(Field))>
+                </getContext(withProps(omitProps(Field)))>
               </label>
             </div>
           </li>
@@ -956,6 +962,6 @@ exports[`neoform change field 1`] = `
         </button>
       </form>
     </MyForm>
-  </withContext(omitProps(Form))>
+  </withContext(Form)>
 </App>
 `;
