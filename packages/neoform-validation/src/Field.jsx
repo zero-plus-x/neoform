@@ -6,7 +6,7 @@ import withProps from 'recompact/withProps';
 import lifecycle from 'recompact/lifecycle';
 import omitProps from 'recompact/omitProps';
 
-export default () => (Target) => {
+export default (Target) => {
   const FieldValidation = (props) => (
     <Target {...props}/>
   );
