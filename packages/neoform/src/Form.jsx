@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import compose from 'recompact/compose';
 import setPropTypes from 'recompact/setPropTypes';
 import withContext from 'recompact/withContext';
