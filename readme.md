@@ -10,6 +10,8 @@ Better form state management for React where data state is directly mapped to fo
   * [`Field`](#field)
   * [`Form`](#form)
   * [App](#app)
+    * [`getValue`](#getValue)
+    * [`setValue`](#setValue)
   * [Validation](#validation)
     * [`FieldValidation`](#fieldvalidation)
     * [`FormValidation`](#formvalidation)
@@ -34,7 +36,7 @@ Let's say you have some data and you want to represent it as an HTML form with a
 }
 ```
 
-Each data field can be referenced with a “key” or “property” path. You might be familiar with this concept from working with immutable data structures or helpers like `lodash.get()`.
+Each data field can be referenced with a "key" or “property” path. You might be familiar with this concept from working with immutable data structures or helpers like `lodash.get()`.
 
 ```js
 "user": {
@@ -46,7 +48,7 @@ Each data field can be referenced with a “key” or “property” path. You m
 }
 ```
 
-The first core idea of NeoForm is to map data to form fields using these key/property paths. We'll refer to this data as “form state” below.
+The first core idea of NeoForm is to map data to form fields using these key/property paths. We'll refer to this data as "form state" below.
 
 Let's see how it works with a step-by-step example. We'll start with creating a simple input:
 
@@ -64,33 +66,22 @@ After wrapping this input with `Field` [HOC](https://medium.com/@dan_abramov/mix
 
 #### `value` and `onChange` props
 
-A value from a form state (can be used in checkbox as a `checked` attribute if it's boolean, and so on) and `onChange` handler to let NeoForm know that value should be changed.
+A `value` from a form state (can be used in checkbox as a `checked` attribute if it's boolean, and so on) and `onChange` handler to let NeoForm know that value should be changed:
 
 ```js
 import { Field } from 'neoform';
 
 const MyInput = ({ value, onChange }) => (
-  <input value={value} onChange={onChange} />
+  <input
+    value={value}
+    onChange={(e) => onChange(e.target.value)}
+  />
 );
 
-export default Field()(MyInput);
+export default Field(MyInput);
 ```
 
-#### `onChange`
-
-Handler which should tell NeoForm about how to get that actual `value` (use `(e) => e.target.checked` if you have a checkbox or just `(value) => value` if you have some custom/3rd-party field implementation).
-
-```js
-import { Field } from 'neoform';
-
-const MyInput = ({ value }) => (
-  <input value={value} />
-);
-
-export default Field(
-  (e) => e.target.value
-)(MyInput);
-```
+Use `(e) => e.target.checked` if you have a checkbox or just `(value) => value` if you have some custom/3rd-party field implementation.
 
 ### `Form`
 
@@ -110,14 +101,14 @@ const MyForm = () => (
 export default MyForm;
 ```
 
-Let's connect this form to Neoform by wrapping it with a `Form` HOC:
+Let's connect this form to NeoForm by wrapping it with a `Form` HOC:
 
 ```js
 import { Form } from 'neoform';
 
 import MyInput from '../MyInput';
 
-const MyForm = (/* { data } */) => (
+const MyForm = () => (
   <form>
     <MyInput name="user.name" />
     <MyInput name="user.status" />
@@ -125,37 +116,7 @@ const MyForm = (/* { data } */) => (
   </form>
 );
 
-const getByFieldName = (data, name) => {
-  // return a value from data by field name
-}
-
-export default Form(getByFieldName)(MyForm);
-```
-
-We need to specify `getByFieldName` function to tell NeoForm how exactly it should retrieve field value from data state. The reason we need to do that is because you might have a plain object data, Immutable or something else with a different "interface".
-
-`getByFieldName` arguments:
-
-* `data` — form data state
-* `name` — field name
-
-Instead of writing your own `getByFieldName` function, you can use [neoform-plain-object-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-plain-object-helpers) or [neoform-immutable-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-immutable-helpers):
-
-```js
-import { Form } from 'neoform';
-import { getByFieldName } from 'neoform-plain-object-helpers';
-
-import MyInput from '../MyInput';
-
-const MyForm = (/* { data } */) => (
-  <form>
-    <MyInput name="user.name" />
-    <MyInput name="user.status" />
-    <MyInput name="user.friends[0]" />
-  </form>
-);
-
-export default MyForm(getByFieldName)(MyForm);
+export default Form(MyForm);
 ```
 
 ### App
@@ -163,7 +124,7 @@ export default MyForm(getByFieldName)(MyForm);
 Finally, we assemble everything together:
 
 ```js
-import { setByFieldName } from 'neoform-plain-object-helpers';
+import { setValue, getValue } from 'neoform-plain-object-helpers';
 
 import MyForm from '../MyForm';
 
@@ -179,17 +140,17 @@ class App extends Component {
   }
 
   onChangeHandler(name, value) {
-    // update data field in state with new value by field name
-    this.setState((prevState) => setFieldByName(state, name, value))
+    this.setState((prevState) => setValue(prevState, name, value))
   }
 
   onSubmit() {
-    console.log('Submit!')
+    console.log(`Submitting ${this.state.data}`)
   }
 
   render() {
     <MyForm
       data={this.state.data}
+      valueGetter={getValue}
       onChange={this.onChangeHandler}
       onSubmit={this.onSubmit}
     />
@@ -197,9 +158,30 @@ class App extends Component {
 }
 ```
 
-What's going on here? As you may gussed, all fields in NeoForm are controlled. So, in order to update them, we need to update data state.
+What's going on here? As you may guessed, all fields in NeoForm are controlled. So, in order to update them, we need to update data state:
 
-And this is the second core idea of NeoForm — we have only one `onChange` handler for the entire form instead of multiple ones for each field. So, whenever some field requests a change, NeoForm updates data state and then passes updated value to that field with a new render.
+#### `getValue`
+
+First, we need to specify `getValue` prop to tell NeoForm how exactly it should retrieve field value from data state. The reason to do that is because you might have a plain object data, Immutable or something else with a different "interface".
+
+Instead of writing your own `getValue` function, you can use one from  [neoform-plain-object-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-plain-object-helpers) or [neoform-immutable-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-immutable-helpers) package.
+
+`getValue` arguments:
+
+* `data` — form data state
+* `name` — field name
+
+#### `setValue`
+
+Second, we have only one `onChange` handler for the entire form instead of multiple ones for each field. So, whenever some field requests a change, we need to update form data by updating the state so updated value is passed to that field with a new render.
+
+Instead of writing your own handler, you can use `setValue` helper from  [neoform-plain-object-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-plain-object-helpers) or [neoform-immutable-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-immutable-helpers) package.
+
+`setValue` arguments:
+
+* `data` — form data state
+* `name` — field name
+* `value` — new field value
 
 ```
 +--------------+
@@ -266,10 +248,7 @@ const MyInput = ({
   }
 )
 
-export default compose(
-  Field((e) => e.target.value),
-  FieldValidation()
-)(MyInput)
+export default Field(FieldValidation(MyInput));
 ```
 
 Where the props are:
@@ -303,20 +282,17 @@ const MyForm = ({
   </form>
 );
 
-export default compose(
-  MyForm(getByFieldName),
-  FormValidation()
-)(MyForm);
+export default Form(FormValidation(MyForm));
 ```
 
 Where:
 
-* `validate` – entire form validation action. It will validate all fields and if they're valid, it will a provided callback (your `onSubmit` handler in most cases)
+* `validate` – entire form validation action. It will validate all fields and if they're valid, it will a provided callback (`onSubmit` handler in most cases)
 * `validationStatus` – `true` | `false` | `undefined` status of entire form validation
 
 #### Validators
 
-Validation process in NeoForm is always asynchronous and "validator" is just a Promise. Rejected one is for `validationStatus: false` prop and resolved is for `validationStatus: true`. An optional argument passed to a rejected or fulfilled Promise becomes `validationMessage` prop.
+"Validator" is just a Promise. Rejected one is for `validationStatus: false` prop and resolved is for `validationStatus: true`. An optional argument passed to a rejected or fulfilled Promise becomes `validationMessage` prop.
 
 ```js
 export const requiredValidator = (value) => {
