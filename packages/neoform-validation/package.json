@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "prop-types": "^15.5.10",
-    "recompact": "^2.2.2"
+    "recompact": "^3.0.3"
   },
   "scripts": {
     "prepublish": "cd ../..; yarn start build neoform-validation"
