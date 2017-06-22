@@ -1,6 +1,4 @@
 import React from 'react';
-import { compose } from 'recompact';
-import { getByFieldName } from '~/neoform-plain-object-helpers/src/';
 
 import Form from '~/neoform/src/Form';
 import FormValidation from '~/neoform-validation/src/Form';
@@ -20,11 +18,9 @@ const MyForm = ({
   validate,
   validationStatus,
   validationFields,
-  onSubmit,
-  ...props
+  onSubmit
 }) => (
   <form
-    {...props}
     onSubmit={(e) => {
       e.preventDefault();
       validate(onSubmit);
@@ -35,19 +31,19 @@ const MyForm = ({
     <div>
       <label>
         first name (required)
-        <Input defaultValue="" name="firstName" validator={requiredValidator}/>
+        <Input name="firstName" validator={requiredValidator}/>
       </label>
     </div>
     <div>
       <label>
         last name (required)
-        <Input defaultValue="" name="lastName" validator={requiredValidator}/>
+        <Input name="lastName" validator={requiredValidator}/>
       </label>
     </div>
     <div>
       <label>
         country
-        <Input defaultValue="" name="country"/>
+        <Input name="country"/>
       </label>
     </div>
     <h2>friends</h2>
@@ -83,7 +79,4 @@ const MyForm = ({
   </form>
 );
 
-export default compose(
-  Form(getByFieldName),
-  FormValidation()
-)(MyForm);
+export default Form(FormValidation(MyForm));

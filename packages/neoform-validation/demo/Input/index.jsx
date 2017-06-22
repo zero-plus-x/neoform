@@ -1,5 +1,4 @@
 import React from 'react';
-import { compose } from 'recompact';
 import Field from '~/neoform/src/Field';
 import FieldValidation from '~/neoform-validation/src/Field';
 
@@ -14,7 +13,7 @@ const renderError = (status, message) => {
 };
 
 const MyInput = ({
-  value,
+  value = '',
   onChange,
   validate,
   validationStatus,
@@ -32,14 +31,11 @@ const MyInput = ({
         style={style}
         value={value}
         onBlur={validate}
-        onChange={onChange}
+        onChange={(e) => onChange(e.target.value)}
       />
       {renderError(validationStatus, validationMessage)}
     </span>
   );
 };
 
-export default compose(
-  Field((e) => e.target.value),
-  FieldValidation()
-)(MyInput);
+export default Field(FieldValidation(MyInput));
