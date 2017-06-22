@@ -13,10 +13,11 @@
     "lib/"
   ],
   "peerDependencies": {
-    "react": "^15.4.2",
-    "neoform": "^0.0.7"
+    "neoform": "^0.0.7",
+    "react": "^15.4.2"
   },
   "dependencies": {
+    "prop-types": "^15.5.10",
     "recompact": "^2.2.2"
   },
   "scripts": {
