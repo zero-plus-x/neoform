@@ -260,7 +260,6 @@ Where the props are:
 
 ```js
 import { Form } from 'neoform';
-import { getByFieldName } from 'neoform-plain-object-helpers';
 import { FormValidation } from 'neoform-validation';
 
 import MyInput from '../MyInput';
