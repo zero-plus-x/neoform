@@ -13,104 +13,175 @@ describe('neoform-validation', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('validate field -> valid', () => {
-    const wrapper = mount(
-      <DemoApp data={data}/>
-    );
-    const firstName = wrapper.find('[name="firstName"]');
+  describe('validate field', () => {
+    it('valid', () => {
+      const wrapper = mount(
+        <DemoApp data={data}/>
+      );
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
 
-    firstName.simulate('change', {
-      target: {
-        value: 'hey from tests'
-      }
+      firstName.simulate('change', {
+        target: {
+          value: 'Alone'
+        }
+      });
+      firstName.simulate('blur');
+
+      return new Promise((resolve) => {
+        // FIXME
+        global.setImmediate(() => {
+          expect(wrapper).toMatchSnapshot();
+          resolve();
+        });
+      });
     });
-    firstName.simulate('blur');
 
-    return new Promise((resolve) => {
-      // FIXME
-      global.setImmediate(() => {
-        expect(wrapper).toMatchSnapshot();
-        resolve();
+    it('invalid', () => {
+      const wrapper = mount(
+        <DemoApp data={data}/>
+      );
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
+
+      firstName.simulate('blur');
+
+      return new Promise((resolve) => {
+        // FIXME
+        global.setImmediate(() => {
+          expect(wrapper).toMatchSnapshot();
+          resolve();
+        });
+      });
+    });
+
+    it('without validator', () => {
+      const wrapper = mount(
+        <DemoApp data={data}/>
+      );
+      const country = wrapper.find('[name="country"]');
+
+      country.simulate('blur');
+
+      return new Promise((resolve) => {
+        // FIXME
+        global.setImmediate(() => {
+          expect(wrapper).toMatchSnapshot();
+          resolve();
+        });
+      });
+    });
+
+    it('unmount invalid field', () => {
+      const wrapper = mount(
+        <DemoApp data={data}/>
+      );
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
+
+      return new Promise((resolve) => {
+        firstName.simulate('blur');
+
+        global.setImmediate(() => {
+          wrapper.setState({
+            friends: [
+              {
+                firstName: 'Pepe',
+                lastName: 'Sad'
+              }
+            ]
+          }, () => {
+            expect(wrapper).toMatchSnapshot();
+            resolve();
+          });
+        })
+      });
+    });
+
+    it('unmount field without validator', () => {
+      const wrapper = mount(
+        <DemoApp data={data}/>
+      );
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
+
+      firstName.simulate('blur');
+
+      return new Promise((resolve) => {
+        wrapper.setState({
+          friends: [
+            {
+              firstName: 'Sad',
+              lastName: 'Pepe'
+            }
+          ]
+        }, () => {
+          expect(wrapper).toMatchSnapshot();
+          resolve();
+        });
       });
     });
   });
 
-  it('validate field -> invalid', () => {
-    const wrapper = mount(
-      <DemoApp data={data}/>
-    );
-    const firstName = wrapper.find('[name="firstName"]');
+  describe('validate form', () => {
+    it('valid', () => {
+      const wrapper = mount(
+        <DemoApp data={data}/>
+      );
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
+      const form = wrapper.find('form');
 
-    firstName.simulate('blur');
+      firstName.simulate('change', {
+        target: {
+          value: 'Alone'
+        }
+      });
+      form.simulate('submit');
 
-    return new Promise((resolve) => {
-      // FIXME
-      global.setImmediate(() => {
-        expect(wrapper).toMatchSnapshot();
-        resolve();
+      return new Promise((resolve) => {
+        // FIXME
+        global.setImmediate(() => {
+          expect(wrapper).toMatchSnapshot();
+          resolve();
+        });
       });
     });
-  });
 
-  it('validate field without validator', () => {
-    const wrapper = mount(
-      <DemoApp data={data}/>
-    );
-    const country = wrapper.find('[name="country"]');
+    it('invalid', () => {
+      const wrapper = mount(
+        <DemoApp data={data}/>
+      );
+      const form = wrapper.find('form');
 
-    country.simulate('blur');
+      form.simulate('submit');
 
-    return new Promise((resolve) => {
-      // FIXME
-      global.setImmediate(() => {
-        expect(wrapper).toMatchSnapshot();
-        resolve();
+      return new Promise((resolve) => {
+        // FIXME
+        global.setImmediate(() => {
+          expect(wrapper).toMatchSnapshot();
+          resolve();
+        });
       });
     });
-  });
 
-  it('validate form -> valid', () => {
-    const wrapper = mount(
-      <DemoApp data={data}/>
-    );
-    const firstName = wrapper.find('[name="firstName"]');
-    const lastName = wrapper.find('[name="lastName"]');
-    const form = wrapper.find('form');
+    it('unmount invalid field', () => {
+      const wrapper = mount(
+        <DemoApp data={data}/>
+      );
+      const form = wrapper.find('form');
 
-    firstName.simulate('change', {
-      target: {
-        value: 'hey from tests'
-      }
-    });
-    lastName.simulate('change', {
-      target: {
-        value: 'hey from tests 2'
-      }
-    });
-    form.simulate('submit');
-
-    return new Promise((resolve) => {
-      // FIXME
-      global.setImmediate(() => {
-        expect(wrapper).toMatchSnapshot();
-        resolve();
+      wrapper.setState({
+        friends: [
+          {
+            firstName: 'Sad',
+            lastName: 'Pepe'
+          }
+        ]
       });
-    });
-  });
+      form.simulate('submit');
 
-  it('validate form -> invalid', () => {
-    const wrapper = mount(
-      <DemoApp data={data}/>
-    );
-    const firstName = wrapper.find('form');
-
-    firstName.simulate('submit');
-
-    return new Promise((resolve) => {
-      // FIXME
-      global.setImmediate(() => {
-        expect(wrapper).toMatchSnapshot();
-        resolve();
+      return new Promise((resolve) => {
+        // FIXME
+        global.setImmediate(() => {
+          expect(wrapper).toMatchSnapshot();
+          resolve();
+        });
       });
     });
   });

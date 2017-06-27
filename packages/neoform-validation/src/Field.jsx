@@ -23,6 +23,13 @@ export default (Target) => {
         if (validator) {
           neoform.registerValidator(name, validator);
         }
+      },
+      componentWillUnmount() {
+        const { neoform, name, validator } = this.props;
+
+        if (validator) {
+          neoform.unregisterValidator(name);
+        }
       }
     }),
     withHandlers({

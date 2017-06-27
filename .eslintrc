@@ -14,6 +14,7 @@
     "promise/always-return": 0,
     "promise/no-return-wrap": 0,
     "import/no-unresolved": 0,
-    "import/no-extraneous-dependencies": 0
+    "import/no-extraneous-dependencies": 0,
+    "fp/no-delete": 0
   }
 }

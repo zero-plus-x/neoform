@@ -10,14 +10,13 @@ const requiredValidator = (value) => {
     return Promise.reject('required');
   }
 
-  return Promise.resolve();
+  return Promise.resolve('valid');
 };
 
 const MyForm = ({
   data,
   validate,
   validationStatus,
-  validationFields,
   onSubmit
 }) => (
   <form
@@ -30,14 +29,14 @@ const MyForm = ({
     <h2>personal data</h2>
     <div>
       <label>
-        first name (required)
-        <Input name="firstName" validator={requiredValidator}/>
+        first name
+        <Input name="firstName"/>
       </label>
     </div>
     <div>
       <label>
-        last name (required)
-        <Input name="lastName" validator={requiredValidator}/>
+        last name
+        <Input name="lastName"/>
       </label>
     </div>
     <div>
@@ -53,8 +52,8 @@ const MyForm = ({
           <li key={index}>
             <div>
               <label>
-                first name
-                <Input name={`friends[${index}].firstName`}/>
+                first name (required)
+                <Input name={`friends[${index}].firstName`} validator={requiredValidator}/>
               </label>
             </div>
             <div>
@@ -70,10 +69,7 @@ const MyForm = ({
     <button type="submit">submit</button>
     {
       validationStatus === false && (
-        <div style={{ color: 'red' }}>
-          <div>Form is invalid</div>
-          <div>{JSON.stringify(validationFields)}</div>
-        </div>
+        <div style={{ color: 'red' }}>Form is invalid</div>
       )
     }
   </form>

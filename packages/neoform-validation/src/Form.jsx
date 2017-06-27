@@ -7,6 +7,7 @@ import withHandlers from 'recompact/withHandlers';
 import withContext from 'recompact/withContext';
 import getContext from 'recompact/getContext';
 import omitProps from 'recompact/omitProps';
+import omit from 'recompact/utils/omit';
 
 const isValidForm = (validationFields) => {
   return Object
@@ -58,8 +59,15 @@ export default (Target) => {
                 }));
               });
           },
-          registerValidator: (name, validator) => {
+          registerValidator(name, validator) {
             validators[name] = validator;
+          },
+          unregisterValidator(name) {
+            delete validators[name];
+
+            setValidationFields((prevState) => {
+              return omit(prevState, name);
+            });
           }
         }
       })
