@@ -1,7 +1,13 @@
-# NeoForm
+<p align="center">
+  <img src="./logo.png" width="300" />
+</p>
 
-[![travis](https://img.shields.io/travis/zero-plus-x/neoform/master.svg?style=flat-square)](https://travis-ci.org/zero-plus-x/neoform)
-[![coverage](https://img.shields.io/codecov/c/github/zero-plus-x/neoform/master.svg?style=flat-square)](https://codecov.io/github/zero-plus-x/neoform)
+<p align="center">
+  <a href="https://travis-ci.org/zero-plus-x/neoform"><img src="https://img.shields.io/travis/zero-plus-x/neoform/master.svg?style=flat-square" alt="travis" /></a>
+  <a href="https://codecov.io/github/zero-plus-x/neoform"><img src="https://img.shields.io/codecov/c/github/zero-plus-x/neoform/master.svg?style=flat-square" alt="travis" /></a>
+</p>
+
+---
 
 Better form state management for React where data state is directly mapped to form fields, so form becomes just a representation and changing interface for that data state.
 
