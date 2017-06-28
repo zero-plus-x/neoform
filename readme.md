@@ -150,7 +150,7 @@ class App extends Component {
   render() {
     <MyForm
       data={this.state.data}
-      valueGetter={getValue}
+      getValue={getValue}
       onChange={this.onChangeHandler}
       onSubmit={this.onSubmit}
     />
