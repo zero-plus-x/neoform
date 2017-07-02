@@ -25,7 +25,7 @@ Better form state management for React where data state is directly mapped to fo
 * [Demo](#demo)
 * [Status](#status)
 * [Development](#development)
-# [FAQ](#faq)
+* [FAQ](#faq)
 
 ## Usage
 
