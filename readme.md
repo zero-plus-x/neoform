@@ -25,6 +25,7 @@ Better form state management for React where data state is directly mapped to fo
 * [Demo](#demo)
 * [Status](#status)
 * [Development](#development)
+# [FAQ](#faq)
 
 ## Usage
 
@@ -332,10 +333,21 @@ import { requiredValidator } from '../validators'
 
 For a better understanding, you can play with some examples in this repo:
 
+### Simple
+
 ```sh
 yarn start demo neoform
+```
+
+[Source code](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform/demo).
+
+### Validation
+
+```sh
 yarn start demo neoform-validation
 ```
+
+[Source code](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-validation/demo).
 
 ## Status
 
@@ -356,3 +368,9 @@ yarn start build neoform-validation
 yarn start build neoform-plain-object-helpers
 yarn start build neoform-immutable-helpers
 ```
+
+## FAQ
+
+> What about Redux?
+
+Absolutely same approach: call an action on form `onChange` and then use plain/immutable helper to return updated data state from a reducer.
