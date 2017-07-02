@@ -181,6 +181,8 @@ Instead of writing your own `getValue` function, you can use one from  [neoform-
 
 Second, we have only one `onChange` handler for the entire form instead of multiple ones for each field. So, whenever some field requests a change, we need to update form data by updating the state so updated value is passed to that field with a new render.
 
+:information_source: Consider using [Recompose `pure()` HOC](https://github.com/acdlite/recompose/blob/master/docs/API.md#pure) or [`React.PureComponent`](https://facebook.github.io/react/docs/react-api.html#react.purecomponent) for fields to avoid unnecessary renders and get performance boost in some cases.
+
 Instead of writing your own handler, you can use `setValue` helper from  [neoform-plain-object-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-plain-object-helpers) or [neoform-immutable-helpers](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-immutable-helpers) package.
 
 `setValue` arguments:
