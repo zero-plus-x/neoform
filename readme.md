@@ -92,7 +92,7 @@ Use `(e) => e.target.checked` if you have a checkbox or just `(value) => value` 
 
 ### `Form`
 
-Now when the input is ready we can use use it in a form:
+Now when the input is ready we can use it in a form:
 
 ```js
 import MyInput from '../MyInput';
@@ -313,7 +313,7 @@ export const requiredValidator = (value) => {
 
 It's up to you how to manage multiple validators — with a simple `Promise.all()` or some complex asynchronous sequences — as long as validator returns a single Promise.
 
-To use a validator you should just pass it in a `validator` prop to an inidividual field:
+To use a validator you should just pass it in a `validator` prop to an individual field:
 
 ```js
 import { requiredValidator } from '../validators'
