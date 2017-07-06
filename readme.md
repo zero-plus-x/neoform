@@ -294,7 +294,7 @@ export default Form(FormValidation(MyForm));
 
 Where:
 
-* `validate` – entire form validation action. It will validate all fields and if they're valid, it will a provided callback (`onSubmit` handler in most cases)
+* `validate` – entire form validation action: it will validate all fields and if they're valid it will invoke a provided callback (`onSubmit` handler in most cases)
 * `validationStatus` – `true` | `false` | `undefined` status of entire form validation
 
 #### Validators
