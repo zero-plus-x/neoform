@@ -5094,12 +5094,12 @@ stack-utils@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-0.4.0.tgz#940cb82fccfa84e8ff2f3fdf293fe78016beccd1"
 
-start-babel-cli@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/start-babel-cli/-/start-babel-cli-4.0.1.tgz#205ffb1629fb519a748d9fffbf7db0acabd9d098"
+start-babel-cli@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/start-babel-cli/-/start-babel-cli-4.0.2.tgz#053a96d1b75daed72429a08f43bd38c9ebe0d7b4"
   dependencies:
     babel-register "^6.11.6"
-    start-simple-cli "^4.0.0"
+    start-cli-core "^0.1.0"
 
 start-babel@^3.0.0:
   version "3.0.0"
@@ -5113,6 +5113,13 @@ start-clean@^2.0.0:
   dependencies:
     makethen "^0.1.0"
     rimraf "^2.5.4"
+
+start-cli-core@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/start-cli-core/-/start-cli-core-0.1.0.tgz#5897fb8181fbdd55ce2881902db8a54667bfe745"
+  dependencies:
+    commander "^2.9.0"
+    resolve-cwd "^1.0.0"
 
 start-codecov@^2.0.0:
   version "2.0.0"
@@ -5169,13 +5176,6 @@ start-read@^0.3.0:
 start-rename@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/start-rename/-/start-rename-0.2.0.tgz#96e21bdeea5737b726f38b7f93c1c80e40d775c7"
-
-start-simple-cli@^4.0.0:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/start-simple-cli/-/start-simple-cli-4.1.1.tgz#ef68ffe915ca2fc5ca44959103f5085443be58e6"
-  dependencies:
-    commander "^2.9.0"
-    resolve-cwd "^1.0.0"
 
 start-webpack-dev-server@^0.1.0:
   version "0.1.0"

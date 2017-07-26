@@ -19,7 +19,7 @@
     "react-dom": "^15.4.2",
     "start": "^5.1.0",
     "start-babel": "^3.0.0",
-    "start-babel-cli": "^4.0.1",
+    "start-babel-cli": "^4.0.2",
     "start-clean": "^2.0.0",
     "start-codecov": "^2.0.0",
     "start-env": "^3.0.0",
