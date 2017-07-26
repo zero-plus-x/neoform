@@ -19,7 +19,7 @@
     "lodash.memoize": "^4.1.2"
   },
   "scripts": {
-    "prepublish": "cd ../..; yarn start build neoform-immutable-helpers"
+    "prepublishOnly": "cd ../..; yarn start build neoform-immutable-helpers"
   },
   "license": "MIT"
 }
