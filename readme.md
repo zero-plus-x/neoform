@@ -147,11 +147,15 @@ class App extends Component {
   }
 
   onChangeHandler(name, value) {
-    this.setState((prevState) => setValue(prevState, name, value))
+    this.setState((prevState) => setValue(prevState, name, value));
   }
 
   onSubmit() {
-    console.log(`Submitting ${this.state.data}`)
+    console.log(`Submitting ${this.state.data}`);
+  }
+
+  onInvalid() {
+    console.log('Invalid');
   }
 
   render() {
@@ -159,6 +163,7 @@ class App extends Component {
       data={this.state.data}
       getValue={getValue}
       onChange={this.onChangeHandler}
+      onInvalid={this.onInvalid}
       onSubmit={this.onSubmit}
     />
   }
@@ -277,11 +282,12 @@ const MyForm = ({
   /* data, */
   validate,
   validationStatus,
+  onInvalid,
   onSubmit
 }) => (
   <form onSubmit={(e) => {
+    validate(onSubmit, onInvalid)
     e.preventDefault();
-    validate(onSubmit)
   }}>
     <MyInput name="user.name" />
     <MyInput name="user.status" />
@@ -294,7 +300,7 @@ export default Form(FormValidation(MyForm));
 
 Where:
 
-* `validate` – entire form validation action: it will validate all fields and if they're valid it will invoke a provided callback (`onSubmit` handler in most cases)
+* `validate` – entire form validation action: it will validate all fields and if they're valid it will invoke a first provided callback (`onSubmit` handler in most cases) or second callback (something like `onInvalid`) if they're invalid
 * `validationStatus` – `true` | `false` | `undefined` status of entire form validation
 
 #### Validators
