@@ -73,7 +73,7 @@ export default (Target) => {
       })
     ),
     withHandlers({
-      validate: ({ neoform, setValidationFields }) => (externalHandler) => {
+      validate: ({ neoform, setValidationFields }) => (successHandler, errorHandler) => {
         const validationFields = {};
 
         return Promise.all(
@@ -100,8 +100,10 @@ export default (Target) => {
         .then(() => {
           setValidationFields(validationFields);
 
-          if (isValidForm(validationFields) && typeof externalHandler === 'function') {
-            externalHandler();
+          if (isValidForm(validationFields) && typeof successHandler === 'function') {
+            successHandler();
+          } else if (typeof errorHandler === 'function') {
+            errorHandler();
           }
         });
       }
