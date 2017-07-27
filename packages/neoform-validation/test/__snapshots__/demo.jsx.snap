@@ -7093,6 +7093,7 @@ exports[`neoform-validation validate form unmount invalid field 1`] = `
       "lastName": "Doe",
     }
   }
+  onSubmit={[Function]}
 >
   <withContext(Form)
     data={

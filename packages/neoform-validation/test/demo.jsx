@@ -171,8 +171,12 @@ describe('neoform-validation', () => {
     });
 
     it('unmount invalid field', () => {
+      const mockOnSubmit = jest.fn();
       const wrapper = mount(
-        <DemoApp data={data}/>
+        <DemoApp
+          data={data}
+          onSubmit={mockOnSubmit}
+        />
       );
       const form = wrapper.find('form');
 
@@ -190,6 +194,7 @@ describe('neoform-validation', () => {
         // FIXME
         global.setImmediate(() => {
           expect(wrapper).toMatchSnapshot();
+          expect(mockOnSubmit).toHaveBeenCalledTimes(1);
           resolve();
         });
       });
