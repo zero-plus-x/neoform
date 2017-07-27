@@ -17,12 +17,13 @@ const MyForm = ({
   data,
   validate,
   validationStatus,
-  onSubmit
+  onSubmit,
+  onInvalid
 }) => (
   <form
     onSubmit={(e) => {
       e.preventDefault();
-      validate(onSubmit);
+      validate(onSubmit, onInvalid);
     }}
   >
     <h1>simple form</h1>

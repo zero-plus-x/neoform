@@ -5944,6 +5944,7 @@ exports[`neoform-validation validate form invalid 1`] = `
       "lastName": "Doe",
     }
   }
+  onInvalid={[Function]}
 >
   <withContext(Form)
     data={
@@ -5964,6 +5965,7 @@ exports[`neoform-validation validate form invalid 1`] = `
     }
     getValue={[Function]}
     onChange={[Function]}
+    onInvalid={[Function]}
     onSubmit={[Function]}
   >
     <withState(getContext(withContext(withHandlers(withProps(omitProps(FormValidation))))))
@@ -5985,6 +5987,7 @@ exports[`neoform-validation validate form invalid 1`] = `
       }
       getValue={[Function]}
       onChange={[Function]}
+      onInvalid={[Function]}
       onSubmit={[Function]}
     >
       <getContext(withContext(withHandlers(withProps(omitProps(FormValidation)))))
@@ -6006,6 +6009,7 @@ exports[`neoform-validation validate form invalid 1`] = `
         }
         getValue={[Function]}
         onChange={[Function]}
+        onInvalid={[Function]}
         onSubmit={[Function]}
         setValidationFields={[Function]}
         validationFields={
@@ -6060,6 +6064,7 @@ exports[`neoform-validation validate form invalid 1`] = `
             }
           }
           onChange={[Function]}
+          onInvalid={[Function]}
           onSubmit={[Function]}
           setValidationFields={[Function]}
           validationFields={
@@ -6114,6 +6119,7 @@ exports[`neoform-validation validate form invalid 1`] = `
               }
             }
             onChange={[Function]}
+            onInvalid={[Function]}
             onSubmit={[Function]}
             setValidationFields={[Function]}
             validationFields={
@@ -6148,6 +6154,7 @@ exports[`neoform-validation validate form invalid 1`] = `
               }
               getValue={[Function]}
               onChange={[Function]}
+              onInvalid={[Function]}
               onSubmit={[Function]}
               validate={[Function]}
               validationStatus={false}
@@ -7857,6 +7864,7 @@ exports[`neoform-validation validate form valid 1`] = `
       "lastName": "Doe",
     }
   }
+  onSubmit={[Function]}
 >
   <withContext(Form)
     data={

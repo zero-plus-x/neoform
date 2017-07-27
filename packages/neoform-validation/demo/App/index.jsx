@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   onSubmit() {
-    console.log('submit', this.state);
+    this.props.onSubmit(this.state);
   }
 
   render() {
@@ -26,6 +26,7 @@ class App extends Component {
         data={this.state}
         getValue={getValue}
         onChange={this.onChange}
+        onInvalid={this.props.onInvalid}
         onSubmit={this.onSubmit}
       />
     );

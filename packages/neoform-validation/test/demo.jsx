@@ -121,8 +121,12 @@ describe('neoform-validation', () => {
 
   describe('validate form', () => {
     it('valid', () => {
+      const mockOnSubmit = jest.fn();
       const wrapper = mount(
-        <DemoApp data={data}/>
+        <DemoApp
+          data={data}
+          onSubmit={mockOnSubmit}
+        />
       );
       const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
       const form = wrapper.find('form');
@@ -138,14 +142,19 @@ describe('neoform-validation', () => {
         // FIXME
         global.setImmediate(() => {
           expect(wrapper).toMatchSnapshot();
+          expect(mockOnSubmit).toHaveBeenCalledTimes(1);
           resolve();
         });
       });
     });
 
     it('invalid', () => {
+      const mockOnInvalid = jest.fn();
       const wrapper = mount(
-        <DemoApp data={data}/>
+        <DemoApp
+          data={data}
+          onInvalid={mockOnInvalid}
+        />
       );
       const form = wrapper.find('form');
 
@@ -155,6 +164,7 @@ describe('neoform-validation', () => {
         // FIXME
         global.setImmediate(() => {
           expect(wrapper).toMatchSnapshot();
+          expect(mockOnInvalid).toHaveBeenCalledTimes(1);
           resolve();
         });
       });
