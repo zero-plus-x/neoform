@@ -43,7 +43,7 @@ Let's say you have some data and you want to represent it as an HTML form with a
 }
 ```
 
-Each data field can be referenced with a "key" or “property” path. You might be familiar with this concept from working with immutable data structures or helpers like `lodash.get()`.
+Each data field can be referenced with a "key" or "property" path. You might be familiar with this concept from working with immutable data structures or helpers like `lodash.get()`.
 
 ```js
 "user": {
