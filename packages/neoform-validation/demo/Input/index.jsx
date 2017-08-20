@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
 
-import { Field } from 'neoform';
-import { FieldValidation } from '../../src';
+import { field } from 'neoform';
+import { fieldValidation } from '../../src';
 
 const MyInput = ({
   value = '',
@@ -32,4 +32,4 @@ const MyInput = ({
   );
 };
 
-export default Field(FieldValidation(MyInput));
+export default field(fieldValidation(MyInput));

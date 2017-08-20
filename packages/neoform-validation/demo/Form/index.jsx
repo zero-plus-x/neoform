@@ -2,8 +2,8 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 
-import { Form } from 'neoform';
-import { FormValidation } from '../../src';
+import { form } from 'neoform';
+import { formValidation } from '../../src';
 
 import Input from '../Input';
 
@@ -71,4 +71,4 @@ const MyForm = ({
   </form>
 );
 
-export default Form(FormValidation(MyForm));
+export default form(formValidation(MyForm));

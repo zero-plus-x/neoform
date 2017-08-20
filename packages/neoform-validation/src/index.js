@@ -1,2 +1,2 @@
-export { default as FormValidation } from './FormValidation';
-export { default as FieldValidation } from './FieldValidation';
+export { default as formValidation } from './formValidation';
+export { default as fieldValidation } from './fieldValidation';
