@@ -13,14 +13,14 @@ Better form state management for React where data state is directly mapped to fo
 
 * [Usage](#usage)
   * [Intro](#intro)
-  * [`Field`](#field)
-  * [`Form`](#form)
+  * [`field`](#field)
+  * [`form`](#form)
   * [App](#app)
     * [`getValue`](#getvalue)
     * [`setValue`](#setvalue)
   * [Validation](#validation)
-    * [`FieldValidation`](#fieldvalidation)
-    * [`FormValidation`](#formvalidation)
+    * [`fieldValidation`](#fieldvalidation)
+    * [`formValidation`](#formvalidation)
     * [Validators](#validators)
 * [Demo](#demo)
 * [Status](#status)
@@ -59,7 +59,7 @@ The first core idea of NeoForm is to map data to form fields using these key/pro
 
 Let's see how it works with a step-by-step example. We'll start with creating a simple input:
 
-### `Field`
+### `field`
 
 ```js
 const MyInput = () => (
@@ -69,14 +69,14 @@ const MyInput = () => (
 export default MyInput;
 ```
 
-After wrapping this input with `Field` [HOC](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750) from NeoForm we'll have:
+After wrapping this input with `field` [HOC](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750) from NeoForm we'll have:
 
 #### `value` and `onChange` props
 
 A `value` from a form state (can be used in checkbox as a `checked` attribute if it's boolean, and so on) and `onChange` handler to let NeoForm know that value should be changed:
 
 ```js
-import { Field } from 'neoform';
+import { field } from 'neoform';
 
 const MyInput = ({ value, onChange }) => (
   <input
@@ -85,12 +85,12 @@ const MyInput = ({ value, onChange }) => (
   />
 );
 
-export default Field(MyInput);
+export default field(MyInput);
 ```
 
 Use `(e) => e.target.checked` if you have a checkbox or just `(value) => value` if you have some custom/3rd-party field implementation.
 
-### `Form`
+### `form`
 
 Now when the input is ready we can use it in a form:
 
@@ -108,10 +108,10 @@ const MyForm = () => (
 export default MyForm;
 ```
 
-Let's connect this form to NeoForm by wrapping it with a `Form` HOC:
+Let's connect this form to NeoForm by wrapping it with a `form` HOC:
 
 ```js
-import { Form } from 'neoform';
+import { form } from 'neoform';
 
 import MyInput from '../MyInput';
 
@@ -123,7 +123,7 @@ const MyForm = () => (
   </form>
 );
 
-export default Form(MyForm);
+export default form(MyForm);
 ```
 
 ### App
@@ -142,28 +142,23 @@ class App extends Component {
     this.state = {
       data: props.data
     };
-
-    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChangeHandler(name, value) {
+  onChange(name, value) {
     this.setState((prevState) => setValue(prevState, name, value));
   }
 
   onSubmit() {
-    console.log(`Submitting ${this.state.data}`);
-  }
-
-  onInvalid() {
-    console.log('Invalid');
+    console.log('submit:', this.state.data);
   }
 
   render() {
     <MyForm
       data={this.state.data}
       getValue={getValue}
-      onChange={this.onChangeHandler}
-      onInvalid={this.onInvalid}
+      onChange={this.onChange}
       onSubmit={this.onSubmit}
     />
   }
@@ -239,13 +234,13 @@ Instead of writing your own handler, you can use `setValue` helper from  [neofor
 
 Validation in NeoForm is always asynchronous.
 
-#### `FieldValidation`
+#### `fieldValidation`
 
-`FieldValidation` is another HOC:
+`fieldValidation` is another HOC:
 
 ```js
-import { Field } from 'neoform';
-import { FieldValidation } from 'neoform-validation';
+import { field } from 'neoform';
+import { fieldValidation } from 'neoform-validation';
 
 const MyInput = ({
   validate,
@@ -261,7 +256,7 @@ const MyInput = ({
   }
 )
 
-export default Field(FieldValidation(MyInput));
+export default field(fieldValidation(MyInput));
 ```
 
 Where the props are:
@@ -270,11 +265,11 @@ Where the props are:
 * `validationStatus` – `true` | `false` | `undefined` status of field validation
 * `validationMessage` – an optional message passed from validator
 
-#### `FormValidation`
+#### `formValidation`
 
 ```js
-import { Form } from 'neoform';
-import { FormValidation } from 'neoform-validation';
+import { form } from 'neoform';
+import { formValidation } from 'neoform-validation';
 
 import MyInput from '../MyInput';
 
@@ -295,7 +290,7 @@ const MyForm = ({
   </form>
 );
 
-export default Form(FormValidation(MyForm));
+export default form(formValidation(MyForm));
 ```
 
 Where:
@@ -361,8 +356,8 @@ This is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monor
 
 | package | version | description |
 | ------- | ------- | ----------- |
-| [neoform](packages/neoform/) | [![npm](https://img.shields.io/npm/v/neoform.svg?style=flat-square)](https://www.npmjs.com/package/neoform) | Core toolkit with `Form` and `Field` HOCs |
-| [neoform-validation](packages/neoform-validation/) | [![npm](https://img.shields.io/npm/v/neoform-validation.svg?style=flat-square)](https://www.npmjs.com/package/neoform-validation) | `FormValidation` and `FieldValidation` HOCs |
+| [neoform](packages/neoform/) | [![npm](https://img.shields.io/npm/v/neoform.svg?style=flat-square)](https://www.npmjs.com/package/neoform) | Core toolkit with `form` and `field` HOCs |
+| [neoform-validation](packages/neoform-validation/) | [![npm](https://img.shields.io/npm/v/neoform-validation.svg?style=flat-square)](https://www.npmjs.com/package/neoform-validation) | `formValidation` and `fieldValidation` HOCs |
 | [neoform-plain-object-helpers](packages/neoform-plain-object-helpers/) | [![npm](https://img.shields.io/npm/v/neoform-plain-object-helpers.svg?style=flat-square)](https://www.npmjs.com/package/neoform-plain-object-helpers) | `getValue` and `setValue` helpers for plain object state |
 | [neoform-immutable-helpers](packages/neoform-immutable-helpers/) | [![npm](https://img.shields.io/npm/v/neoform-immutable-helpers.svg?style=flat-square)](https://www.npmjs.com/package/neoform-immutable-helpers) | `getValue` and `setValue` helpers for [Immutable](https://github.com/facebook/immutable-js) state |
 
