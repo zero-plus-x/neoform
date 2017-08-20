@@ -1,7 +1,7 @@
 {
   "name": "neoform",
   "library": "NeoForm",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Higher-Order Components for form state management in React",
   "keywords": [
     "neoform"
