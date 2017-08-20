@@ -1,5 +1,6 @@
 {
   "name": "neoform",
+  "library": "NeoForm",
   "version": "0.2.0",
   "description": "Better form state management for React",
   "keywords": [],

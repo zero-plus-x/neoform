@@ -1,13 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import DemoApp from '~/neoform/demo/App';
-import data from '~/neoform/demo/data.json';
+import Demo from '../demo';
 
 describe('neoform', () => {
   it('basic wrapper', () => {
     const wrapper = mount(
-      <DemoApp data={data}/>
+      <Demo/>
     );
 
     expect(wrapper).toMatchSnapshot();
@@ -15,7 +14,7 @@ describe('neoform', () => {
 
   it('change field', () => {
     const wrapper = mount(
-      <DemoApp data={data}/>
+      <Demo/>
     );
 
     const firstName = wrapper.find('[name="firstName"]');

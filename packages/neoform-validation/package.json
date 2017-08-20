@@ -1,5 +1,6 @@
 {
   "name": "neoform-validation",
+  "library": "NeoFormValidation",
   "version": "0.3.0",
   "description": "Validation HOCs for NeoForm",
   "keywords": [],

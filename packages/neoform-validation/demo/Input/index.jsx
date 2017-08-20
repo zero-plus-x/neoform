@@ -1,6 +1,7 @@
 import React from 'react';
-import Field from '~/neoform/src/Field';
-import FieldValidation from '~/neoform-validation/src/Field';
+
+import { Field } from 'neoform';
+import { FieldValidation } from '../../src';
 
 const renderError = (status, message) => {
   if (status !== false) {

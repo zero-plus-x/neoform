@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Form from '~/neoform/src/Form';
-import FormValidation from '~/neoform-validation/src/Form';
+import { Form } from 'neoform';
+import { FormValidation } from '../../src';
 
 import Input from '../Input';
 

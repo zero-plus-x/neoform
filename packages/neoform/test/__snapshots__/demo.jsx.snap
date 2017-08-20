@@ -1,28 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`neoform basic wrapper 1`] = `
-<App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Sad",
-          "lastName": "Pepe",
-        },
-        Object {
-          "firstName": "Forever",
-          "lastName": "Alone",
-        },
-      ],
-      "lastName": "Doe",
-      "phoneNumbers": Array [
-        "123123",
-        "456456",
-      ],
-    }
-  }
->
+<Demo>
   <withContext(Form)
     data={
       Object {
@@ -39,8 +18,8 @@ exports[`neoform basic wrapper 1`] = `
         ],
         "lastName": "Doe",
         "phoneNumbers": Array [
-          "123123",
-          "456456",
+          123123,
+          456456,
         ],
       }
     }
@@ -63,8 +42,8 @@ exports[`neoform basic wrapper 1`] = `
           ],
           "lastName": "Doe",
           "phoneNumbers": Array [
-            "123123",
-            "456456",
+            123123,
+            456456,
           ],
         }
       }
@@ -105,8 +84,8 @@ exports[`neoform basic wrapper 1`] = `
                       ],
                       "lastName": "Doe",
                       "phoneNumbers": Array [
-                        "123123",
-                        "456456",
+                        123123,
+                        456456,
                       ],
                     },
                     "updateData": [Function],
@@ -153,8 +132,8 @@ exports[`neoform basic wrapper 1`] = `
                       ],
                       "lastName": "Doe",
                       "phoneNumbers": Array [
-                        "123123",
-                        "456456",
+                        123123,
+                        456456,
                       ],
                     },
                     "updateData": [Function],
@@ -203,8 +182,8 @@ exports[`neoform basic wrapper 1`] = `
                       ],
                       "lastName": "Doe",
                       "phoneNumbers": Array [
-                        "123123",
-                        "456456",
+                        123123,
+                        456456,
                       ],
                     },
                     "updateData": [Function],
@@ -214,12 +193,12 @@ exports[`neoform basic wrapper 1`] = `
                 <MyInput
                   name="phoneNumbers[0]"
                   onChange={[Function]}
-                  value="123123"
+                  value={123123}
                 >
                   <input
                     name="phoneNumbers[0]"
                     onChange={[Function]}
-                    value="123123"
+                    value={123123}
                   />
                 </MyInput>
               </withProps(omitProps(Field))>
@@ -248,8 +227,8 @@ exports[`neoform basic wrapper 1`] = `
                       ],
                       "lastName": "Doe",
                       "phoneNumbers": Array [
-                        "123123",
-                        "456456",
+                        123123,
+                        456456,
                       ],
                     },
                     "updateData": [Function],
@@ -259,12 +238,12 @@ exports[`neoform basic wrapper 1`] = `
                 <MyInput
                   name="phoneNumbers[1]"
                   onChange={[Function]}
-                  value="456456"
+                  value={456456}
                 >
                   <input
                     name="phoneNumbers[1]"
                     onChange={[Function]}
-                    value="456456"
+                    value={456456}
                   />
                 </MyInput>
               </withProps(omitProps(Field))>
@@ -301,8 +280,8 @@ exports[`neoform basic wrapper 1`] = `
                           ],
                           "lastName": "Doe",
                           "phoneNumbers": Array [
-                            "123123",
-                            "456456",
+                            123123,
+                            456456,
                           ],
                         },
                         "updateData": [Function],
@@ -349,8 +328,8 @@ exports[`neoform basic wrapper 1`] = `
                           ],
                           "lastName": "Doe",
                           "phoneNumbers": Array [
-                            "123123",
-                            "456456",
+                            123123,
+                            456456,
                           ],
                         },
                         "updateData": [Function],
@@ -399,8 +378,8 @@ exports[`neoform basic wrapper 1`] = `
                           ],
                           "lastName": "Doe",
                           "phoneNumbers": Array [
-                            "123123",
-                            "456456",
+                            123123,
+                            456456,
                           ],
                         },
                         "updateData": [Function],
@@ -447,8 +426,8 @@ exports[`neoform basic wrapper 1`] = `
                           ],
                           "lastName": "Doe",
                           "phoneNumbers": Array [
-                            "123123",
-                            "456456",
+                            123123,
+                            456456,
                           ],
                         },
                         "updateData": [Function],
@@ -480,32 +459,11 @@ exports[`neoform basic wrapper 1`] = `
       </form>
     </MyForm>
   </withContext(Form)>
-</App>
+</Demo>
 `;
 
 exports[`neoform change field 1`] = `
-<App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Sad",
-          "lastName": "Pepe",
-        },
-        Object {
-          "firstName": "Forever",
-          "lastName": "Alone",
-        },
-      ],
-      "lastName": "Doe",
-      "phoneNumbers": Array [
-        "123123",
-        "456456",
-      ],
-    }
-  }
->
+<Demo>
   <withContext(Form)
     data={
       Object {
@@ -522,8 +480,8 @@ exports[`neoform change field 1`] = `
         ],
         "lastName": "Doe",
         "phoneNumbers": Array [
-          "123123",
-          "456456",
+          123123,
+          456456,
         ],
       }
     }
@@ -546,8 +504,8 @@ exports[`neoform change field 1`] = `
           ],
           "lastName": "Doe",
           "phoneNumbers": Array [
-            "123123",
-            "456456",
+            123123,
+            456456,
           ],
         }
       }
@@ -588,8 +546,8 @@ exports[`neoform change field 1`] = `
                       ],
                       "lastName": "Doe",
                       "phoneNumbers": Array [
-                        "123123",
-                        "456456",
+                        123123,
+                        456456,
                       ],
                     },
                     "updateData": [Function],
@@ -636,8 +594,8 @@ exports[`neoform change field 1`] = `
                       ],
                       "lastName": "Doe",
                       "phoneNumbers": Array [
-                        "123123",
-                        "456456",
+                        123123,
+                        456456,
                       ],
                     },
                     "updateData": [Function],
@@ -686,8 +644,8 @@ exports[`neoform change field 1`] = `
                       ],
                       "lastName": "Doe",
                       "phoneNumbers": Array [
-                        "123123",
-                        "456456",
+                        123123,
+                        456456,
                       ],
                     },
                     "updateData": [Function],
@@ -697,12 +655,12 @@ exports[`neoform change field 1`] = `
                 <MyInput
                   name="phoneNumbers[0]"
                   onChange={[Function]}
-                  value="123123"
+                  value={123123}
                 >
                   <input
                     name="phoneNumbers[0]"
                     onChange={[Function]}
-                    value="123123"
+                    value={123123}
                   />
                 </MyInput>
               </withProps(omitProps(Field))>
@@ -731,8 +689,8 @@ exports[`neoform change field 1`] = `
                       ],
                       "lastName": "Doe",
                       "phoneNumbers": Array [
-                        "123123",
-                        "456456",
+                        123123,
+                        456456,
                       ],
                     },
                     "updateData": [Function],
@@ -742,12 +700,12 @@ exports[`neoform change field 1`] = `
                 <MyInput
                   name="phoneNumbers[1]"
                   onChange={[Function]}
-                  value="456456"
+                  value={456456}
                 >
                   <input
                     name="phoneNumbers[1]"
                     onChange={[Function]}
-                    value="456456"
+                    value={456456}
                   />
                 </MyInput>
               </withProps(omitProps(Field))>
@@ -784,8 +742,8 @@ exports[`neoform change field 1`] = `
                           ],
                           "lastName": "Doe",
                           "phoneNumbers": Array [
-                            "123123",
-                            "456456",
+                            123123,
+                            456456,
                           ],
                         },
                         "updateData": [Function],
@@ -832,8 +790,8 @@ exports[`neoform change field 1`] = `
                           ],
                           "lastName": "Doe",
                           "phoneNumbers": Array [
-                            "123123",
-                            "456456",
+                            123123,
+                            456456,
                           ],
                         },
                         "updateData": [Function],
@@ -882,8 +840,8 @@ exports[`neoform change field 1`] = `
                           ],
                           "lastName": "Doe",
                           "phoneNumbers": Array [
-                            "123123",
-                            "456456",
+                            123123,
+                            456456,
                           ],
                         },
                         "updateData": [Function],
@@ -930,8 +888,8 @@ exports[`neoform change field 1`] = `
                           ],
                           "lastName": "Doe",
                           "phoneNumbers": Array [
-                            "123123",
-                            "456456",
+                            123123,
+                            456456,
                           ],
                         },
                         "updateData": [Function],
@@ -963,5 +921,5 @@ exports[`neoform change field 1`] = `
       </form>
     </MyForm>
   </withContext(Form)>
-</App>
+</Demo>
 `;

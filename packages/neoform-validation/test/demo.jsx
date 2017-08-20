@@ -1,13 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import DemoApp from '~/neoform-validation/demo/App';
-import data from '~/neoform-validation/demo/data.json';
+import Demo from '../demo';
 
 describe('neoform-validation', () => {
   it('basic wrapper', () => {
     const wrapper = mount(
-      <DemoApp data={data}/>
+      <Demo/>
     );
 
     expect(wrapper).toMatchSnapshot();
@@ -16,7 +15,7 @@ describe('neoform-validation', () => {
   describe('validate field', () => {
     it('valid', () => {
       const wrapper = mount(
-        <DemoApp data={data}/>
+        <Demo/>
       );
       const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
 
@@ -38,7 +37,7 @@ describe('neoform-validation', () => {
 
     it('invalid', () => {
       const wrapper = mount(
-        <DemoApp data={data}/>
+        <Demo/>
       );
       const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
 
@@ -55,7 +54,7 @@ describe('neoform-validation', () => {
 
     it('without validator', () => {
       const wrapper = mount(
-        <DemoApp data={data}/>
+        <Demo/>
       );
       const country = wrapper.find('[name="country"]');
 
@@ -72,7 +71,7 @@ describe('neoform-validation', () => {
 
     it('unmount invalid field', () => {
       const wrapper = mount(
-        <DemoApp data={data}/>
+        <Demo/>
       );
       const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
 
@@ -97,7 +96,7 @@ describe('neoform-validation', () => {
 
     it('unmount field without validator', () => {
       const wrapper = mount(
-        <DemoApp data={data}/>
+        <Demo/>
       );
       const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
 
@@ -123,8 +122,8 @@ describe('neoform-validation', () => {
     it('valid', () => {
       const mockOnSubmit = jest.fn();
       const wrapper = mount(
-        <DemoApp
-          data={data}
+        <Demo
+
           onSubmit={mockOnSubmit}
         />
       );
@@ -151,8 +150,8 @@ describe('neoform-validation', () => {
     it('invalid', () => {
       const mockOnInvalid = jest.fn();
       const wrapper = mount(
-        <DemoApp
-          data={data}
+        <Demo
+
           onInvalid={mockOnInvalid}
         />
       );
@@ -173,8 +172,8 @@ describe('neoform-validation', () => {
     it('unmount invalid field', () => {
       const mockOnSubmit = jest.fn();
       const wrapper = mount(
-        <DemoApp
-          data={data}
+        <Demo
+
           onSubmit={mockOnSubmit}
         />
       );

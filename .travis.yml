@@ -1,12 +1,14 @@
 sudo: false
 language: node_js
 node_js:
-  - "node"
-cache: yarn
-before_script:
-  - cd $TRAVIS_BUILD_DIR/packages/neoform/; yarn
-  - cd $TRAVIS_BUILD_DIR/packages/neoform-validation/; yarn
-  - cd $TRAVIS_BUILD_DIR/packages/neoform-plain-object-helpers/; yarn
-  - cd $TRAVIS_BUILD_DIR/packages/neoform-immutable-helpers/; yarn
-  - cd $TRAVIS_BUILD_DIR
+  - node
+env:
+  global:
+    - PATH=$HOME/.yarn/bin:$PATH
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+cache:
+  yarn: true
+  directories:
+    - node_modules
 script: yarn start ci

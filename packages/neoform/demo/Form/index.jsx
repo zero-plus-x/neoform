@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from '~/neoform/src/Form';
 
+import { Form } from '../../src';
 import Input from '../Input';
 
 const MyForm = ({ data }) => (

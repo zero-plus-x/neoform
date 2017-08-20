@@ -1,24 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`neoform-validation basic wrapper 1`] = `
-<App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Pepe",
-          "lastName": "Sad",
-        },
-        Object {
-          "firstName": "",
-          "lastName": "Darkness",
-        },
-      ],
-      "lastName": "Doe",
-    }
-  }
->
+<App>
   <withContext(Form)
     data={
       Object {
@@ -1094,24 +1077,7 @@ exports[`neoform-validation basic wrapper 1`] = `
 `;
 
 exports[`neoform-validation validate field invalid 1`] = `
-<App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Pepe",
-          "lastName": "Sad",
-        },
-        Object {
-          "firstName": "",
-          "lastName": "Darkness",
-        },
-      ],
-      "lastName": "Doe",
-    }
-  }
->
+<App>
   <withContext(Form)
     data={
       Object {
@@ -2222,24 +2188,7 @@ exports[`neoform-validation validate field invalid 1`] = `
 `;
 
 exports[`neoform-validation validate field unmount field without validator 1`] = `
-<App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Pepe",
-          "lastName": "Sad",
-        },
-        Object {
-          "firstName": "",
-          "lastName": "Darkness",
-        },
-      ],
-      "lastName": "Doe",
-    }
-  }
->
+<App>
   <withContext(Form)
     data={
       Object {
@@ -2970,24 +2919,7 @@ exports[`neoform-validation validate field unmount field without validator 1`] =
 `;
 
 exports[`neoform-validation validate field unmount invalid field 1`] = `
-<App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Pepe",
-          "lastName": "Sad",
-        },
-        Object {
-          "firstName": "",
-          "lastName": "Darkness",
-        },
-      ],
-      "lastName": "Doe",
-    }
-  }
->
+<App>
   <withContext(Form)
     data={
       Object {
@@ -3718,24 +3650,7 @@ exports[`neoform-validation validate field unmount invalid field 1`] = `
 `;
 
 exports[`neoform-validation validate field valid 1`] = `
-<App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Pepe",
-          "lastName": "Sad",
-        },
-        Object {
-          "firstName": "",
-          "lastName": "Darkness",
-        },
-      ],
-      "lastName": "Doe",
-    }
-  }
->
+<App>
   <withContext(Form)
     data={
       Object {
@@ -4834,24 +4749,7 @@ exports[`neoform-validation validate field valid 1`] = `
 `;
 
 exports[`neoform-validation validate field without validator 1`] = `
-<App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Pepe",
-          "lastName": "Sad",
-        },
-        Object {
-          "firstName": "",
-          "lastName": "Darkness",
-        },
-      ],
-      "lastName": "Doe",
-    }
-  }
->
+<App>
   <withContext(Form)
     data={
       Object {
@@ -5928,22 +5826,6 @@ exports[`neoform-validation validate field without validator 1`] = `
 
 exports[`neoform-validation validate form invalid 1`] = `
 <App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Pepe",
-          "lastName": "Sad",
-        },
-        Object {
-          "firstName": "",
-          "lastName": "Darkness",
-        },
-      ],
-      "lastName": "Doe",
-    }
-  }
   onInvalid={[Function]}
 >
   <withContext(Form)
@@ -7077,22 +6959,6 @@ exports[`neoform-validation validate form invalid 1`] = `
 
 exports[`neoform-validation validate form unmount invalid field 1`] = `
 <App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Pepe",
-          "lastName": "Sad",
-        },
-        Object {
-          "firstName": "",
-          "lastName": "Darkness",
-        },
-      ],
-      "lastName": "Doe",
-    }
-  }
   onSubmit={[Function]}
 >
   <withContext(Form)
@@ -7849,22 +7715,6 @@ exports[`neoform-validation validate form unmount invalid field 1`] = `
 
 exports[`neoform-validation validate form valid 1`] = `
 <App
-  data={
-    Object {
-      "firstName": "John",
-      "friends": Array [
-        Object {
-          "firstName": "Pepe",
-          "lastName": "Sad",
-        },
-        Object {
-          "firstName": "",
-          "lastName": "Darkness",
-        },
-      ],
-      "lastName": "Doe",
-    }
-  }
   onSubmit={[Function]}
 >
   <withContext(Form)
