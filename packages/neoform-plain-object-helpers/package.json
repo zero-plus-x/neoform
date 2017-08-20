@@ -3,16 +3,25 @@
   "library": "NeoFormPlainObjectHelpers",
   "version": "0.1.0",
   "description": "NeoForm helpers to work with plain object state",
-  "keywords": [],
-  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+  "keywords": [
+    "neoform"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
-  "browser": "dist/neoform-plain-object-helpers.js",
   "files": [
     "dist/",
     "es/",
     "lib/"
   ],
+  "repository": "zero-plus-x/neoform",
+  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/zero-plus-x/neoform/blob/master/license.md"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "neoform": "^0.2.0"
   },
@@ -21,6 +30,5 @@
   },
   "scripts": {
     "prepublishOnly": "cd ../..; yarn start build neoform-plain-object-helpers"
-  },
-  "license": "MIT"
+  }
 }
