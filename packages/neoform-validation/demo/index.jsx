@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 
 import { getValue, setValue } from 'neoform-plain-object-helpers';
 import Form from './Form';
 
-class App extends Component {
+class Demo extends Component {
   constructor(props) {
     super(props);
 
@@ -22,6 +23,7 @@ class App extends Component {
       ]
     };
     this.onChange = this.onChange.bind(this);
+    this.onInvalid = this.onInvalid.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -29,8 +31,12 @@ class App extends Component {
     this.setState((prevState) => setValue(prevState, name, value));
   }
 
+  onInvalid() {
+    console.log('invalid:', this.state);
+  }
+
   onSubmit() {
-    this.props.onSubmit(this.state);
+    console.log('submit:', this.state);
   }
 
   render() {
@@ -39,11 +45,11 @@ class App extends Component {
         data={this.state}
         getValue={getValue}
         onChange={this.onChange}
-        onInvalid={this.props.onInvalid}
+        onInvalid={this.onInvalid}
         onSubmit={this.onSubmit}
       />
     );
   }
 }
 
-export default App;
+export default Demo;

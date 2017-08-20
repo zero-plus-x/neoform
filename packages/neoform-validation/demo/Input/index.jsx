@@ -1,17 +1,8 @@
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 
 import { Field } from 'neoform';
 import { FieldValidation } from '../../src';
-
-const renderError = (status, message) => {
-  if (status !== false) {
-    return null;
-  }
-
-  return (
-    <span>{message}</span>
-  );
-};
 
 const MyInput = ({
   value = '',
@@ -34,7 +25,9 @@ const MyInput = ({
         onBlur={validate}
         onChange={(e) => onChange(e.target.value)}
       />
-      {renderError(validationStatus, validationMessage)}
+      {validationStatus === false && (
+        <span>{validationMessage}</span>
+      )}
     </span>
   );
 };

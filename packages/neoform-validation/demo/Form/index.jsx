@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 
 import { Form } from 'neoform';
@@ -26,7 +28,6 @@ const MyForm = ({
       validate(onSubmit, onInvalid);
     }}
   >
-    <h1>simple form</h1>
     <h2>personal data</h2>
     <div>
       <label>
@@ -40,17 +41,11 @@ const MyForm = ({
         <Input name="lastName"/>
       </label>
     </div>
-    <div>
-      <label>
-        country
-        <Input name="country"/>
-      </label>
-    </div>
     <h2>friends</h2>
     <ul>
       {
         data.friends.map((friend, index) => (
-          <li key={index}>
+          <li key={`friends.${index}`}>
             <div>
               <label>
                 first name (required)

@@ -1,201 +1,139 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { mount } from 'enzyme';
 
 import Demo from '../demo';
 
 describe('neoform-validation', () => {
-  it('basic wrapper', () => {
-    const wrapper = mount(
-      <Demo/>
-    );
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  describe('validate field', () => {
-    it('valid', () => {
+  describe('field', () => {
+    it('invalid', (done) => {
       const wrapper = mount(
         <Demo/>
       );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
 
-      firstName.simulate('change', {
-        target: {
-          value: 'Alone'
-        }
-      });
-      firstName.simulate('blur');
+      const testField = wrapper
+        .find('MyInput')
+        .filterWhere((node) => node.prop('name') === 'friends.1.firstName');
 
-      return new Promise((resolve) => {
-        // FIXME
-        global.setImmediate(() => {
-          expect(wrapper).toMatchSnapshot();
-          resolve();
-        });
+      testField.prop('validate')();
+
+      global.setImmediate(() => {
+        expect(wrapper.find('MyForm').props()).toMatchSnapshot();
+        expect(testField.props()).toMatchSnapshot();
+        done();
       });
     });
 
-    it('invalid', () => {
+    it('valid', (done) => {
       const wrapper = mount(
         <Demo/>
       );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
 
-      firstName.simulate('blur');
+      const testField = wrapper
+        .find('MyInput')
+        .filterWhere((node) => node.prop('name') === 'friends.1.firstName');
 
-      return new Promise((resolve) => {
-        // FIXME
-        global.setImmediate(() => {
-          expect(wrapper).toMatchSnapshot();
-          resolve();
-        });
+      testField.prop('onChange')('hey from test');
+      testField.prop('validate')();
+
+      global.setImmediate(() => {
+        expect(wrapper.find('MyForm').props()).toMatchSnapshot();
+        expect(testField.props()).toMatchSnapshot();
+        done();
       });
     });
 
-    it('without validator', () => {
+    it('without validator', (done) => {
       const wrapper = mount(
         <Demo/>
       );
-      const country = wrapper.find('[name="country"]');
 
-      country.simulate('blur');
+      const testField = wrapper
+        .find('MyInput')
+        .filterWhere((node) => node.prop('name') === 'friends.1.lastName');
 
-      return new Promise((resolve) => {
-        // FIXME
-        global.setImmediate(() => {
-          expect(wrapper).toMatchSnapshot();
-          resolve();
-        });
+      testField.prop('validate')();
+
+      global.setImmediate(() => {
+        expect(wrapper.find('MyForm').props()).toMatchSnapshot();
+        expect(testField.props()).toMatchSnapshot();
+        done();
       });
     });
 
-    it('unmount invalid field', () => {
+    it('unmount invalid field', (done) => {
       const wrapper = mount(
         <Demo/>
       );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
 
-      return new Promise((resolve) => {
-        firstName.simulate('blur');
+      const testField = wrapper
+        .find('MyInput')
+        .filterWhere((node) => node.prop('name') === 'friends.1.firstName');
 
-        global.setImmediate(() => {
-          wrapper.setState({
-            friends: [
-              {
-                firstName: 'Pepe',
-                lastName: 'Sad'
-              }
-            ]
-          }, () => {
-            expect(wrapper).toMatchSnapshot();
-            resolve();
-          });
-        })
-      });
-    });
+      testField.prop('validate')();
 
-    it('unmount field without validator', () => {
-      const wrapper = mount(
-        <Demo/>
-      );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
-
-      firstName.simulate('blur');
-
-      return new Promise((resolve) => {
+      global.setImmediate(() => {
         wrapper.setState({
           friends: [
             {
-              firstName: 'Sad',
-              lastName: 'Pepe'
+              firstName: 'Pepe',
+              lastName: 'Sad'
             }
           ]
         }, () => {
-          expect(wrapper).toMatchSnapshot();
-          resolve();
+          global.setTimeout(() => {
+            expect(wrapper.find('MyForm').props()).toMatchSnapshot();
+            done();
+          }, 100);
         });
       });
     });
   });
 
-  describe('validate form', () => {
-    it('valid', () => {
-      const mockOnSubmit = jest.fn();
+  describe('form', () => {
+    it('invalid', (done) => {
+      const mockOnSuccess = jest.fn();
+      const mockOnError = jest.fn();
       const wrapper = mount(
-        <Demo
-
-          onSubmit={mockOnSubmit}
-        />
+        <Demo/>
       );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
-      const form = wrapper.find('form');
+      const form = wrapper.find('MyForm');
 
-      firstName.simulate('change', {
-        target: {
-          value: 'Alone'
-        }
-      });
-      form.simulate('submit');
+      form.prop('validate')(mockOnSuccess, mockOnError);
 
-      return new Promise((resolve) => {
-        // FIXME
-        global.setImmediate(() => {
-          expect(wrapper).toMatchSnapshot();
-          expect(mockOnSubmit).toHaveBeenCalledTimes(1);
-          resolve();
-        });
+      global.setImmediate(() => {
+        const testField = wrapper
+          .find('MyInput')
+          .filterWhere((node) => node.prop('name') === 'friends.1.firstName');
+
+        expect(testField.props()).toMatchSnapshot();
+        expect(form.props()).toMatchSnapshot();
+        expect(mockOnSuccess).toHaveBeenCalledTimes(0);
+        expect(mockOnError).toHaveBeenCalledTimes(1);
+        done();
       });
     });
 
-    it('invalid', () => {
-      const mockOnInvalid = jest.fn();
+    it('valid', (done) => {
+      const mockOnSuccess = jest.fn();
+      const mockOnError = jest.fn();
       const wrapper = mount(
-        <Demo
-
-          onInvalid={mockOnInvalid}
-        />
+        <Demo/>
       );
-      const form = wrapper.find('form');
+      const form = wrapper.find('MyForm');
+      const testField = wrapper
+        .find('MyInput')
+        .filterWhere((node) => node.prop('name') === 'friends.1.firstName');
 
-      form.simulate('submit');
+      testField.prop('onChange')('hey from test');
+      form.prop('validate')(mockOnSuccess, mockOnError);
 
-      return new Promise((resolve) => {
-        // FIXME
-        global.setImmediate(() => {
-          expect(wrapper).toMatchSnapshot();
-          expect(mockOnInvalid).toHaveBeenCalledTimes(1);
-          resolve();
-        });
-      });
-    });
-
-    it('unmount invalid field', () => {
-      const mockOnSubmit = jest.fn();
-      const wrapper = mount(
-        <Demo
-
-          onSubmit={mockOnSubmit}
-        />
-      );
-      const form = wrapper.find('form');
-
-      wrapper.setState({
-        friends: [
-          {
-            firstName: 'Sad',
-            lastName: 'Pepe'
-          }
-        ]
-      });
-      form.simulate('submit');
-
-      return new Promise((resolve) => {
-        // FIXME
-        global.setImmediate(() => {
-          expect(wrapper).toMatchSnapshot();
-          expect(mockOnSubmit).toHaveBeenCalledTimes(1);
-          resolve();
-        });
+      global.setImmediate(() => {
+        expect(testField.props()).toMatchSnapshot();
+        expect(form.props()).toMatchSnapshot();
+        expect(mockOnSuccess).toHaveBeenCalledTimes(1);
+        expect(mockOnError).toHaveBeenCalledTimes(0);
+        done();
       });
     });
   });
