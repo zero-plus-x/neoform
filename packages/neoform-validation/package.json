@@ -2,27 +2,36 @@
   "name": "neoform-validation",
   "library": "NeoFormValidation",
   "version": "0.3.0",
-  "description": "Validation HOCs for NeoForm",
-  "keywords": [],
-  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+  "description": "Higher-Order Components for form validation in React",
+  "keywords": [
+    "neoform",
+    "validation"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
-  "browser": "dist/neoform-validation.js",
   "files": [
     "dist/",
     "es/",
     "lib/"
   ],
+  "repository": "zero-plus-x/neoform",
+  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/zero-plus-x/neoform/blob/master/license.md"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "neoform": "^0.2.0",
-    "react": "^15.4.2"
+    "react": "^15.4.2",
+    "prop-types": "^15.5.10"
   },
   "dependencies": {
-    "prop-types": "^15.5.10",
-    "recompact": "^3.0.3"
+    "just-omit": "^1.0.1"
   },
   "scripts": {
     "prepublishOnly": "cd ../..; yarn start build neoform-validation"
-  },
-  "license": "MIT"
+  }
 }
