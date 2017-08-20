@@ -2,7 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 
-import { Form } from '../../src';
+import { form } from '../../src';
 import Input from '../Input';
 
 const MyForm = ({ data, onSubmit }) => (
@@ -50,4 +50,4 @@ const MyForm = ({ data, onSubmit }) => (
   </form>
 );
 
-export default Form(MyForm);
+export default form(MyForm);

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
 
-import { Field } from '../../src';
+import { field } from '../../src';
 
 const MyInput = ({
   value = '',
@@ -15,4 +15,4 @@ const MyInput = ({
   />
 );
 
-export default Field(MyInput);
+export default field(MyInput);
