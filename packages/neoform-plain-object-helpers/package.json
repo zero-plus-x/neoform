@@ -17,8 +17,7 @@
     "neoform": "^0.2.0"
   },
   "dependencies": {
-    "dot-prop-immutable": "^1.3.1",
-    "lodash.memoize": "^4.1.2"
+    "dot-prop-immutable": "^1.3.1"
   },
   "scripts": {
     "prepublishOnly": "cd ../..; yarn start build neoform-plain-object-helpers"
