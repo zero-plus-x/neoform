@@ -2,26 +2,31 @@
   "name": "neoform",
   "library": "NeoForm",
   "version": "0.2.0",
-  "description": "Better form state management for React",
-  "keywords": [],
-  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+  "description": "Higher-Order Components for form state management in React",
+  "keywords": [
+    "neoform"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
-  "browser": "dist/neoform.js",
   "files": [
     "dist/",
     "es/",
     "lib/"
   ],
-  "peerDependencies": {
-    "react": "^15.4.2"
+  "repository": "zero-plus-x/neoform",
+  "author": "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/zero-plus-x/neoform/blob/master/license.md"
   },
-  "dependencies": {
-    "prop-types": "^15.5.10",
-    "recompact": "^3.0.3"
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^15.4.2",
+    "prop-types": "^15.5.10"
   },
   "scripts": {
     "prepublishOnly": "cd ../..; yarn start build neoform"
-  },
-  "license": "MIT"
+  }
 }
