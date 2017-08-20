@@ -29,7 +29,7 @@ const MyForm = ({ data }) => (
       {
         data.phoneNumbers.map((phoneNumber, index) => (
           <li key={index}>
-            <Input name={`phoneNumbers[${index}]`}/>
+            <Input name={`phoneNumbers.${index}`}/>
           </li>
         ))
       }
@@ -42,13 +42,13 @@ const MyForm = ({ data }) => (
             <div>
               <label>
                 first name
-                <Input name={`friends[${index}].firstName`}/>
+                <Input name={`friends.${index}.firstName`}/>
               </label>
             </div>
             <div>
               <label>
                 last name
-                <Input name={`friends[${index}].lastName`}/>
+                <Input name={`friends.${index}.lastName`}/>
               </label>
             </div>
           </li>

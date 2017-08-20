@@ -54,13 +54,13 @@ const MyForm = ({
             <div>
               <label>
                 first name (required)
-                <Input name={`friends[${index}].firstName`} validator={requiredValidator}/>
+                <Input name={`friends.${index}.firstName`} validator={requiredValidator}/>
               </label>
             </div>
             <div>
               <label>
                 last name
-                <Input name={`friends[${index}].lastName`}/>
+                <Input name={`friends.${index}.lastName`}/>
               </label>
             </div>
           </li>

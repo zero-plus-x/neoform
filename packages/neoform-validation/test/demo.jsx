@@ -17,7 +17,7 @@ describe('neoform-validation', () => {
       const wrapper = mount(
         <Demo/>
       );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
 
       firstName.simulate('change', {
         target: {
@@ -39,7 +39,7 @@ describe('neoform-validation', () => {
       const wrapper = mount(
         <Demo/>
       );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
 
       firstName.simulate('blur');
 
@@ -73,7 +73,7 @@ describe('neoform-validation', () => {
       const wrapper = mount(
         <Demo/>
       );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
 
       return new Promise((resolve) => {
         firstName.simulate('blur');
@@ -98,7 +98,7 @@ describe('neoform-validation', () => {
       const wrapper = mount(
         <Demo/>
       );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
 
       firstName.simulate('blur');
 
@@ -127,7 +127,7 @@ describe('neoform-validation', () => {
           onSubmit={mockOnSubmit}
         />
       );
-      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends[1].firstName');
+      const firstName = wrapper.findWhere((node) => node.getDOMNode().name === 'friends.1.firstName');
       const form = wrapper.find('form');
 
       firstName.simulate('change', {
