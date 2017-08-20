@@ -1,5 +1,6 @@
 {
   "private": true,
+  "description": "Higher-Order Components for form state management and validation in React",
   "workspaces": [
     "packages/*"
   ],
