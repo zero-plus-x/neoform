@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 
 import { getValue, setValue } from 'neoform-plain-object-helpers';
@@ -10,23 +11,23 @@ class Demo extends Component {
     this.state = {
       firstName: 'John',
       lastName: 'Doe',
-      phoneNumbers: [
-        123123,
-        456456
-      ],
       friends: [
         {
-          firstName: 'Sad',
-          lastName: 'Pepe'
+          firstName: 'Pepe',
+          lastName: 'Sad'
         },
         {
-          firstName: 'Forever',
-          lastName: 'Alone'
+          firstName: '',
+          lastName: 'Darkness'
         }
       ]
     };
-
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit() {
+    console.log('submit:', this.state);
   }
 
   onChange(name, value) {
@@ -39,6 +40,7 @@ class Demo extends Component {
         data={this.state}
         getValue={getValue}
         onChange={this.onChange}
+        onSubmit={this.onSubmit}
       />
     );
   }

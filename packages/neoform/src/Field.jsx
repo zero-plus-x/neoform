@@ -1,29 +1,43 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
-import compose from 'recompact/compose';
-import setPropTypes from 'recompact/setPropTypes';
-import getContext from 'recompact/getContext';
-import withProps from 'recompact/withProps';
-import omitProps from 'recompact/omitProps';
+import { createEagerFactory, setDisplayName, wrapDisplayName } from 'recompose';
 
-export default (Target) => {
-  const Field = (props) => (
-    <Target {...props}/>
-  );
+const field = (Target) => {
+  const factory = createEagerFactory(Target);
 
-  return compose(
-    setPropTypes({
-      name: PropTypes.string.isRequired
-    }),
-    getContext({
-      neoform: PropTypes.object
-    }),
-    withProps(
-      ({ neoform, name }) => ({
-        value: neoform.getValue(name),
-        onChange: (value) => neoform.updateData(name, value)
-      })
-    ),
-    omitProps([ 'neoform' ])
-  )(Field);
+  class Field extends Component {
+    constructor(props, context) {
+      super(props, context);
+
+      this.onChange = this.onChange.bind(this);
+    }
+
+    onChange(value) {
+      return this.context.neoform.updateData(this.props.name, value);
+    }
+
+    render() {
+      return factory({
+        ...this.props,
+        value: this.context.neoform.getValue(this.props.name),
+        onChange: this.onChange
+      });
+    }
+  }
+
+  Field.propTypes = {
+    name: PropTypes.string.isRequired
+  };
+
+  Field.contextTypes = {
+    neoform: PropTypes.object
+  };
+
+  if (process.env.NODE_ENV !== 'production') {
+    return setDisplayName(wrapDisplayName(Target, 'field'))(Field);
+  }
+
+  return Field;
 };
+
+export default field;

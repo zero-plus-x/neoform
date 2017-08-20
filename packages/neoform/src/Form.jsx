@@ -1,31 +1,43 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
-import compose from 'recompact/compose';
-import setPropTypes from 'recompact/setPropTypes';
-import withContext from 'recompact/withContext';
+import { createEagerFactory, setDisplayName, wrapDisplayName } from 'recompose';
 
-export default (Target) => {
-  const Form = (props) => (
-    <Target {...props}/>
-  );
+const form = (Target) => {
+  const factory = createEagerFactory(Target);
 
-  return compose(
-    setPropTypes({
-      data: PropTypes.object.isRequired,
-      getValue: PropTypes.func.isRequired,
-      onChange: PropTypes.func.isRequired
-    }),
-    withContext(
-      {
-        neoform: PropTypes.object
-      },
-      ({ data, getValue, onChange }) => ({
+  class Form extends Component {
+    getChildContext() {
+      const { data, getValue, onChange } = this.props;
+
+      return {
         neoform: {
           state: data,
           updateData: onChange,
           getValue: (name) => getValue(data, name)
         }
-      })
-    )
-  )(Form);
+      };
+    }
+
+    render() {
+      return factory(this.props);
+    }
+  }
+
+  Form.propTypes = {
+    data: PropTypes.object.isRequired,
+    getValue: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired
+  };
+
+  Form.childContextTypes = {
+    neoform: PropTypes.object
+  };
+
+  if (process.env.NODE_ENV !== 'production') {
+    return setDisplayName(wrapDisplayName(Target, 'form'))(Form);
+  }
+
+  return Form;
 };
+
+export default form;

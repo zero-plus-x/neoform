@@ -1,16 +1,17 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 
 import { Form } from '../../src';
 import Input from '../Input';
 
-const MyForm = ({ data }) => (
+const MyForm = ({ data, onSubmit }) => (
   <form
     onSubmit={(e) => {
-      console.log(data);
       e.preventDefault();
+      onSubmit();
     }}
   >
-    <h1>simple form</h1>
     <h2>personal data</h2>
     <div>
       <label>
@@ -24,21 +25,11 @@ const MyForm = ({ data }) => (
         <Input name="lastName"/>
       </label>
     </div>
-    <h2>phone numbers</h2>
-    <ul>
-      {
-        data.phoneNumbers.map((phoneNumber, index) => (
-          <li key={index}>
-            <Input name={`phoneNumbers.${index}`}/>
-          </li>
-        ))
-      }
-    </ul>
     <h2>friends</h2>
     <ul>
       {
         data.friends.map((friend, index) => (
-          <li key={index}>
+          <li key={`friends.${index}`}>
             <div>
               <label>
                 first name
