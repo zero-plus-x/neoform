@@ -50,7 +50,7 @@ Each data field can be referenced with a "key" or "property" path. You might be 
   "name": "Pepe",  // "user.name"
   "status": "sad", // "user.status"
   "friends": [
-    "darkness"     // "user.friends[0]"
+    "darkness"     // "user.friends.0"
   ]
 }
 ```
@@ -101,7 +101,7 @@ const MyForm = () => (
   <form>
     <MyInput name="user.name" />
     <MyInput name="user.status" />
-    <MyInput name="user.friends[0]" />
+    <MyInput name="user.friends.0" />
   </form>
 );
 
@@ -119,7 +119,7 @@ const MyForm = () => (
   <form>
     <MyInput name="user.name" />
     <MyInput name="user.status" />
-    <MyInput name="user.friends[0]" />
+    <MyInput name="user.friends.0" />
   </form>
 );
 
@@ -291,7 +291,7 @@ const MyForm = ({
   }}>
     <MyInput name="user.name" />
     <MyInput name="user.status" />
-    <MyInput name="user.friends[0]" />
+    <MyInput name="user.friends.0" />
   </form>
 );
 
@@ -329,7 +329,7 @@ import { requiredValidator } from '../validators'
 <form>
   <MyInput name="user.name" validator={requiredValidator} />
   <MyInput name="user.status" />
-  <MyInput name="user.friends[0]" />
+  <MyInput name="user.friends.0" />
 </form>
 
 // …
