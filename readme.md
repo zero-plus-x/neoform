@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="./logo.png" width="300" />
+  <img src="./logo.png" width="300"/>
 </p>
 
 <p align="center">
-  <a href="https://travis-ci.org/zero-plus-x/neoform"><img src="https://img.shields.io/travis/zero-plus-x/neoform/master.svg?style=flat-square" alt="travis" /></a>
-  <a href="https://codecov.io/github/zero-plus-x/neoform"><img src="https://img.shields.io/codecov/c/github/zero-plus-x/neoform/master.svg?style=flat-square" alt="travis" /></a>
+  <a href="https://travis-ci.org/zero-plus-x/neoform"><img src="https://img.shields.io/travis/zero-plus-x/neoform/master.svg?style=flat-square" alt="travis"/></a>
+  <a href="https://codecov.io/github/zero-plus-x/neoform"><img src="https://img.shields.io/codecov/c/github/zero-plus-x/neoform/master.svg?style=flat-square" alt="travis"/></a>
 </p>
 
 ---
@@ -22,10 +22,9 @@ Better form state management for React where data state is directly mapped to fo
     * [`fieldValidation`](#fieldvalidation)
     * [`formValidation`](#formvalidation)
     * [Validators](#validators)
-* [Demo](#demo)
+* [FAQ](#faq)
 * [Status](#status)
 * [Development](#development)
-* [FAQ](#faq)
 
 ## Usage
 
@@ -57,13 +56,19 @@ Each data field can be referenced with a "key" or "property" path. You might be 
 
 The first core idea of NeoForm is to map data to form fields using these key/property paths. We'll refer to this data as "form state" below.
 
-Let's see how it works with a step-by-step example. We'll start with creating a simple input:
+Let's see how it works with a step-by-step example. First, we need to install the following set of dependencies:
+
+```
+yarn add prop-types recompose neoform neoform-validation neoform-plain-object-helpers
+```
+
+We'll start with creating a simple input:
 
 ### `field`
 
 ```js
 const MyInput = () => (
-  <input />
+  <input/>
 );
 
 export default MyInput;
@@ -99,9 +104,9 @@ import MyInput from '../MyInput';
 
 const MyForm = () => (
   <form>
-    <MyInput name="user.name" />
-    <MyInput name="user.status" />
-    <MyInput name="user.friends.0" />
+    <MyInput name="user.name"/>
+    <MyInput name="user.status"/>
+    <MyInput name="user.friends.0"/>
   </form>
 );
 
@@ -117,9 +122,9 @@ import MyInput from '../MyInput';
 
 const MyForm = () => (
   <form>
-    <MyInput name="user.name" />
-    <MyInput name="user.status" />
-    <MyInput name="user.friends.0" />
+    <MyInput name="user.name"/>
+    <MyInput name="user.status"/>
+    <MyInput name="user.friends.0"/>
   </form>
 );
 
@@ -284,9 +289,9 @@ const MyForm = ({
     validate(onSubmit, onInvalid)
     e.preventDefault();
   }}>
-    <MyInput name="user.name" />
-    <MyInput name="user.status" />
-    <MyInput name="user.friends.0" />
+    <MyInput name="user.name"/>
+    <MyInput name="user.status"/>
+    <MyInput name="user.friends.0"/>
   </form>
 );
 
@@ -323,32 +328,29 @@ import { requiredValidator } from '../validators'
 
 <form>
   <MyInput name="user.name" validator={requiredValidator} />
-  <MyInput name="user.status" />
-  <MyInput name="user.friends.0" />
+  <MyInput name="user.status"/>
+  <MyInput name="user.friends.0"/>
 </form>
 
 // …
 ```
 
-## Demo
+:tv: [Check out live demo](https://www.webpackbin.com/bins/-KrbNqAfDYNwm07UmzTb).
 
-For a better understanding, you can play with some examples in this repo:
+## FAQ
 
-### Simple
+> But this is just like my entire form is a single component with a single `onChange`!
 
-```sh
-yarn start demo neoform
-```
+Right.
 
-[Source code](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform/demo).
+> Does it affect performance because of re-rendering entire form on every field change?
 
-### Validation
+Probably in some cases it does. But as it was mentioned here before consider using [Recompose `pure()` HOC](https://github.com/acdlite/recompose/blob/master/docs/API.md#pure) or [`React.PureComponent`](https://facebook.github.io/react/docs/react-api.html#react.purecomponent) to avoid that.
 
-```sh
-yarn start demo neoform-validation
-```
+> What about Redux?
 
-[Source code](https://github.com/zero-plus-x/neoform/tree/master/packages/neoform-validation/demo).
+Absolutely same approach: call an action on form `onChange` and then use plain/immutable helper to return updated data state from a reducer.
+
 
 ## Status
 
@@ -363,15 +365,25 @@ This is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monor
 
 ## Development
 
-```sh
-yarn start build neoform
-yarn start build neoform-validation
-yarn start build neoform-plain-object-helpers
-yarn start build neoform-immutable-helpers
+1. Create a new folder in `packages/`, let's say `neoform-foo`.
+2. See `package.json` in already existing packages and create new `neoform-foo/package.json`.
+3. Put source code in `neoform-foo/src/`, it will be transpiled and bundled into `neoform-foo/dist/`, `neoform-foo/lib/` and `neoform-foo/es/`.
+4. Put tests written with Jest in `neoform-foo/test/`.
+5. Put demo in `neoform-foo/demo/`, it will be rendered and wrapped with HMR.
+
+Available scripts using [Start](https://github.com/start-runner/start):
+
+```
+yarn start build <package>
+yarn start demo <package>
+yarn start test
+yarn start testWatch
+yarn start lint
 ```
 
-## FAQ
+Available demos:
 
-> What about Redux?
-
-Absolutely same approach: call an action on form `onChange` and then use plain/immutable helper to return updated data state from a reducer.
+```
+yarn start demo neoform
+yarn start demo neoform-validation
+```
