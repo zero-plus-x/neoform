@@ -24,6 +24,7 @@
   },
   "peerDependencies": {
     "react": "^15.4.2",
+    "recompose": "^0.25.0",
     "prop-types": "^15.5.10"
   },
   "scripts": {

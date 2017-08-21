@@ -26,6 +26,7 @@
   "peerDependencies": {
     "neoform": "^0.2.0",
     "react": "^15.4.2",
+    "recompose": "^0.25.0",
     "prop-types": "^15.5.10"
   },
   "dependencies": {
