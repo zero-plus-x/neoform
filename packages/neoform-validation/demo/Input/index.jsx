@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
 
-import { field } from 'neoform';
+import { field } from '../../../neoform/src';
 import { fieldValidation } from '../../src';
 
 const MyInput = ({

@@ -2,7 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 
-import { form } from 'neoform';
+import { form } from '../../../neoform/src';
 import { formValidation } from '../../src';
 
 import Input from '../Input';
