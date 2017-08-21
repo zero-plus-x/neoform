@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
 
-import { getValue, setValue } from 'neoform-plain-object-helpers';
+import { getValue, setValue } from '../../neoform-plain-object-helpers/src';
 import Form from './Form';
 
 class Demo extends Component {
