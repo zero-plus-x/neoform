@@ -2331,7 +2331,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.1, fbjs@^0.8.14, fbjs@^0.8.9:
+fbjs@^0.8.1, fbjs@^0.8.9:
   version "0.8.14"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.14.tgz#d1dbe2be254c35a91e09f31f9cd50a40b2a0ed1c"
   dependencies:
@@ -2693,10 +2693,6 @@ hoek@2.x.x:
 hoist-non-react-statics@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
-
-hoist-non-react-statics@^2.2.1:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.3.0.tgz#ede16318c2ff1f9fe3a025396ba06fd4c44608bb"
 
 home-or-tmp@^2.0.0:
   version "2.0.0"
@@ -3102,10 +3098,6 @@ isobject@^2.0.0:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
   dependencies:
     isarray "1.0.0"
-
-isobject@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
 isomorphic-fetch@^2.1.1:
   version "2.2.1"
@@ -4026,18 +4018,12 @@ object.entries@^1.0.3, object.entries@^1.0.4:
     function-bind "^1.1.0"
     has "^1.0.1"
 
-object.omit@^2.0.0, object.omit@^2.0.1:
+object.omit@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/object.omit/-/object.omit-2.0.1.tgz#1a9c744829f39dbb858c76ca3579ae2a54ebd1fa"
   dependencies:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
-
-object.pick@^1.2.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/object.pick/-/object.pick-1.3.0.tgz#87a10ac4c1694bd2e1cbf53591a66141fb5dd747"
-  dependencies:
-    isobject "^3.0.1"
 
 object.values@^1.0.4:
   version "1.0.4"
@@ -4581,17 +4567,6 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-recompact@^3.0.3:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/recompact/-/recompact-3.0.5.tgz#cae7461335bca475fe375c3c24c63eda913971f4"
-  dependencies:
-    fbjs "^0.8.14"
-    hoist-non-react-statics "^2.2.1"
-    object.omit "^2.0.1"
-    object.pick "^1.2.0"
-    symbol-observable "^1.0.4"
-    warning "^3.0.0"
-
 recompose@^0.25.0:
   version "0.25.0"
   resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.25.0.tgz#e2ec723692ff0fdab3d62bd22c1da69af1985acd"
@@ -5107,9 +5082,9 @@ start-codecov@^2.0.0:
   dependencies:
     codecov-lite "^0.1.2"
 
-start-deepsweet-react-components-monorepo-preset@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/start-deepsweet-react-components-monorepo-preset/-/start-deepsweet-react-components-monorepo-preset-0.0.9.tgz#4efc386d10dc8240713492c4ca14f26eca3bc510"
+start-deepsweet-react-components-monorepo-preset@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/start-deepsweet-react-components-monorepo-preset/-/start-deepsweet-react-components-monorepo-preset-0.0.10.tgz#e957a3cf07a7a23fd93e37bcfefd80cd53f3c7ae"
   dependencies:
     babel-jest "^20.0.3"
     babel-loader "^7.1.2"
@@ -5622,12 +5597,6 @@ walker@~1.0.5:
   resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
   dependencies:
     makeerror "1.0.x"
-
-warning@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
-  dependencies:
-    loose-envify "^1.0.0"
 
 watch@~0.10.0:
   version "0.10.0"
