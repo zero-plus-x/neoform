@@ -19,6 +19,13 @@ const fieldValidation = (Target) => {
       }
     }
 
+    componentWillReceiveProps(nextProps) {
+      // TODO: think about how to test this as a part of demo test suite
+      if (nextProps.validator && nextProps.validator !== this.props.validator) {
+        this.context.neoform.registerValidator(this.props.name, nextProps.validator);
+      }
+    }
+
     componentWillUnmount() {
       if (this.props.validator) {
         this.context.neoform.unregisterValidator(this.props.name);
