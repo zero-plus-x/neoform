@@ -24,7 +24,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "neoform": "^0.2.0"
+    "neoform": "^0.3.0"
   },
   "scripts": {
     "prepublishOnly": "cd ../..; yarn start build neoform-immutable-helpers"
