@@ -1,7 +1,7 @@
 {
   "name": "neoform-immutable-helpers",
   "library": "NeoFormImmutableHelpers",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "NeoForm helpers to work with Immutable.js state",
   "keywords": [
     "neoform",
