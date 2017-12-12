@@ -308,7 +308,7 @@ Where:
 "Validator" is just a Promise. Rejected one is for `validationStatus: false` prop and resolved is for `validationStatus: true`. An optional argument passed to a rejected or fulfilled Promise becomes `validationMessage` prop.
 
 ```js
-export const requiredValidator = (value) => {
+export const requiredValidator = (value, type) => {
   if (value === '') {
     return Promise.reject('💩');
   }
@@ -316,6 +316,11 @@ export const requiredValidator = (value) => {
   return Promise.resolve('🎉');
 };
 ```
+
+Where:
+
+* `value` – field value for validation
+* `type` – event type. Can be `submit`, `change`, `blur` or anythin you will provide to field `validate` method
 
 It's up to you how to manage multiple validators — with a simple `Promise.all()` or some complex asynchronous sequences — as long as validator returns a single Promise.
 
