@@ -32,9 +32,10 @@ const fieldValidation = (Target) => {
       }
     }
 
-    validate() {
+    validate(event) {
       if (this.props.validator) {
-        this.context.neoform.validate(this.props.name);
+        const type = event ? event.type : undefined;
+        this.context.neoform.validate(this.props.name, type);
       }
     }
 
