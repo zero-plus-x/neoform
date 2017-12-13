@@ -320,7 +320,7 @@ export const requiredValidator = (value, type) => {
 Where:
 
 * `value` – field value for validation
-* `type` – event type. Can be `submit`, `change`, `blur` or anythin you will provide to field `validate` method
+* `type` – event type. Can be `submit`, `change`, `blur` or anything you will provide to field `validate` method
 
 It's up to you how to manage multiple validators — with a simple `Promise.all()` or some complex asynchronous sequences — as long as validator returns a single Promise.
 
