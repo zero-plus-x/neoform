@@ -52,11 +52,11 @@ const formValidation = (Target) => {
       return this.state.fields[name] || {};
     }
 
-    validateField(name) {
+    validateField(name, type) {
       const validator = this.validators[name];
       const value = this.context.neoform.getValue(name);
 
-      validator(value)
+      validator(value, type)
         .then((message) => {
           this.setState((prevState) => ({
             fields: {
@@ -90,7 +90,7 @@ const formValidation = (Target) => {
             const validator = this.validators[name];
             const value = this.context.neoform.getValue(name);
 
-            return validator(value)
+            return validator(value, 'submit')
               .then((message) => {
                 fields[name] = {
                   status: true,
