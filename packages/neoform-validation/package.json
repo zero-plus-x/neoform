@@ -1,7 +1,7 @@
 {
   "name": "neoform-validation",
   "library": "NeoFormValidation",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "Higher-Order Components for form validation in React",
   "keywords": [
     "neoform",
