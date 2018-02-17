@@ -1,14 +1,12 @@
 /* eslint-disable promise/always-return */
-import { Component } from 'react';
+import { createElement, Component } from 'react';
 import PropTypes from 'prop-types';
-import { createEagerFactory, setDisplayName, wrapDisplayName } from 'recompose';
+import { setDisplayName, wrapDisplayName } from 'recompose';
 import omit from 'just-omit';
 
 const isValidForm = (fields) => Object.keys(fields).every((name) => fields[name].status === true);
 
 const formValidation = (Target) => {
-  const factory = createEagerFactory(Target);
-
   class FormValidation extends Component {
     constructor(props, context) {
       super(props, context);
@@ -117,7 +115,7 @@ const formValidation = (Target) => {
     }
 
     render() {
-      return factory({
+      return createElement(Target, {
         ...this.props,
         validate: this.validateForm,
         validationStatus: isValidForm(this.state.fields)

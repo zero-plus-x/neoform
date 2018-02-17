@@ -1,11 +1,9 @@
-import { Component } from 'react';
+import { createElement, Component } from 'react';
 import PropTypes from 'prop-types';
-import { createEagerFactory, setDisplayName, wrapDisplayName } from 'recompose';
+import { setDisplayName, wrapDisplayName } from 'recompose';
 import omit from 'just-omit';
 
 const fieldValidation = (Target) => {
-  const factory = createEagerFactory(Target);
-
   class FieldValidation extends Component {
     constructor(props, context) {
       super(props, context);
@@ -43,7 +41,7 @@ const fieldValidation = (Target) => {
     render() {
       const validation = this.context.neoform.getValidation(this.props.name);
 
-      return factory({
+      return createElement(Target, {
         ...omit(this.props, 'validator'),
         validate: this.validate,
         validationStatus: validation.status,
