@@ -1,10 +1,8 @@
-import { Component } from 'react';
+import { createElement, Component } from 'react';
 import PropTypes from 'prop-types';
-import { createEagerFactory, setDisplayName, wrapDisplayName } from 'recompose';
+import { setDisplayName, wrapDisplayName } from 'recompose';
 
 const field = (Target) => {
-  const factory = createEagerFactory(Target);
-
   class Field extends Component {
     constructor(props, context) {
       super(props, context);
@@ -17,7 +15,7 @@ const field = (Target) => {
     }
 
     render() {
-      return factory({
+      return createElement(Target, {
         ...this.props,
         value: this.context.neoform.getValue(this.props.name),
         onChange: this.onChange

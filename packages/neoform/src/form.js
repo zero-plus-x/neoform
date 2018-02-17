@@ -1,10 +1,8 @@
-import { Component } from 'react';
+import { createElement, Component } from 'react';
 import PropTypes from 'prop-types';
-import { createEagerFactory, setDisplayName, wrapDisplayName } from 'recompose';
+import { setDisplayName, wrapDisplayName } from 'recompose';
 
 const form = (Target) => {
-  const factory = createEagerFactory(Target);
-
   class Form extends Component {
     getChildContext() {
       const { data, getValue, onChange } = this.props;
@@ -19,7 +17,7 @@ const form = (Target) => {
     }
 
     render() {
-      return factory(this.props);
+      return createElement(Target, this.props);
     }
   }
 
