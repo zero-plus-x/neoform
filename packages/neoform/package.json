@@ -23,7 +23,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": "^15.4.2",
+    "react": "^15.4.2 || ^16.0.0",
     "recompose": "^0.26.0",
     "prop-types": "^15.5.10"
   },
